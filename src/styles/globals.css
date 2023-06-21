@@ -13,10 +13,12 @@ html {
 
 body {
 	min-height: 100vh;
+	max-height: 100vh;
+	width: 100%;
 	position: relative;
-	font-family: 'Montserrat', sans-serif;
 	font-family: 'Lato', sans-serif;
-	background-color: var(--primary);
+	background: rgb(22, 145, 238);
+	background: radial-gradient(circle, rgba(22, 145, 238, 1) 24%, rgba(0, 212, 255, 1) 100%);
 	color: var(--text);
 }
 
@@ -31,12 +33,34 @@ label {
 	font: inherit;
 }
 
+a {
+	text-decoration: none;
+}
+
 :root {
-	--primary: rgb(241, 241, 236);
-	--secondary: rgb(0, 0, 0);
-	--special: rgb(51, 218, 9);
-	--menu: rgb(16, 83, 0);
-	--greylish: rgb(129, 126, 129);
-	--alert: rgb(245, 21, 21);
-	--shopping: rgb(239, 210, 108);
+	--primary: #1b263b;
+	--secondary: #274261;
+	--lighter-main: #415a77;
+	--text: #e0e1dd;
+	--hightlight: #04b38e;
+	--red: #f51515;
+	--warning: #dcec23;
+	--pure-white: #ffffff;
+	--pure-black: #000000;
+	--size-s: 0.25rem;
+	--size-xs: 0.5rem;
+	--size-xxs: 0.75rem;
+	--size-xxxs: 1rem;
+	--size-m: 1.25rem;
+	--size-xm: 1.5rem;
+	--size-xxm: 1.75rem;
+	--size-xxxm: 2rem;
+	--size-l: 2.25rem;
+	--size-xl: 2.5rem;
+	--size-xxl: 2.75rem;
+	--size-xxxl: 3rem;
+	--size-vl: 3.25rem;
+	--size-xvl: 3.5rem;
+	--size-xxvl: 3.75rem;
+	--size-xxxvl: 4rem;
 }
