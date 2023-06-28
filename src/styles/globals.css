@@ -15,10 +15,8 @@ body {
 	min-height: 100vh;
 	max-height: 100vh;
 	width: 100%;
-	position: relative;
 	font-family: 'Lato', sans-serif;
-	background: rgb(22, 145, 238);
-	background: radial-gradient(circle, rgba(22, 145, 238, 1) 24%, rgba(0, 212, 255, 1) 100%);
+	background-color: var(--primary);
 	color: var(--text);
 }
 
@@ -35,6 +33,14 @@ label {
 
 a {
 	text-decoration: none;
+	color: var(--text);
+}
+
+#__next {
+	position: relative;
+	min-height: 100vh;
+	max-height: 100vh;
+	width: 100%;
 }
 
 :root {

@@ -1,5 +1,7 @@
+import LoginView from 'src/components/login/LoginView'
+
 const HomePage = () => {
-	return <div>HomePage</div>
+	return <LoginView />
 }
 
 export default HomePage
