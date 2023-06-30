@@ -28,7 +28,7 @@ login: teacher1, password: teacher12,
 - Firebase,
 - MongoDB,
 - Local Storage,
-- git / github,
+- Git / Github,
 - testing,
 
 ## 👩‍💻 TODO
