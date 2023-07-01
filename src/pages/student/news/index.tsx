@@ -1,5 +1,7 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+
 const StudentNewsPage = () => {
-	return <div>StudentNewsPage</div>
+	return <SidebarLayout>aaa</SidebarLayout>
 }
 
 export default StudentNewsPage

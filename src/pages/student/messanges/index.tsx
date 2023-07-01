@@ -1,5 +1,7 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+
 const StudentMessangesPage = () => {
-	return <div>StudentMessangesPage</div>
+	return <SidebarLayout>aaa</SidebarLayout>
 }
 
 export default StudentMessangesPage

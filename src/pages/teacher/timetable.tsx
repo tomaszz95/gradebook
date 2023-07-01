@@ -1,5 +1,7 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+
 const TeacherTimetablePage = () => {
-	return <div>TeacherTimetablePage</div>
+	return <SidebarLayout>aaa</SidebarLayout>
 }
 
 export default TeacherTimetablePage

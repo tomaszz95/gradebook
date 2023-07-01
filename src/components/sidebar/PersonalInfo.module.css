@@ -1,0 +1,38 @@
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.type {
+	margin-top: 0.8em;
+	font-size: var(--size-xvl);
+	color: var(--hightlight);
+}
+
+.info {
+	margin-top: 0.5em;
+	font-size: var(--size-xxxl);
+	color: var(--red);
+}
+
+.img {
+	margin-top: 2.5em;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.name {
+	margin-top: 0.6em;
+	font-size: var(--size-xxxl);
+	color: var(--pure-white);
+}
+
+.line {
+	margin-top: 0.8em;
+	width: 90%;
+	height: 2px;
+	background-color: var(--text);
+}

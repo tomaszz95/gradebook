@@ -1,0 +1,45 @@
+.sidebar {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 15%;
+	background-color: var(--secondary);
+}
+
+.title {
+	text-align: center;
+	margin-top: 1.5em;
+	font-weight: 400;
+	font-size: var(--size-xxxvl);
+	font-size: var(--size-xxxvl);
+}
+
+.luckybox {
+	display: flex;
+	align-items: center;
+	margin-top: 4em;
+	font-size: var(--size-xl);
+}
+
+.luckynumber {
+	margin-left: 0.3em;
+	color: var(--red);
+	font-size: var(--size-xxxl);
+	font-weight: bold;
+}
+
+.btn {
+	margin-top: 3em;
+	width: 75%;
+	padding: 0.5em 2em;
+	font-size: var(--size-xl);
+	border-radius: 8px;
+	background-color: var(--hightlight);
+	color: var(--pure-white);
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: #32a07b;
+}

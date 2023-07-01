@@ -15,6 +15,7 @@ const StudentLogin = () => {
 			<h1 className={styles.title}>Gradebook</h1>
 			<LoginForm type='student' onFormData={formDataHandler} />
 			<button
+				aria-label='Click to go back to homepage'
 				className={styles.button}
 				onClick={() => {
 					Router.push('/')

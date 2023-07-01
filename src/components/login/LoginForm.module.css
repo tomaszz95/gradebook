@@ -6,7 +6,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin: 6em 0 4em;
-	height: 700px;
+	height: 730px;
 	background-color: var(--secondary);
 	border-radius: 12px;
 	font-weight: 400;
@@ -51,7 +51,7 @@
 	width: 80%;
 	padding: 0.8em;
 	border-radius: 8px;
-	margin-top: 3.5em;
+	margin-top: 2em;
 	font-size: var(--size-xxxm);
 	background-color: var(--hightlight);
 	color: var(--text);
@@ -61,4 +61,11 @@
 
 .button:hover {
 	background-color: #32a07b;
+}
+
+.error {
+	color: var(--red);
+	font-size: var(--size-xxm);
+	font-weight: bold;
+	margin-top: 0.6em;
 }

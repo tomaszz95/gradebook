@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Router from 'next/router'
 
 import { LoginFormComponentType } from '../helpers/types'
@@ -8,12 +8,33 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 	const usernameRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
 	const identifierRef = useRef<HTMLInputElement>(null)
+	const [usernameError, setUsernameError] = useState('')
+	const [passwordError, setPasswordError] = useState('')
+	const [identifierError, setIdentifierError] = useState('')
 
 	const fixedTitle = type.toUpperCase()
 	const fixedIdentifier = type.charAt(0).toUpperCase() + type.slice(1)
 
 	const loginHandler = (e: React.SyntheticEvent) => {
 		e.preventDefault()
+
+		if (usernameRef.current && usernameRef.current.value.trim() === '') {
+			setUsernameError('Username cannot be empty!')
+		} else {
+			setUsernameError('')
+		}
+
+		if (passwordRef.current && passwordRef.current.value.trim() === '') {
+			setPasswordError('Password cannot be empty!')
+		} else {
+			setPasswordError('')
+		}
+
+		if (identifierRef.current && identifierRef.current.value.trim() === '') {
+			setIdentifierError('Identifier cannot be empty!')
+		} else {
+			setIdentifierError('')
+		}
 
 		if (
 			usernameRef.current &&
@@ -42,6 +63,7 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 					Username
 				</label>
 				<input placeholder='Enter username...' className={styles.input} type='text' id='username' ref={usernameRef} />
+				<p className={styles.error}>{usernameError}</p>
 			</div>
 			<div className={styles.box}>
 				<label className={styles.label} htmlFor='password'>
@@ -54,6 +76,7 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 					id='password'
 					ref={passwordRef}
 				/>
+				<p className={styles.error}>{passwordError}</p>
 			</div>
 			<div className={styles.box}>
 				<label className={styles.label} htmlFor='identifier'>
@@ -66,8 +89,9 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 					id='identifier'
 					ref={identifierRef}
 				/>
+				<p className={styles.error}>{identifierError}</p>
 			</div>
-			<button type='submit' aria-label='Login button' className={styles.button}>
+			<button type='submit' aria-label='Click to log in' className={styles.button}>
 				Click to log in!
 			</button>
 		</form>

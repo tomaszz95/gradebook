@@ -1,5 +1,7 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+
 const StudentTimetablePage = () => {
-	return <div>StudentTimetablePage</div>
+	return <SidebarLayout>aaa</SidebarLayout>
 }
 
 export default StudentTimetablePage
