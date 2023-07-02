@@ -26,6 +26,12 @@ button {
 	cursor: pointer;
 }
 
+ul,
+li {
+	text-decoration: none;
+	list-style: none;
+}
+
 input,
 label {
 	font: inherit;

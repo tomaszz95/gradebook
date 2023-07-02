@@ -1,0 +1,40 @@
+.container {
+	padding: 2em 3em;
+}
+
+.title {
+	margin-top: 1em;
+	font-size: var(--size-xvl);
+	text-align: center;
+	color: var(--hightlight);
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    padding: 4em;
+    margin-top: 2em;
+}
+
+.img {
+    width: 35%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 4em;
+    width: 65%;
+}
+
+.description {
+    font-size: var(--size-xxxm);
+}
+
+.moreInfo {
+    margin-top: 3em;
+    color: var(--pure-white);
+    display: flex;
+    font-size: var(--size-l);
+    justify-content: space-between;
+}

@@ -15,3 +15,12 @@ export type LoginFormComponentType = {
 	type: string
 	onFormData: (formData: FormDataType) => void
 }
+
+//NEWS LIST DATA
+export type NewsListDataType = {
+	title: string
+	date: string
+	id: string
+	text: string
+	author: string
+}
