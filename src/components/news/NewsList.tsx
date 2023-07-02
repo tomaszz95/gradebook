@@ -34,22 +34,20 @@ const dummyNews = [
 
 const NewsList = () => {
 	return (
-		<div className={styles.card}>
-			<div className={styles.container}>
-				<h2 className={styles.header}>Latest News</h2>
-				<ul className={styles.list}>
-					{dummyNews.map(news => (
-						<SingleNews
-							title={news.title}
-							date={news.date}
-							id={news.id}
-							text={news.text}
-							key={news.id}
-							author={news.author}
-						/>
-					))}
-				</ul>
-			</div>
+		<div className={styles.container}>
+			<h2 className={styles.header}>Latest News</h2>
+			<ul className={styles.list}>
+				{dummyNews.map(news => (
+					<SingleNews
+						title={news.title}
+						date={news.date}
+						id={news.id}
+						text={news.text}
+						key={news.id}
+						author={news.author}
+					/>
+				))}
+			</ul>
 		</div>
 	)
 }

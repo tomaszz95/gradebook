@@ -1,40 +1,99 @@
 .container {
-	padding: 2em 3em;
+	padding: 2em 3em 4em;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 .title {
 	margin-top: 1em;
-	font-size: var(--size-xvl);
+	font-size: var(--size-xxxl);
 	text-align: center;
 	color: var(--hightlight);
 }
 
 .box {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
-    padding: 4em;
-    margin-top: 2em;
+	padding: 4em;
+	margin-top: 2em;
 }
 
 .img {
-    width: 35%;
-    object-fit: cover;
+	width: 100%;
+	object-fit: cover;
+	max-width: 800px;
 }
 
 .content {
-    padding: 4em;
-    width: 65%;
+	margin-top: 5em;
 }
 
 .description {
-    font-size: var(--size-xxxm);
+	font-size: var(--size-xxm);
 }
 
 .moreInfo {
-    margin-top: 3em;
-    color: var(--pure-white);
-    display: flex;
-    font-size: var(--size-l);
-    justify-content: space-between;
+	margin-top: 1.5em;
+	color: var(--pure-white);
+	display: flex;
+	font-size: var(--size-l);
+	justify-content: space-between;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-start;
+	margin-left: 2em;
+	width: 50%;
+	padding: 0.3em;
+	border-radius: 8px;
+	font-size: var(--size-xxxm);
+	background-color: var(--hightlight);
+	color: var(--text);
+	border: none;
+	transition: background-color 0.3s;
+}
+
+.button:hover {
+	background-color: #32a07b;
+}
+
+.button span {
+	font-weight: bold;
+	margin-right: 4em;
+	text-transform: uppercase;
+}
+
+.button img {
+	margin-right: 2em;
+}
+
+@media (min-width: 1600px) {
+	.box {
+		flex-direction: row;
+	}
+
+	.img {
+		width: 40%;
+		margin-right: 6em;
+	}
+
+	.moreInfo {
+		margin-top: 2.5em;
+	}
+
+	.button {
+		margin-left: 2em;
+		margin-top: 1em;
+		width: 40%;
+	}
+}
+
+@media (min-width: 2000px) {
+	.description {
+		font-size: var(--size-xxxm);
+	}
 }

@@ -6,7 +6,6 @@ import styles from './Navigation.module.css'
 const Navigation = () => {
 	const router = useRouter()
 
-	console.log(router.pathname)
 	return (
 		<nav className={styles.navigation}>
 			<h3 className={styles.menu}>MENU</h3>
