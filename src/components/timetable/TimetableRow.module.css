@@ -1,0 +1,18 @@
+.row td,
+.row th {
+	width: 200px;
+	height: 60px;
+	font-size: var(--size-xm);
+}
+
+.row td {
+	font-size: var(--size-m);
+}
+
+@media (min-width: 1600px) {
+	.row td,
+	.row th {
+		height: 80px;
+		width: 300px;
+	}
+}

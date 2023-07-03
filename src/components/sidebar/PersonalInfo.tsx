@@ -2,8 +2,8 @@ import styles from './PersonalInfo.module.css'
 import Image from 'next/image'
 
 const dummyarr = {
-	type: 'Teacher',
-	info: 'Math',
+	type: 'Student',
+	info: '3C',
 	name: 'Jacek Kowalski',
 	photo: '/photos/noname.jpg',
 }
