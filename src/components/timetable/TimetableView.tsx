@@ -1,11 +1,6 @@
 import styles from './TimetableView.module.css'
 import TimetableTable from './TimeTableTable'
 
-const dummyData = {
-	name: 'Janusz Tracz',
-	class: '3A',
-}
-
 const timetable1A: any = {
 	1: {
 		Monday: {
@@ -188,9 +183,7 @@ const timetable1A: any = {
 const TimeTable = () => {
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.header}>
-				Timetable - <span>{dummyData.name}</span> <span>{dummyData.class}</span>
-			</h2>
+			<h2 className={styles.header}>Check your lessons!</h2>
 			<TimetableTable lessonsTimetable={timetable1A} />
 		</div>
 	)

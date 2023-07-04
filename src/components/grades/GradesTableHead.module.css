@@ -3,16 +3,7 @@
 }
 
 .head th {
-	width: 200px;
-	height: 60px;
 	font-size: var(--size-xm);
 	border: 1px solid var(--text);
 	padding: 1em;
-}
-
-@media (min-width: 1600px) {
-	.head th {
-		height: 80px;
-		width: 300px;
-	}
 }

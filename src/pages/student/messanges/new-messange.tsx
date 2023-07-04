@@ -1,5 +1,5 @@
 const StudentNewMessangePage = () => {
-	return <div>StudentNewMessangePage</div>
+	return <div>New message</div>
 }
 
 export default StudentNewMessangePage

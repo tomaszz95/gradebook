@@ -3,16 +3,39 @@
 	width: 200px;
 	height: 60px;
 	font-size: var(--size-xm);
+	border: 1px solid var(--text);
+	padding: 1em;
 }
 
 .row td {
 	font-size: var(--size-m);
 }
 
+.subject {
+	color: var(--red);
+	font-weight: bold;
+}
+
+.class {
+	margin-top: 0.3em;
+}
+
 @media (min-width: 1600px) {
 	.row td,
 	.row th {
+		font-size: var(--size-xxxm);
 		height: 80px;
 		width: 300px;
+	}
+
+	.subject {
+		font-size: var(--size-xxm);
+		color: var(--red);
+		font-weight: bold;
+	}
+
+	.class {
+		font-size: var(--size-xxm);
+		margin-top: 0.3em;
 	}
 }

@@ -1,7 +1,12 @@
+import GradesView from 'src/components/grades/GradesView'
 import SidebarLayout from 'src/components/layouts/SidebarLayout'
 
 const StudentGradesPage = () => {
-	return <SidebarLayout>aaa</SidebarLayout>
+	return (
+		<SidebarLayout>
+			<GradesView />
+		</SidebarLayout>
+	)
 }
 
 export default StudentGradesPage
