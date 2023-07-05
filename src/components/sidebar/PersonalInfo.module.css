@@ -14,7 +14,7 @@
 .info {
 	margin-top: 0.5em;
 	font-size: var(--size-xxxl);
-	color: var(--red);
+	color: var(--complementary);
 }
 
 .img {

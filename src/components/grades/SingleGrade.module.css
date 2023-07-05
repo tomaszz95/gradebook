@@ -1,0 +1,75 @@
+.bad,
+.better,
+.medium,
+.hight {
+	position: relative;
+	display: inline-block;
+	line-height: 28px;
+	width: 28px;
+	height: 28px;
+	color: #000000;
+	font-weight: bold;
+	font-size: var(--size-xm);
+	border-radius: 8px;
+	margin: 0.2em;
+}
+
+.bad {
+	background-color: var(--red);
+}
+
+.better {
+	background-color: var(--orange);
+}
+
+.medium {
+	background-color: var(--warning);
+}
+
+.hight {
+	background-color: var(--hightlight);
+}
+
+.modal {
+	position: absolute;
+	bottom: 120%;
+	min-width: 200px;
+	display: flex;
+	flex-direction: column;
+	padding: 1em 2em;
+	background-color: var(--text);
+	z-index: 999;
+	border-radius: 12px;
+	border: none;
+}
+
+.modal span {
+	font-weight: 400;
+	font-size: var(--size-xm);
+	color: #000000;
+}
+
+.modal b {
+	margin-left: 0.2em;
+}
+
+@media (min-width: 1600px) {
+	.bad,
+	.better,
+	.medium,
+	.hight {
+		line-height: 35px;
+		width: 35px;
+		height: 35px;
+		font-size: var(--size-xxm);
+		margin: 0.3em;
+	}
+
+	.modal {
+		min-width: 250px;
+	}
+
+	.modal span {
+		font-size: var(--size-xxm);
+	}
+}

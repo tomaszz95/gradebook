@@ -3,7 +3,21 @@
 }
 
 .head th {
-	font-size: var(--size-xm);
+	font-size: var(--size-xxm);
 	border: 1px solid var(--text);
 	padding: 1em;
+}
+
+.head .subject {
+	font-size: var(--size-xxxm);
+}
+
+@media (min-width: 1600px) {
+	.head th {
+		font-size: var(--size-l);
+	}
+
+	.head .subject {
+		font-size: var(--size-xl);
+	}
 }

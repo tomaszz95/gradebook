@@ -11,8 +11,9 @@
 	font-size: var(--size-m);
 }
 
-.subject {
-	color: var(--red);
+.row .subject {
+	color: var(--complementary);
+	font-size: var(--size-xm);
 	font-weight: bold;
 }
 
@@ -23,15 +24,13 @@
 @media (min-width: 1600px) {
 	.row td,
 	.row th {
-		font-size: var(--size-xxxm);
+		font-size: var(--size-l);
 		height: 80px;
 		width: 300px;
 	}
 
-	.subject {
-		font-size: var(--size-xxm);
-		color: var(--red);
-		font-weight: bold;
+	.row .subject {
+		font-size: var(--size-xxxm);
 	}
 
 	.class {

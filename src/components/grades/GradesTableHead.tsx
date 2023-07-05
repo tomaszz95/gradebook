@@ -5,7 +5,9 @@ const GradesTableHead: React.FC<{ semester: string }> = ({ semester }) => {
 		<thead className={styles.head}>
 			<tr>
 				<th rowSpan={2}>Subject</th>
-				<th colSpan={4}>{semester}</th>
+				<th colSpan={4} className={styles.subject}>
+					{semester}
+				</th>
 			</tr>
 			<tr>
 				<th>Pluses</th>

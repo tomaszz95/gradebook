@@ -27,7 +27,7 @@
 
 .luckynumber {
 	margin-left: 0.3em;
-	color: var(--red);
+	color: var(--complementary);
 	font-size: var(--size-xxxl);
 	font-weight: bold;
 }
@@ -44,5 +44,5 @@
 }
 
 .btn:hover {
-	background-color: #32a07b;
+	background-color: #17a129;
 }

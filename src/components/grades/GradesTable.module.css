@@ -4,3 +4,7 @@
 	text-align: center;
 	border-collapse: collapse;
 }
+
+.table:nth-child(3) {
+	margin-top: 8em;
+}
