@@ -8,7 +8,7 @@
 
 .row .subject {
 	color: var(--complementary);
-	font-size: var(--size-xm);
+	font-size: var(--size-xxm);
 	font-weight: bold;
 }
 
@@ -47,14 +47,14 @@
 	}
 
 	.row .subject {
-		font-size: var(--size-xxxm);
+		font-size: var(--size-l);
 	}
 
 	.bad,
 	.better,
 	.medium,
 	.hight {
-		font-size: var(--size-xxm);
+		font-size: var(--size-xxxm);
 		padding: 0.8em 1em;
 	}
 }

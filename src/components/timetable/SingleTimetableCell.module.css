@@ -1,0 +1,40 @@
+.cell {
+	width: 200px;
+	height: 60px;
+	font-size: var(--size-xm);
+	border: 1px solid var(--text);
+	padding: 0.6em;
+}
+
+.cell {
+	font-size: var(--size-m);
+	background-color: var(--lighter-main);
+}
+
+.cell .subject {
+	color: var(--complementary);
+	font-size: var(--size-xm);
+	font-weight: bold;
+}
+
+.class {
+	margin-top: 0.3em;
+}
+
+@media (min-width: 1600px) {
+	.cell {
+		font-size: var(--size-xxxm);
+		height: 80px;
+		width: 300px;
+		padding: 1em;
+	}
+
+	.cell .subject {
+		font-size: var(--size-l);
+	}
+
+	.class {
+		font-size: var(--size-xxxm);
+		margin-top: 0.3em;
+	}
+}

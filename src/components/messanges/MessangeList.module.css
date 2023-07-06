@@ -1,0 +1,18 @@
+.container {
+	padding: 1em;
+}
+
+.header {
+	margin: 1em;
+	font-size: var(--size-xvl);
+	text-align: center;
+	color: var(--hightlight);
+}
+
+.list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding-bottom: 5em;
+}

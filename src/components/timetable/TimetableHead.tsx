@@ -4,7 +4,7 @@ const TimetableHeading = () => {
 	return (
 		<thead className={styles.head}>
 			<tr>
-				<th>Number</th>
+				<th>Num.</th>
 				<th>Hours</th>
 				<th>Monday</th>
 				<th>Tuesday</th>
