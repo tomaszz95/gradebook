@@ -55,7 +55,7 @@ const dummyArr = [
 	},
 	{
 		caller: 'Magdalena Wiśniewska',
-		id: 'mes3',
+		id: 'mes3', 
 		content: [
 			{
 				author: 'Magdalena Wiśniewska',
@@ -88,7 +88,7 @@ const dummyArr = [
 				author: 'Jacek Kowalski',
 				date: '10-04-2023',
 				content:
-					'Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament',
+					'Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament, Lorem ipsum dolor sit ament sd sd sd sd sd',
 			},
 		],
 	},
