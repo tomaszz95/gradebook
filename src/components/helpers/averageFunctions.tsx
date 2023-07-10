@@ -80,3 +80,19 @@ export const countEndGrade = (average: string) => {
 
 	return endMark
 }
+
+export const countWholeClassAverage = (classData: any, stringSemester: string, subjectArr: any) => {
+	let averageObj = {}
+
+	for (const data in classData) {
+		subjectArr.map((subject: string) => {
+			return (averageObj = {
+				...averageObj,
+				[subject]: {
+					average: countAverage(classData[data][stringSemester][subject].Grades),
+				},
+			})
+		})
+	}
+	return averageObj
+}
