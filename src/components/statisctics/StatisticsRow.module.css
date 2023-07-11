@@ -1,0 +1,45 @@
+.row td {
+	font-size: var(--size-xm);
+	border: 1px solid var(--text);
+    padding: 1em 1.5em;
+}
+
+.bad,
+.better,
+.medium,
+.hight {
+	color: #000000;
+	font-weight: bold;
+	font-size: var(--size-xm);
+}
+
+.bad {
+	background-color: var(--red);
+}
+
+.better {
+	background-color: var(--orange);
+}
+
+.medium {
+	background-color: var(--warning);
+}
+
+.hight {
+	background-color: var(--hightlight);
+}
+
+@media (min-width: 1600px) {
+	.row td {
+		font-size: var(--size-xxm);
+		padding: 1.5em 2em;
+	}
+
+	.bad,
+	.better,
+	.medium,
+	.hight {
+		font-size: var(--size-xxm);
+		padding: 0.8em 1em;
+	}
+}

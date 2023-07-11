@@ -14,7 +14,7 @@ const findAllSubjects = (subjectsObj: any) => {
 	return subjectsArr
 }
 
-const StatisticsContent: React.FC<any> = ({ classData }) => {
+const StatisticsContent: React.FC<any> = ({ classData, schoolClassName }) => {
 	const [isSemesterOne, setIsSemesterOne] = useState(true)
 
 	const stringSemester = isSemesterOne ? 'Semester 1' : 'Semester 2'
@@ -24,15 +24,31 @@ const StatisticsContent: React.FC<any> = ({ classData }) => {
 
 	const wholeClassAverage = countWholeClassAverage(classData, stringSemester, subjectsArr)
 
+	const changeSemesterHandler = (semester: string) => {
+		semester === 'Semester 1' ? setIsSemesterOne(true) : setIsSemesterOne(false)
+	}
+	console.log(classData)
 	return (
 		<div className={styles.container}>
 			<StatisticsTable
 				personInfo={singleSemesterData}
 				subjectsArr={subjectsArr}
 				wholeClassAverage={wholeClassAverage}
+				onChangeSemesterHandler={changeSemesterHandler}
+				semesterOne={isSemesterOne}
 			/>
-			<StatisticsBox />
-			<StatisticsBox />
+			<StatisticsBox
+				personInfo={singleSemesterData}
+				subjectsArr={subjectsArr}
+				wholeClassAverage={wholeClassAverage}
+				personType={dummyName}
+			/>
+			<StatisticsBox
+				personInfo={singleSemesterData}
+				subjectsArr={subjectsArr}
+				wholeClassAverage={wholeClassAverage}
+				personType={schoolClassName}
+			/>
 		</div>
 	)
 }
