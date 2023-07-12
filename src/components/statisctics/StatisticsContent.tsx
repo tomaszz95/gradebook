@@ -27,7 +27,7 @@ const StatisticsContent: React.FC<any> = ({ classData, schoolClassName }) => {
 	const changeSemesterHandler = (semester: string) => {
 		semester === 'Semester 1' ? setIsSemesterOne(true) : setIsSemesterOne(false)
 	}
-	console.log(classData)
+
 	return (
 		<div className={styles.container}>
 			<StatisticsTable
@@ -37,18 +37,20 @@ const StatisticsContent: React.FC<any> = ({ classData, schoolClassName }) => {
 				onChangeSemesterHandler={changeSemesterHandler}
 				semesterOne={isSemesterOne}
 			/>
-			<StatisticsBox
-				personInfo={singleSemesterData}
-				subjectsArr={subjectsArr}
-				wholeClassAverage={wholeClassAverage}
-				personType={dummyName}
-			/>
-			<StatisticsBox
-				personInfo={singleSemesterData}
-				subjectsArr={subjectsArr}
-				wholeClassAverage={wholeClassAverage}
-				personType={schoolClassName}
-			/>
+			<div className={styles.boxes}>
+				<StatisticsBox
+					personInfo={singleSemesterData}
+					subjectsArr={subjectsArr}
+					wholeClassAverage={wholeClassAverage}
+					personType={dummyName}
+				/>
+				<StatisticsBox
+					personInfo={singleSemesterData}
+					subjectsArr={subjectsArr}
+					wholeClassAverage={wholeClassAverage}
+					personType={`${schoolClassName} class`}
+				/>
+			</div>
 		</div>
 	)
 }

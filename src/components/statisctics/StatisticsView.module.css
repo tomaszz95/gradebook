@@ -12,8 +12,21 @@
 	color: var(--hightlight);
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1200px) {
 	.container {
 		padding: 1em 10em 10em 10em;
+		min-width: 800px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.container {
+		min-width: 1000px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.container {
+		min-width: 1200px;
 	}
 }

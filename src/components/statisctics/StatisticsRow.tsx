@@ -1,7 +1,7 @@
 import styles from './StatisticsRow.module.css'
 import { countAverage } from '../helpers/averageFunctions'
 
-export const addBackgroundColor = (grade: string) => {
+const addBackgroundColor = (grade: string) => {
 	let colorClass
 
 	if (+grade < 1.99) {
@@ -22,12 +22,16 @@ const StatisticsRow: React.FC<any> = ({ subject, subjectGrades, classAverage }) 
 	const averageGrade = countAverage(subjectGrades)
 	const gradeColor = addBackgroundColor(subjectGrades)
 	const averageColor = addBackgroundColor(classAverage)
-	
+
 	return (
 		<tr className={styles.row}>
 			<td>{subject}</td>
-			<td className={gradeColor}>{averageGrade !== 'NaN' ? averageGrade : 'No grades yet'}</td>
-			<td className={averageColor}>{classAverage !== 'NaN' ? classAverage : 'No grades yet'}</td>
+			<td>
+				<span className={gradeColor}>{averageGrade !== 'NaN' ? averageGrade : 'No grades yet'}</span>
+			</td>
+			<td>
+				<span className={averageColor}>{classAverage !== 'NaN' ? classAverage : 'No grades yet'}</span>
+			</td>
 		</tr>
 	)
 }

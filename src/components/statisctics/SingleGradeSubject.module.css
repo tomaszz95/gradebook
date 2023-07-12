@@ -1,14 +1,17 @@
-.row td {
-	font-size: var(--size-xm);
-	border: 1px solid var(--text);
-	padding: 1em;
+.box {
+	display: flex;
+	align-items: center;
+	text-align: left;
 }
 
-.row td span {
+.box span {
+	margin: 0.3em 0;
 	display: inline-block;
-	padding: 0.7em;
-	border-radius: 8px;
-	border: none;
+	font-size: var(--size-xm);
+}
+
+.subject {
+	width: 150px;
 }
 
 .bad,
@@ -18,6 +21,8 @@
 	color: #000000;
 	font-weight: bold;
 	font-size: var(--size-xm);
+	padding: 0.5em;
+	border-radius: 8px;
 }
 
 .bad {
@@ -37,15 +42,19 @@
 }
 
 @media (min-width: 1600px) {
-	.row td {
-		padding: 0.9em;
+	.box span {
+		margin: 0.4em 0;
 		font-size: var(--size-xxm);
+	}
+
+	.subject {
+		width: 200px;
 	}
 
 	.bad,
 	.better,
 	.medium,
 	.hight {
-		font-size: var(--size-xxm);
+		padding: 0.7em;
 	}
 }
