@@ -1,6 +1,6 @@
 import styles from './NewsDetail.module.css'
 import Image from 'next/image'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 
 const singleNews = {
 	title: 'Student Initiative Raises Funds for Local Charity',
@@ -13,7 +13,9 @@ const singleNews = {
 }
 
 const NewsDetail = () => {
-	const backPath = Router.pathname.includes('student') ? '/student/news' : 'teacher/news'
+	const router = useRouter()
+
+	const backPath = router.pathname.includes('student') ? '/student/news' : '/teacher/news'
 
 	return (
 		<div className={styles.container}>
@@ -38,7 +40,7 @@ const NewsDetail = () => {
 				aria-label='Click to go back to news list'
 				className={styles.button}
 				onClick={() => {
-					Router.push(backPath)
+					router.push(backPath)
 				}}>
 				<Image src='/icons/arrowLeft.png' alt='' width='65' height='40' />
 				<span>Go back</span>

@@ -1,5 +1,6 @@
 import styles from './NewsList.module.css'
 import SingleNews from './SingleNews'
+import { useRouter } from 'next/router'
 
 const dummyNews = [
 	{
@@ -33,6 +34,9 @@ const dummyNews = [
 ]
 
 const NewsList = () => {
+	const router = useRouter()
+	const whoIsLogged = router.pathname.includes('student') ? 'student' : 'teacher'
+
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.header}>Latest News</h2>
@@ -48,6 +52,11 @@ const NewsList = () => {
 					/>
 				))}
 			</ul>
+			{whoIsLogged === 'teacher' ? (
+				<button onClick={() => router.push(`/${whoIsLogged}/news/create-news`)} className={styles.newButton}>
+					Add new news
+				</button>
+			) : null}
 		</div>
 	)
 }

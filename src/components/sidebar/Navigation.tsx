@@ -3,13 +3,16 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import styles from './Navigation.module.css'
 
-const Navigation = () => {
+const Navigation: React.FC<{ loggedUserType: string }> = ({ loggedUserType }) => {
 	const router = useRouter()
+	const urlType = loggedUserType.toLocaleLowerCase()
 
 	return (
 		<nav className={styles.navigation}>
 			<h3 className={styles.menu}>MENU</h3>
-			<Link href='/student/news' className={`${styles.link} ${router.pathname.includes('news') ? styles.active : ''}`}>
+			<Link
+				href={`/${urlType}/news`}
+				className={`${styles.link} ${router.pathname.includes('news') ? styles.active : ''}`}>
 				<Image
 					src={`${router.pathname.includes('news') ? '/icons/staractive.png' : '/icons/star.png'}`}
 					alt=''
@@ -19,7 +22,7 @@ const Navigation = () => {
 				<span className={styles.item}>News</span>
 			</Link>
 			<Link
-				href='/student/timetable'
+				href={`/${urlType}/timetable`}
 				className={`${styles.link} ${router.pathname.includes('timetable') ? styles.active : ''}`}>
 				<Image
 					src={`${router.pathname.includes('timetable') ? '/icons/staractive.png' : '/icons/star.png'}`}
@@ -30,7 +33,7 @@ const Navigation = () => {
 				<span className={styles.item}>Timetable</span>
 			</Link>
 			<Link
-				href='/student/grades'
+				href={`/${urlType}/grades`}
 				className={`${styles.link} ${router.pathname.includes('grades') ? styles.active : ''}`}>
 				<Image
 					src={`${router.pathname.includes('grades') ? '/icons/staractive.png' : '/icons/star.png'}`}
@@ -41,7 +44,7 @@ const Navigation = () => {
 				<span className={styles.item}>Grades</span>
 			</Link>
 			<Link
-				href='/student/messanges'
+				href={`/${urlType}/messanges`}
 				className={`${styles.link} ${router.pathname.includes('messanges') ? styles.active : ''}`}>
 				<Image
 					src={`${router.pathname.includes('messanges') ? '/icons/staractive.png' : '/icons/star.png'}`}
@@ -52,7 +55,7 @@ const Navigation = () => {
 				<span className={styles.item}>Messanges</span>
 			</Link>
 			<Link
-				href='/student/statistics'
+				href={`/${urlType}/statistics`}
 				className={`${styles.link} ${router.pathname.includes('statistics') ? styles.active : ''}`}>
 				<Image
 					src={`${router.pathname.includes('statistics') ? '/icons/staractive.png' : '/icons/star.png'}`}

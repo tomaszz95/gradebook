@@ -1,11 +1,13 @@
 import Image from 'next/image'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 
 import LoginForm from './LoginForm'
 import { FormDataType } from '../helpers/types'
 import styles from './TeacherLogin.module.css'
 
 const TeacherLogin = () => {
+	const router = useRouter()
+	
 	const formDataHandler = (data: FormDataType) => {
 		console.log(data)
 	}
@@ -18,7 +20,7 @@ const TeacherLogin = () => {
 				aria-label='Click to go back to homepage'
 				className={styles.button}
 				onClick={() => {
-					Router.push('/')
+					router.push('/')
 				}}>
 				<Image src='/icons/arrowLeft.png' alt='' width='65' height='40' />
 				<span>Go back</span>

@@ -1,5 +1,12 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+import AddNews from 'src/components/news/AddNews'
+
 const TeacherCreateNewsPage = () => {
-	return <div>TeacherCreateNewsPage</div>
+	return (
+		<SidebarLayout>
+			<AddNews />
+		</SidebarLayout>
+	)
 }
 
 export default TeacherCreateNewsPage

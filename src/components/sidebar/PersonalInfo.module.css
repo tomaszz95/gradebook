@@ -25,13 +25,15 @@
 }
 
 .name {
+	padding: 0.5em;
+	text-align: center;
 	margin-top: 0.6em;
 	font-size: var(--size-xxxl);
 	color: var(--pure-white);
 }
 
 .line {
-	margin-top: 0.8em;
+	margin-top: 0.5em;
 	width: 90%;
 	height: 2px;
 	background-color: var(--text);

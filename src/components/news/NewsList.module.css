@@ -1,5 +1,7 @@
 .container {
 	padding: 1em;
+	display: flex;
+	flex-direction: column;
 }
 
 .header {
@@ -14,4 +16,28 @@
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.newButton {
+	align-self: center;
+	width: 60%;
+	max-width: 800px;
+	padding: 0.8em;
+	border-radius: 12px;
+	margin: 1em 0 2em;
+	font-size: var(--size-xxxm);
+	background-color: var(--hightlight);
+	color: var(--text);
+	border: none;
+	transition: background-color 0.3s;
+}
+
+.newButton:hover {
+	background-color: #17a129;
+}
+
+@media (min-width: 1600px) {
+	.newButton {
+		font-size: var(--size-l);
+	}
 }
