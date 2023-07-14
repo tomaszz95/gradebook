@@ -50,7 +50,7 @@ const AddNews = () => {
 							ref={imageRef}
 						/>
 					</label>
-					<p className={styles.error}>Some error</p>
+					<p className={styles.error}>Some error..</p>
 				</div>
 				<button type='submit' aria-label='Click to add new news' className={styles.button}>
 					Click to add new news
