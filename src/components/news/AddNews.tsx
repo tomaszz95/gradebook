@@ -29,14 +29,14 @@ const AddNews = () => {
 						id='description'
 						ref={descriptionRef}
 					/>
-					<p className={styles.error}>Some error</p>
+					<p className={styles.error}>Some error..</p>
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='newsText'>
 						News text
 					</label>
 					<textarea placeholder='Enter text...' className={styles.textarea} id='newsText' ref={textRef} />
-					<p className={styles.error}>Some error</p>
+					<p className={styles.error}>Some error..</p>
 				</div>
 				<div className={styles.box}>
 					<label className={`${styles.label} ${styles.imgLabel}`} htmlFor='newsImage'>
