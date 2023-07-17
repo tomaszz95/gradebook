@@ -2,6 +2,7 @@ import styles from './GradesRow.module.css'
 import SingleGrade from './SingleGrade'
 import { countEndGrade, countAverage } from '../helpers/averageFunctions'
 
+
 export const addBackgroundColor = (grade: string) => {
 	let colorClass
 

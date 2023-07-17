@@ -73,8 +73,8 @@
 }
 
 .imgLabel {
-    text-align: center;
-    width: 80%;
+	text-align: center;
+	width: 80%;
 	align-self: center;
 	margin: 2em 0 0;
 	background-color: var(--lighter-main);
@@ -93,7 +93,7 @@
 }
 
 .imgLabel img {
-    margin-right: 0.5em;
+	margin-right: 0.5em;
 }
 
 .imageInput {
@@ -121,4 +121,35 @@
 	font-size: var(--size-xxm);
 	font-weight: bold;
 	margin-top: 0.6em;
+}
+
+@media (min-width: 1600px) {
+	.form {
+		width: 800px;
+	}
+
+	.label {
+		margin-left: 3.5em;
+		margin-top: 1em;
+		font-size: var(--size-l);
+	}
+
+	.input {
+		font-size: var(--size-xxm);
+	}
+
+	.button {
+		padding: 1em;
+		border-radius: 8px;
+		margin-top: 3em;
+	}
+
+	.error {
+		font-size: var(--size-xxxm);
+		margin-top: 0.8em;
+	}
+
+	.imgLabel {
+		margin: 2em 0 0;
+	}
 }

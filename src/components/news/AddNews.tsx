@@ -101,7 +101,15 @@ const AddNews = () => {
 					<label className={styles.label} htmlFor='title'>
 						News title<p className={styles.info}>(max. length 50 letters)</p>
 					</label>
-					<input placeholder='Enter title...' className={styles.input} type='text' id='title' ref={titleRef} />
+					<input
+						placeholder='Enter title...'
+						className={styles.input}
+						type='text'
+						id='title'
+						ref={titleRef}
+						maxLength={50}
+						required
+					/>
 					<p className={styles.error}>{titleError}</p>
 				</div>
 				<div className={styles.box}>
@@ -114,6 +122,8 @@ const AddNews = () => {
 						type='text'
 						id='description'
 						ref={descriptionRef}
+						maxLength={155}
+						required
 					/>
 					<p className={styles.error}>{descriptionError}</p>
 				</div>
@@ -121,7 +131,14 @@ const AddNews = () => {
 					<label className={styles.label} htmlFor='newsText'>
 						News text<p className={styles.info}>(max. length 3000 letters)</p>
 					</label>
-					<textarea placeholder='Enter text...' className={styles.textarea} id='newsText' ref={textRef} />
+					<textarea
+						placeholder='Enter text...'
+						className={styles.textarea}
+						id='newsText'
+						ref={textRef}
+						maxLength={3000}
+						required
+					/>
 					<p className={styles.error}>{textError}</p>
 				</div>
 				<div className={styles.box}>
@@ -134,6 +151,8 @@ const AddNews = () => {
 							accept='image/png, image/jpeg, image/jpg'
 							id='newsImage'
 							onChange={getFileHandler}
+							onClick={getFileHandler}
+							required
 						/>
 					</label>
 					<p className={styles.error}>{imageError}</p>

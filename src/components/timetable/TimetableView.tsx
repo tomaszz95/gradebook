@@ -1,5 +1,6 @@
 import styles from './TimetableView.module.css'
 import TimetableTable from './TimeTableTable'
+import { useRouter } from 'next/router'
 
 const timetable1A: any = {
 	1: {
@@ -180,11 +181,193 @@ const timetable1A: any = {
 	},
 }
 
+const timetableTeacher: any = {
+	1: {
+		Monday: {
+			group: null,
+			class: null,
+		},
+		Tuesday: {
+			group: null,
+			class: null,
+		},
+		Wednesday: {
+			group: null,
+			class: null,
+		},
+		Thursday: {
+			group: '3C',
+			class: '6',
+		},
+		Friday: {
+			group: '3C',
+			class: '6',
+		},
+	},
+	2: {
+		Monday: {
+			group: '1B',
+			class: '6',
+		},
+		Tuesday: {
+			group: '3B',
+			class: '6',
+		},
+		Wednesday: {
+			group: '3A',
+			class: '6',
+		},
+		Thursday: {
+			group: '3A',
+			class: '6',
+		},
+		Friday: {
+			group: '2A',
+			class: '6',
+		},
+	},
+	3: {
+		Monday: {
+			group: '2B',
+			class: '5',
+		},
+		Tuesday: {
+			group: '2C',
+			class: '3',
+		},
+		Wednesday: {
+			group: '2A',
+			class: '3',
+		},
+		Thursday: {
+			group: '1A',
+			class: '5',
+		},
+		Friday: {
+			group: '2A',
+			class: '3',
+		},
+	},
+	4: {
+		Monday: {
+			group: '1B',
+			class: '3',
+		},
+		Tuesday: {
+			group: '1C',
+			class: '5',
+		},
+		Wednesday: {
+			group: '3C',
+			class: '3',
+		},
+		Thursday: {
+			group: '3A',
+			class: '5',
+		},
+		Friday: {
+			group: '3B',
+			class: '5',
+		},
+	},
+	5: {
+		Monday: {
+			group: '2A',
+			class: '6',
+		},
+		Tuesday: {
+			group: '3A',
+			class: '6',
+		},
+		Wednesday: {
+			group: '1A',
+			class: '6',
+		},
+		Thursday: {
+			group: '2B',
+			class: '6',
+		},
+		Friday: {
+			group: '2A',
+			class: '6',
+		},
+	},
+	6: {
+		Monday: {
+			group: '2C',
+			class: '6',
+		},
+		Tuesday: {
+			group: '1A',
+			class: '3',
+		},
+		Wednesday: {
+			group: '1C',
+			class: '3',
+		},
+		Thursday: {
+			group: '1B',
+			class: '3',
+		},
+		Friday: {
+			group: '3A',
+			class: '3',
+		},
+	},
+	7: {
+		Monday: {
+			group: '3B',
+			class: '3',
+		},
+		Tuesday: {
+			group: '3C',
+			class: '3',
+		},
+		Wednesday: {
+			group: null,
+			class: null,
+		},
+		Thursday: {
+			group: null,
+			class: null,
+		},
+		Friday: {
+			group: null,
+			class: null,
+		},
+	},
+	8: {
+		Monday: {
+			group: 'Chemistry',
+			class: '3',
+		},
+		Tuesday: {
+			group: null,
+			class: null,
+		},
+		Wednesday: {
+			group: 'IT',
+			class: '10',
+		},
+		Thursday: {
+			group: 'German',
+			class: '7',
+		},
+		Friday: {
+			group: null,
+			class: null,
+		},
+	},
+}
+
 const TimeTable = () => {
+	const router = useRouter()
+	const timetableArray = router.pathname.includes('student') ? timetable1A : timetableTeacher
+
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.header}>Check your lessons!</h2>
-			<TimetableTable lessonsTimetable={timetable1A} />
+			<TimetableTable lessonsTimetable={timetableArray} />
 		</div>
 	)
 }

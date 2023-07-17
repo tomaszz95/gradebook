@@ -1,7 +1,7 @@
 import styles from './GradesTableBody.module.css'
 import GradesRow from './GradesRow'
 
-const findAllSubjects = (subjectsObj: any) => {
+const findAllObjects = (subjectsObj: any) => {
 	let subjectsArr = []
 	for (const subject in subjectsObj) {
 		subjectsArr.push(subject)
@@ -9,13 +9,13 @@ const findAllSubjects = (subjectsObj: any) => {
 	return subjectsArr
 }
 
-const GradesTableBody: React.FC<any> = ({ gradesSemesterData }) => {
-	const subjectsArr = findAllSubjects(gradesSemesterData)
+const GradesTableBody: React.FC<any> = ({ gradesSemesterData, type }) => {
+	const subjectsOrPersonsArray = findAllObjects(gradesSemesterData)
 
 	return (
 		<tbody className={styles.body}>
-			{subjectsArr.map(subject => (
-				<GradesRow subject={subject} subjectData={gradesSemesterData[subject]} key={subject} />
+			{subjectsOrPersonsArray.map(item => (
+				<GradesRow subject={item} subjectData={gradesSemesterData[item]} key={item} />
 			))}
 		</tbody>
 	)

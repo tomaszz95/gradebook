@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	min-width: 700px;
+}
+
+.header {
+	margin: 1em;
+	font-size: var(--size-xvl);
+	text-align: center;
+	color: var(--hightlight);
+}

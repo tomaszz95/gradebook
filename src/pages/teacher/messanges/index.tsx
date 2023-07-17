@@ -1,5 +1,12 @@
+import SidebarLayout from 'src/components/layouts/SidebarLayout'
+import MessangeList from 'src/components/messanges/MessangeList'
+
 const TeacherMessangesPage = () => {
-	return <div>TeacherMessangesPage</div>
+	return (
+		<SidebarLayout>
+			<MessangeList />
+		</SidebarLayout>
+	)
 }
 
 export default TeacherMessangesPage
