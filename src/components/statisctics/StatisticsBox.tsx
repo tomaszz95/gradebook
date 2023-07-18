@@ -3,7 +3,7 @@ import styles from './StatisticsBox.module.css'
 import { useEffect, useState } from 'react'
 import { countAverage } from '../helpers/averageFunctions'
 
-const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAverage, personType }) => {
+const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAverage, personType, isStudent }) => {
 	const [singleGrades, setSingleGrades] = useState([])
 	const [classGrades, setClassGrades] = useState([])
 
@@ -28,16 +28,16 @@ const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAvera
 	return (
 		<div className={styles.box}>
 			<h3 className={styles.heading}>
-				Average grades for <span>{personType}</span>
+				Average grades for <span>{isStudent ? personType : 'whole school'}</span>
 			</h3>
 			<div className={styles.line}></div>
 			<SingleStats
 				averageData={personType.includes('class') ? classGrades : singleGrades}
-				componentFor='Best average subjects grades'
+				componentFor={`Best average ${isStudent ? 'subject' : 'classes'} grades`}
 			/>
 			<SingleStats
 				averageData={personType.includes('class') ? classGrades : singleGrades}
-				componentFor='Worst average subjects grades'
+				componentFor={`Worst average ${isStudent ? 'subject' : 'classes'} grades`}
 			/>
 		</div>
 	)

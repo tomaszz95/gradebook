@@ -7,6 +7,7 @@ const StatisticsTable: React.FC<any> = ({
 	wholeClassAverage,
 	onChangeSemesterHandler,
 	semesterOne,
+	isStudent,
 }) => {
 	const semesterHandler = (e: React.SyntheticEvent) => {
 		onChangeSemesterHandler(e.currentTarget.textContent)
@@ -25,9 +26,9 @@ const StatisticsTable: React.FC<any> = ({
 			<table className={styles.table}>
 				<thead className={styles.head}>
 					<tr>
-						<th>Subject</th>
-						<th>Yours average</th>
-						<th>Class average</th>
+						<th>{isStudent ? 'Subject' : 'Class'}</th>
+						<th>{isStudent ? 'Yours average' : 'Class average'}</th>
+						<th>{isStudent ? 'Class average' : 'School average'}</th>
 					</tr>
 				</thead>
 				<tbody className={styles.body}>
@@ -38,6 +39,8 @@ const StatisticsTable: React.FC<any> = ({
 								subjectGrades={personInfo[subject].Grades}
 								key={subject}
 								classAverage={wholeClassAverage[subject].average}
+								isStudent={isStudent}
+								wholeClassAverage={wholeClassAverage}
 							/>
 						)
 					})}
