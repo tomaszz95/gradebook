@@ -1,27 +1,30 @@
 import { useRef, useState } from 'react'
 import Router from 'next/router'
+import auth from '../../../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
-import { LoginFormComponentType } from '../helpers/types'
 import styles from './LoginForm.module.css'
 
-const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
-	const usernameRef = useRef<HTMLInputElement>(null)
+const LoginForm: React.FC<{ type: string }> = ({ type }) => {
+	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
 	const identifierRef = useRef<HTMLInputElement>(null)
-	const [usernameError, setUsernameError] = useState('')
+	const [emailError, setEmailError] = useState('')
 	const [passwordError, setPasswordError] = useState('')
 	const [identifierError, setIdentifierError] = useState('')
 
 	const fixedTitle = type.toUpperCase()
 	const fixedIdentifier = type.charAt(0).toUpperCase() + type.slice(1)
 
-	const loginHandler = (e: React.SyntheticEvent) => {
+	const loginHandler = async (e: React.SyntheticEvent) => {
 		e.preventDefault()
 
-		if (usernameRef.current && usernameRef.current.value.trim() === '') {
-			setUsernameError('Username cannot be empty!')
+		if (emailRef.current && emailRef.current.value.trim() === '') {
+			setEmailError('Email cannot be empty!')
+		} else if (emailRef.current && !emailRef.current.value.includes(type)) {
+			setEmailError('Please enter valid e-mail address!')
 		} else {
-			setUsernameError('')
+			setEmailError('')
 		}
 
 		if (passwordRef.current && passwordRef.current.value.trim() === '') {
@@ -37,21 +40,28 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 		}
 
 		if (
-			usernameRef.current &&
-			usernameRef.current.value.trim() !== '' &&
+			emailRef.current &&
+			emailRef.current.value.trim() !== '' &&
+			emailRef.current.value.includes(type) &&
 			passwordRef.current &&
 			passwordRef.current.value.trim() !== '' &&
 			identifierRef.current &&
 			identifierRef.current.value.trim() !== ''
 		) {
-			const inputsData = {
-				username: usernameRef.current.value,
-				password: passwordRef.current.value,
-				identifier: identifierRef.current.value,
-			}
-
-			onFormData(inputsData)
-			Router.push(`/${type}/news`)
+			signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
+				.then(userCredential => {
+					const user = userCredential.user
+					console.log(user)
+					Router.push(`/${type}/news`)
+				})
+				.catch(error => {
+					console.log(error);
+					if (error.code.includes('email') || error.code.includes('user')) {
+						setEmailError('Please enter valid e-mail address!')
+					} else if (error.code.includes('password')) {
+						setPasswordError('Please enter valid password!')
+					}
+				})
 		}
 	}
 
@@ -59,11 +69,11 @@ const LoginForm: React.FC<LoginFormComponentType> = ({ type, onFormData }) => {
 		<form className={styles.form} onSubmit={loginHandler} aria-label='Login form'>
 			<h2 className={styles.title}>{fixedTitle}</h2>
 			<div className={styles.box}>
-				<label className={styles.label} htmlFor='username'>
-					Username
+				<label className={styles.label} htmlFor='email'>
+					Email
 				</label>
-				<input placeholder='Enter username...' className={styles.input} type='text' id='username' ref={usernameRef} />
-				<p className={styles.error}>{usernameError}</p>
+				<input placeholder='Enter username...' className={styles.input} type='email' id='username' ref={emailRef} />
+				<p className={styles.error}>{emailError}</p>
 			</div>
 			<div className={styles.box}>
 				<label className={styles.label} htmlFor='password'>

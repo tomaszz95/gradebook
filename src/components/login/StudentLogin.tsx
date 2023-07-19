@@ -1,19 +1,14 @@
-import Image from 'next/image'
 import Router from 'next/router'
+import Image from 'next/image'
 
 import LoginForm from './LoginForm'
-import { FormDataType } from '../helpers/types'
 import styles from './StudentLogin.module.css'
 
 const StudentLogin = () => {
-	const formDataHandler = (data: FormDataType) => {
-		console.log(data)
-	}
-
 	return (
 		<main className={styles.main}>
 			<h1 className={styles.title}>Gradebook</h1>
-			<LoginForm type='student' onFormData={formDataHandler} />
+			<LoginForm type='student'/>
 			<button
 				aria-label='Click to go back to homepage'
 				className={styles.button}
