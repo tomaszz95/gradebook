@@ -4,32 +4,37 @@ import { useRouter } from 'next/router'
 
 const dummyNews = [
 	{
-		title: 'Local Artist Wins Prestigious International Art Prize',
-		date: '02-07-2023',
-		id: 'news1',
-		author: 'Anna Nowak',
-		text: "Mapleville-based artist, Sarah Thompson, has been awarded the prestigious International Art Prize for her captivating masterpiece titled 'Reflections of Serenity.' The artwork, which combines vibrant colors and intricate brushwork, stood out among thousands of entries from around the world.",
+		title: 'Middle School Science Fair Celebrates Innovators',
+		date: '27-06-2023',
+		id: '32595192',
+		author: 'Anna Kowalska',
+		description: 'Young minds showcase brilliance in diverse science projects with winners to be announced soon.',
+		text: "This weekend, the middle school hosted its annual Science Fair, showcasing brilliant young minds and innovative projects. Students presented studies on environmental issues, advanced technology, and more. The fair fosters scientific curiosity, teamwork, and communication skills. Principal praised the students' dedication, nurturing the next generation of problem solvers. Winners will be announced next week during the assembly, receiving recognition and awards for their outstanding contributions to science.",
 	},
 	{
-		title: 'Student Robotics Team from Mapleville High School Wins National Competition',
+		title: 'Debaters Shine in Tournament',
 		date: '24-06-2023',
-		id: 'news2',
-		author: 'Michał Wiśniewski',
-		text: "Mapleville High School's robotics team, known as the 'Mechanical Mavericks,' achieved a remarkable victory at the National Robotics Competition held in Washington, D.C. The team, comprised of talented students from various grade levels, showcased their exceptional engineering skills and teamwork throughout the intense competition.",
+		id: '85195492',
+		author: 'Michał Nowak',
+		description: 'Debate team excels in regional tournament, clinches top individual speaker spots.',
+		text: "Middle school debate team achieves remarkable success in regional tournament. Debaters showcased exceptional critical thinking, persuasion, and teamwork. They secured the first position, while the biggest rival in same city claimed the second spot in individual speaker rankings. Coaches expressed immense pride in students' dedication. They are now preparing for upcoming competitions, aiming to continue their winning streak.",
 	},
 	{
-		title: 'Mapleville Elementary School Launches Interactive Learning Garden',
+		title: 'Middle School Robotics Team Excels in State Competition',
+		date: '18-06-2023',
+		id: '2548154',
+		author: 'Anna Kowalska',
+		description:
+			'Middle school robotics team wins accolades in state-level competition; Engineers of the future showcase their ingenuity.',
+		text: "The middle school's robotics team emerged victorious in a prestigious state-level competition, demonstrating their exceptional engineering skills and creative problem-solving abilities. The team, comprising students from different grades, designed and programmed robots to tackle various challenges. Their innovative approach and precise execution wowed the judges and fellow competitors alike. The team invested countless hours in practice, refining their robots' performance. Their hard work and dedication paid off as they clinched the top spot in the competition. Principal expressed immense pride in the students' achievements, emphasizing the importance of fostering a passion for STEM (Science, Technology, Engineering, and Mathematics) fields. The robotics team's success serves as an inspiration to aspiring engineers, demonstrating that determination and teamwork can lead to remarkable accomplishments.",
+	},
+	{
+		title: 'School Art Show Awes Community',
 		date: '11-06-2023',
-		id: 'news3',
-		author: 'Zygmunt Poniatowski',
-		text: 'Mapleville Elementary School has embarked on a green educational journey with the launch of their interactive learning garden. The garden, a collaborative effort between students, teachers, and local community members, provides a hands-on outdoor classroom where students can explore various aspects of horticulture, ecology, and sustainable living.',
-	},
-	{
-		title: 'Student Initiative Raises Funds for Local Charity',
-		date: '01-06-2023',
-		id: 'news4',
-		author: 'Mikołaj Kopernik',
-		text: 'Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts. Lorem ipsum dolor sit ament. ',
+		id: '52946184',
+		author: 'Michał Nowak',
+		description: 'Artistic talents shine in an impressive display of creativity and expression.',
+		text: "The middle school's art show wowed the community, as students showcased their artistic talents in an impressive display of creativity and expression. From stunning paintings to intricate sculptures, the artwork captivated visitors. Parents, teachers, and fellow students praised the artists' skills and emotional depth. Principal lauded the art department's efforts to encourage self-expression and cultivate the students' creativity. The event left a lasting impression, inspiring many to explore their artistic passions further.",
 	},
 ]
 
