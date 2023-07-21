@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import Router from 'next/router'
 import auth from '../../../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-
+import { getLoginData } from '../helpers/dummyLoginData'
 import styles from './LoginForm.module.css'
 
 const LoginForm: React.FC<{ type: string }> = ({ type }) => {
@@ -50,12 +50,14 @@ const LoginForm: React.FC<{ type: string }> = ({ type }) => {
 		) {
 			signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
 				.then(userCredential => {
-					const user = userCredential.user
-					console.log(user)
+					const userEmail = userCredential.user.email
+					if (userEmail) {
+						const loginUserData = getLoginData(userEmail)
+						console.log(loginUserData)
+					}
 					Router.push(`/${type}/news`)
 				})
 				.catch(error => {
-					console.log(error);
 					if (error.code.includes('email') || error.code.includes('user')) {
 						setEmailError('Please enter valid e-mail address!')
 					} else if (error.code.includes('password')) {

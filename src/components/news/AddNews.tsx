@@ -35,37 +35,41 @@ const AddNews = () => {
 		if (
 			titleRef.current !== null &&
 			titleRef.current.value.trim() !== '' &&
-			titleRef.current.value.trim().length <= 50
+			titleRef.current.value.trim().length <= 70
 		) {
 			setTitleError('')
 			title = titleRef.current.value.trim()
 		} else if (titleRef.current !== null && titleRef.current.value.trim() === '') {
 			setTitleError('Title cannot be empty!')
-		} else if (titleRef.current !== null && titleRef.current.value.trim().length > 50) {
-			setTitleError('Title must be shorter than 50 letters!')
+		} else if (titleRef.current !== null && titleRef.current.value.trim().length > 70) {
+			setTitleError('Title must be shorter than 70 letters!')
 		}
 
 		// DESCRIPTION ERROR
 		if (
 			descriptionRef.current !== null &&
 			descriptionRef.current.value.trim() !== '' &&
-			descriptionRef.current.value.trim().length <= 155
+			descriptionRef.current.value.trim().length <= 400
 		) {
 			setDescriptionError('')
 			description = descriptionRef.current.value.trim()
 		} else if (descriptionRef.current !== null && descriptionRef.current.value.trim() === '') {
 			setDescriptionError('Description cannot be empty!')
-		} else if (descriptionRef.current !== null && descriptionRef.current.value.trim().length > 155) {
-			setDescriptionError('Description must be shorter than 155 letters!')
+		} else if (descriptionRef.current !== null && descriptionRef.current.value.trim().length > 400) {
+			setDescriptionError('Description must be shorter than 400 letters!')
 		}
 
 		// TEXT ERROR
-		if (textRef.current !== null && textRef.current.value.trim() !== '' && textRef.current.value.trim().length <= 600) {
+		if (
+			textRef.current !== null &&
+			textRef.current.value.trim() !== '' &&
+			textRef.current.value.trim().length <= 3000
+		) {
 			setTextError('')
 			text = textRef.current.value.trim()
 		} else if (textRef.current !== null && textRef.current.value.trim() === '') {
 			setTextError('Text cannot be empty!')
-		} else if (textRef.current !== null && textRef.current.value.trim().length > 500) {
+		} else if (textRef.current !== null && textRef.current.value.trim().length > 3000) {
 			setTextError('Text must be shorter than 3000 letters!')
 		}
 
@@ -99,7 +103,7 @@ const AddNews = () => {
 			<form className={styles.form} encType='multipart/form-data' onSubmit={newsFormHandler}>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='title'>
-						News title<p className={styles.info}>(max. length 50 letters)</p>
+						News title<p className={styles.info}>(max. length 70 letters)</p>
 					</label>
 					<input
 						placeholder='Enter title...'
@@ -107,14 +111,14 @@ const AddNews = () => {
 						type='text'
 						id='title'
 						ref={titleRef}
-						maxLength={50}
+						maxLength={70}
 						required
 					/>
 					<p className={styles.error}>{titleError}</p>
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='description'>
-						News description<p className={styles.info}>(max. length 155 letters)</p>
+						News description<p className={styles.info}>(max. length 400 letters)</p>
 					</label>
 					<input
 						placeholder='Enter description...'
@@ -122,7 +126,7 @@ const AddNews = () => {
 						type='text'
 						id='description'
 						ref={descriptionRef}
-						maxLength={155}
+						maxLength={400}
 						required
 					/>
 					<p className={styles.error}>{descriptionError}</p>

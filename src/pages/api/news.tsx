@@ -1,54 +1,48 @@
-import { connectDatabase } from '../../components/helpers/mongoDBUtils'
-import { getAllNews } from '../../components/helpers/apiUtils'
+import { getAllDocuments, connectDatabase } from '../../components/helpers/mongoDBUtils'
 
 async function handler(req: any, res: any) {
+	let client
+
+	try {
+		client = await connectDatabase()
+	} catch (error) {
+		res.status(500).json({ message: 'Connecting to the database failed!' })
+		return
+	}
+
 	// if (req.method === 'POST') {
-	// 	const userEmail = req.body.email
+	// 	const { email, name, text } = req.body
 
-	// 	if (!userEmail || !userEmail.includes('@')) {
-	// 		res.status(422).json({ message: 'Invalid email address.' })
+	// 	if (!email.includes('@') || !name || name.trim() === '' || !text || text.trim() === '') {
+	// 		res.status(422).json({ message: 'Invalid input.' })
 	// 		return
 	// 	}
 
-	// 	let client
+	// 	const newComment = {
+	// 		email,
+	// 		name,
+	// 		text,
+	// 		eventId,
+	// 	}
+
+	// 	let result
 
 	// 	try {
-	// 		client = await connectDatabase()
+	// 		result = await insertDocument(client, 'comments', newComment)
+	// 		newComment._id = result.insertedId
+	// 		res.status(201).json({ message: 'Added comment.', comment: newComment })
 	// 	} catch (error) {
-	// 		res.status(500).json({ message: 'Connecting to the database failed!' })
-	// 		return
+	// 		res.status(500).json({ message: 'Inserting comment failed!' })
 	// 	}
-
-	// 	try {
-	// 		await insertDocument(client, 'newsletter', { email: userEmail })
-	// 	} catch (error) {
-	// 		res.status(500).json({ message: 'Inserting data failed!' })
-	// 		return
-	// 	}
-
-	// 	res.status(201).json({ message: 'Signed up!' })
 	// }
 
 	if (req.method === 'GET') {
-		let client, data
-
 		try {
-			client = await connectDatabase()
+			const documents = await getAllDocuments(client, 'news', { date: -1 })
+			res.status(200).json({ news: documents })
 		} catch (error) {
-			res.status(500).json({ message: 'Connecting to the database failed!' })
-			return
+			res.status(500).json({ message: 'Getting comments failed.' })
 		}
-
-		try {
-			data = await getAllNews(client)
-		} catch (error) {
-			res.status(500).json({ message: 'Fetching data failed!' })
-			return
-		}
-
-		res.status(200).json({ message: 'Data fetched properly!' })
-
-		return data
 	}
 }
 

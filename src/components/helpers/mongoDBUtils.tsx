@@ -13,10 +13,10 @@ export async function insertDocument(client: any, collection: string, document: 
 	return result
 }
 
-export async function getAllDocuments(client: any, collection: string) {
+export async function getAllDocuments(client: any, collection: string, sort: any) {
 	const db = client.db()
 
-	const documents = await db.collection(collection).find().toArray()
+	const documents = await db.collection(collection).find().sort(sort).toArray()
 
 	return documents
 }

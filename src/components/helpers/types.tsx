@@ -17,10 +17,23 @@ export type LoginFormComponentType = {
 }
 
 //NEWS LIST DATA
-export type NewsListDataType = {
-	title: string
-	date: string
-	id: string
-	text: string
+export type NewsListFetchedType = [
+	{
+		author: string
+		date: string
+		description: string
+		title: string
+		img: string
+		_id: string
+		text: string
+	}
+]
+
+//NEWS LIST DATA
+export type SingleNewsDataType = {
 	author: string
+	date: string
+	description: string
+	title: string
+	img: string
 }
