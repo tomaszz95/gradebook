@@ -1,11 +1,15 @@
 import { useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { ThunkDispatch } from '@reduxjs/toolkit'
+import { loginDataActions } from 'src/store/login-slice'
 import Router from 'next/router'
-import auth from '../../../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { getLoginData } from '../helpers/dummyLoginData'
+
+import auth from '../../../firebase'
 import styles from './LoginForm.module.css'
 
 const LoginForm: React.FC<{ type: string }> = ({ type }) => {
+	const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
 	const identifierRef = useRef<HTMLInputElement>(null)
@@ -52,8 +56,7 @@ const LoginForm: React.FC<{ type: string }> = ({ type }) => {
 				.then(userCredential => {
 					const userEmail = userCredential.user.email
 					if (userEmail) {
-						const loginUserData = getLoginData(userEmail)
-						console.log(loginUserData)
+						dispatch(loginDataActions.setLoginInfo(userEmail))
 					}
 					Router.push(`/${type}/news`)
 				})

@@ -29,11 +29,34 @@ export type NewsListFetchedType = [
 	}
 ]
 
-//NEWS LIST DATA
+//NEWS LIST SINGLE DATA
 export type SingleNewsDataType = {
 	author: string
 	date: string
 	description: string
 	title: string
 	img: string
+	text: string
+	_id: string
+}
+
+//NEWS LIST SINGLE DATA + ROLE
+export type SingleNewsDataRoleType = {
+	author: string
+	date: string
+	description: string
+	title: string
+	img: string
+	text: string
+	_id: string
+	role: string
+}
+
+// LOGINDATA
+export type LoginDataType = {
+	role: string
+	name: string
+	img: string
+	belong: string
+	email: string
 }

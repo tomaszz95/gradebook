@@ -1,13 +1,17 @@
-import styles from './NewsList.module.css'
-import SingleNews from './SingleNews'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { NewsListFetchedType } from '../helpers/types'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+
+import SingleNews from './SingleNews'
+import LoadingSpinner from '../UI/LoadingSpinner'
+
+import styles from './NewsList.module.css'
+import { LoginDataType, NewsListFetchedType } from '../helpers/types'
 
 const NewsList = () => {
-	const [newsList, setNewsList] = useState<NewsListFetchedType>()
 	const router = useRouter()
-	const whoIsLogged = router.pathname.includes('student') ? 'student' : 'teacher'
+	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
+	const [newsList, setNewsList] = useState<NewsListFetchedType>()
 
 	useEffect(() => {
 		fetch('/api/news')
@@ -16,7 +20,7 @@ const NewsList = () => {
 				setNewsList(data.news)
 			})
 	}, [])
-	
+
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.header}>Latest News</h2>
@@ -28,16 +32,19 @@ const NewsList = () => {
 							date={news.date}
 							description={news.description}
 							title={news.title}
+							text={news.text}
 							img={news.img}
+							_id={news._id}
 							key={news._id}
+							role={loginInfoData.role}
 						/>
 					))
 				) : (
-					<p>Loading...</p>
+					<LoadingSpinner loading={newsList === undefined} />
 				)}
 			</ul>
-			{whoIsLogged === 'teacher' ? (
-				<button onClick={() => router.push(`/${whoIsLogged}/news/create-news`)} className={styles.newButton}>
+			{loginInfoData.role === 'teacher' && newsList !== undefined && newsList.length > 0 ? (
+				<button onClick={() => router.push(`/${loginInfoData.role}/news/create-news`)} className={styles.newButton}>
 					Add new news
 				</button>
 			) : null}

@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react'
+
 import Modal from '../UI/Modal'
+
 import styles from './AddNews.module.css'
 
 const AddNews = () => {
@@ -63,14 +65,14 @@ const AddNews = () => {
 		if (
 			textRef.current !== null &&
 			textRef.current.value.trim() !== '' &&
-			textRef.current.value.trim().length <= 3000
+			textRef.current.value.trim().length <= 1500
 		) {
 			setTextError('')
 			text = textRef.current.value.trim()
 		} else if (textRef.current !== null && textRef.current.value.trim() === '') {
 			setTextError('Text cannot be empty!')
-		} else if (textRef.current !== null && textRef.current.value.trim().length > 3000) {
-			setTextError('Text must be shorter than 3000 letters!')
+		} else if (textRef.current !== null && textRef.current.value.trim().length > 1500) {
+			setTextError('Text must be shorter than 1500 letters!')
 		}
 
 		// IMAGE ERROR
@@ -133,7 +135,7 @@ const AddNews = () => {
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='newsText'>
-						News text<p className={styles.info}>(max. length 3000 letters)</p>
+						News text<p className={styles.info}>(max. length 1500 letters)</p>
 					</label>
 					<textarea
 						placeholder='Enter text...'

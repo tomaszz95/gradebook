@@ -1,13 +1,14 @@
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
+
 import styles from './Navigation.module.css'
 
-const Navigation: React.FC<{ loggedUserType: string }> = ({ loggedUserType }) => {
+const Navigation: React.FC<{ loggedUserRole: string }> = ({ loggedUserRole }) => {
 	const router = useRouter()
-	const urlType = loggedUserType.toLocaleLowerCase()
+	const urlType = loggedUserRole.toLocaleLowerCase()
 
-	return (
+	const content = loggedUserRole ? (
 		<nav className={styles.navigation}>
 			<h3 className={styles.menu}>MENU</h3>
 			<Link
@@ -66,7 +67,8 @@ const Navigation: React.FC<{ loggedUserType: string }> = ({ loggedUserType }) =>
 				<span className={styles.item}>Statistics</span>
 			</Link>
 		</nav>
-	)
+	) : null
+	return content
 }
 
 export default Navigation

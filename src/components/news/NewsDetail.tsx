@@ -1,35 +1,18 @@
-import styles from './NewsDetail.module.css'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 
-const singleNews = {
-	title: 'Student Initiative Raises Funds for Local Charity',
-	date: '01-06-2023',
-	id: 'news3',
-	author: 'Mikołaj Kopernik',
-	text: 'Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts. Lorem ipsum dolor sit ament. ',
-	description:
-		'Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts. Lorem ipsum dolor sit ament. Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts. Lorem ipsum dolor sit ament. Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts. Lorem ipsum dolor sit ament. Students at Mapleville Middle School showcased their incredible compassion and initiative by organizing a successful fundraising campaign for a local charity. The students came together, brainstormed creative ideas, and executed various activities to raise funds for a cause close to their hearts.',
-}
+import { SingleNewsDataType } from '../helpers/types'
+import styles from './NewsDetail.module.css'
 
-const NewsDetail = () => {
+const NewsDetail: React.FC<{ singleNews: SingleNewsDataType }> = ({ singleNews }) => {
 	const router = useRouter()
-
-	const backPath = router.pathname.includes('student') ? '/student/news' : '/teacher/news'
 
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>{singleNews.title}</h2>
 			<div className={styles.box}>
-				<Image
-					src={`/photos/news/${singleNews.id}.jpg`}
-					alt={singleNews.title}
-					width='500'
-					height='500'
-					className={styles.img}
-				/>
+				<img src={singleNews.img} alt={singleNews.title} className={styles.img} />
 				<div className={styles.content}>
-					<p className={styles.description}>{singleNews.description}</p>
+					<p className={styles.description}>{singleNews.text}</p>
 					<div className={styles.moreInfo}>
 						<span className={styles.info}>{singleNews.date}</span>
 						<span className={styles.info}>{singleNews.author}</span>
@@ -40,9 +23,9 @@ const NewsDetail = () => {
 				aria-label='Click to go back to news list'
 				className={styles.button}
 				onClick={() => {
-					router.push(backPath)
+					router.back()
 				}}>
-				<Image src='/icons/arrowLeft.png' alt='' width='65' height='40' />
+				<img src='/icons/arrowLeft.png' alt='Back arrow' />
 				<span>Go back</span>
 			</button>
 		</div>
