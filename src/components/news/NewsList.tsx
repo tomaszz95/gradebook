@@ -26,19 +26,7 @@ const NewsList = () => {
 			<h2 className={styles.header}>Latest News</h2>
 			<ul className={styles.list}>
 				{newsList !== undefined && newsList.length > 0 ? (
-					newsList.map(news => (
-						<SingleNews
-							author={news.author}
-							date={news.date}
-							description={news.description}
-							title={news.title}
-							text={news.text}
-							img={news.img}
-							_id={news._id}
-							key={news._id}
-							role={loginInfoData.role}
-						/>
-					))
+					newsList.map(news => <SingleNews newsData={news} key={news._id} role={loginInfoData.role} />)
 				) : (
 					<LoadingSpinner loading={newsList === undefined} />
 				)}

@@ -22,6 +22,7 @@
 .img {
 	width: 100%;
 	object-fit: cover;
+	min-width: 600px;
 	max-width: 800px;
 }
 

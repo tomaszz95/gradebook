@@ -1,172 +1,87 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
+import AddNewsForm from './AddNewsForm'
 import Modal from '../UI/Modal'
 
+import { NewNewsFormData, LoginDataType } from '../helpers/types'
 import styles from './AddNews.module.css'
 
 const AddNews = () => {
-	const titleRef = useRef<HTMLInputElement>(null)
-	const descriptionRef = useRef<HTMLInputElement>(null)
-	const textRef = useRef<HTMLTextAreaElement>(null)
-
-	const [selectedFile, setSelectedFile] = useState<any>()
-	const [titleError, setTitleError] = useState('')
-	const [descriptionError, setDescriptionError] = useState('')
-	const [textError, setTextError] = useState('')
-	const [imageError, setImageError] = useState('')
+	const router = useRouter()
+	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
 	const [showModal, setShowModal] = useState(false)
 	const [modalResult, setModalResult] = useState('')
+	let isError = false
 
-	const getFileHandler = (e: React.SyntheticEvent) => {
-		const target = e.target as HTMLInputElement
-		let file
-		if (target.files !== null) {
-			file = target.files[0]
-		}
-		setSelectedFile(file)
-	}
+	const sendDataHandler = async (formData: NewNewsFormData) => {
+		const nowDate = new Date()
+		const day = nowDate.getDate().toString().padStart(2, '0')
+		const month = (nowDate.getMonth() + 1).toString().padStart(2, '0')
+		const year = nowDate.getFullYear()
+		const newsDate = `${day}-${month}-${year}`
 
-	const newsFormHandler = (e: React.SyntheticEvent) => {
-		e.preventDefault()
-		let title = ''
-		let description = ''
-		let text = ''
-		let img = ''
-
-		// TITLE ERROR
-		if (
-			titleRef.current !== null &&
-			titleRef.current.value.trim() !== '' &&
-			titleRef.current.value.trim().length <= 70
-		) {
-			setTitleError('')
-			title = titleRef.current.value.trim()
-		} else if (titleRef.current !== null && titleRef.current.value.trim() === '') {
-			setTitleError('Title cannot be empty!')
-		} else if (titleRef.current !== null && titleRef.current.value.trim().length > 70) {
-			setTitleError('Title must be shorter than 70 letters!')
+		const fullNewsData = {
+			title: formData.title,
+			description: formData.description,
+			text: formData.text,
+			img: formData.img,
+			delete: true,
+			date: newsDate,
+			author: loginInfoData.name,
 		}
 
-		// DESCRIPTION ERROR
-		if (
-			descriptionRef.current !== null &&
-			descriptionRef.current.value.trim() !== '' &&
-			descriptionRef.current.value.trim().length <= 400
-		) {
-			setDescriptionError('')
-			description = descriptionRef.current.value.trim()
-		} else if (descriptionRef.current !== null && descriptionRef.current.value.trim() === '') {
-			setDescriptionError('Description cannot be empty!')
-		} else if (descriptionRef.current !== null && descriptionRef.current.value.trim().length > 400) {
-			setDescriptionError('Description must be shorter than 400 letters!')
-		}
+		let response
 
-		// TEXT ERROR
-		if (
-			textRef.current !== null &&
-			textRef.current.value.trim() !== '' &&
-			textRef.current.value.trim().length <= 1500
-		) {
-			setTextError('')
-			text = textRef.current.value.trim()
-		} else if (textRef.current !== null && textRef.current.value.trim() === '') {
-			setTextError('Text cannot be empty!')
-		} else if (textRef.current !== null && textRef.current.value.trim().length > 1500) {
-			setTextError('Text must be shorter than 1500 letters!')
-		}
+		try {
+			response = await fetch('/api/news', {
+				method: 'POST',
+				body: JSON.stringify(fullNewsData),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
 
-		// IMAGE ERROR
-		if (selectedFile !== null && selectedFile !== undefined) {
-			setImageError('')
-			img = selectedFile
-		} else {
-			setImageError('Image cannot be empty!')
-		}
-
-		if (title !== '' && description !== '' && text !== '' && img !== '') {
-			console.log({ title, description, text, img })
-			titleRef.current!.value = ''
-			descriptionRef.current!.value = ''
-			textRef.current!.value = ''
-			setSelectedFile(null)
+			if (response.ok) {
+				setShowModal(true)
+				setModalResult('Your news has been successfully submitted!')
+				isError = false
+			} else if (response.status === 404) {
+				setShowModal(true)
+				setModalResult('Something went wrong.')
+				isError = true
+			} else if (response.status === 500) {
+				setShowModal(true)
+				setModalResult('Our servers got some problems. Please try again later.')
+				isError = true
+			} else {
+				setShowModal(true)
+				setModalResult(response.statusText)
+				isError = true
+			}
+		} catch (error) {
 			setShowModal(true)
-			setModalResult('Your news has been successfully submitted!')
+			setModalResult('Something went wrong!')
 		}
+
+		return isError
 	}
 
 	const closeModalHandler = () => {
+		if (modalResult === 'Your news has been successfully submitted!') {
+			console.log('ta')
+			router.push(`/${loginInfoData.role}/news`)
+			setShowModal(false)
+			setModalResult('')
+		}
 		setShowModal(false)
 		setModalResult('')
 	}
 
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.header}>Add new news</h2>
-			<form className={styles.form} encType='multipart/form-data' onSubmit={newsFormHandler}>
-				<div className={styles.box}>
-					<label className={styles.label} htmlFor='title'>
-						News title<p className={styles.info}>(max. length 70 letters)</p>
-					</label>
-					<input
-						placeholder='Enter title...'
-						className={styles.input}
-						type='text'
-						id='title'
-						ref={titleRef}
-						maxLength={70}
-						required
-					/>
-					<p className={styles.error}>{titleError}</p>
-				</div>
-				<div className={styles.box}>
-					<label className={styles.label} htmlFor='description'>
-						News description<p className={styles.info}>(max. length 400 letters)</p>
-					</label>
-					<input
-						placeholder='Enter description...'
-						className={styles.input}
-						type='text'
-						id='description'
-						ref={descriptionRef}
-						maxLength={400}
-						required
-					/>
-					<p className={styles.error}>{descriptionError}</p>
-				</div>
-				<div className={styles.box}>
-					<label className={styles.label} htmlFor='newsText'>
-						News text<p className={styles.info}>(max. length 1500 letters)</p>
-					</label>
-					<textarea
-						placeholder='Enter text...'
-						className={styles.textarea}
-						id='newsText'
-						ref={textRef}
-						maxLength={3000}
-						required
-					/>
-					<p className={styles.error}>{textError}</p>
-				</div>
-				<div className={styles.box}>
-					<label className={`${styles.label} ${styles.imgLabel}`} htmlFor='newsImage'>
-						<img src='/icons/upload.png' />
-						Choose image to upload (PNG, JPG, JPEG)
-						<input
-							className={`${styles.input} ${styles.imageInput}`}
-							type='file'
-							accept='image/png, image/jpeg, image/jpg'
-							id='newsImage'
-							onChange={getFileHandler}
-							onClick={getFileHandler}
-							required
-						/>
-					</label>
-					<p className={styles.error}>{imageError}</p>
-				</div>
-				<button type='submit' aria-label='Click to add new news' className={styles.button}>
-					Click to add new news
-				</button>
-			</form>
+			<AddNewsForm onSendData={sendDataHandler} />
 			{showModal && <Modal result={modalResult} onCloseModal={closeModalHandler} />}
 		</div>
 	)

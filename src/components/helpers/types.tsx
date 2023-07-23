@@ -26,6 +26,8 @@ export type NewsListFetchedType = [
 		img: string
 		_id: string
 		text: string
+		delete: boolean
+		parsedDate?: any
 	}
 ]
 
@@ -38,18 +40,21 @@ export type SingleNewsDataType = {
 	img: string
 	text: string
 	_id: string
+	delete: boolean
 }
 
 //NEWS LIST SINGLE DATA + ROLE
 export type SingleNewsDataRoleType = {
-	author: string
-	date: string
+	newsData: SingleNewsDataType
+	role: string
+}
+
+// NEW NEWS FORM
+export type NewNewsFormData = {
 	description: string
 	title: string
 	img: string
 	text: string
-	_id: string
-	role: string
 }
 
 // LOGINDATA
