@@ -70,7 +70,6 @@ const AddNews = () => {
 
 	const closeModalHandler = () => {
 		if (modalResult === 'Your news has been successfully submitted!') {
-			console.log('ta')
 			router.push(`/${loginInfoData.role}/news`)
 			setShowModal(false)
 			setModalResult('')

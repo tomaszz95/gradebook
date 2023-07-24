@@ -1,10 +1,45 @@
 import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import { SingleNewsDataRoleType } from '../helpers/types'
+import Modal from '../UI/Modal'
 import styles from './SingleNews.module.css'
 
 const SingleNews: React.FC<SingleNewsDataRoleType> = ({ newsData, role }) => {
+	const router = useRouter()
 	const slug = newsData.title.toLowerCase().replaceAll(' ', '-')
+	const [showModal, setShowModal] = useState(false)
+	const [modalResult, setModalResult] = useState('')
+
+	const deleteNewsHandler = async () => {
+		try {
+			const response = await fetch(`/api/news?id=${newsData._id}`, {
+				method: 'DELETE',
+			})
+
+			if (response.ok) {
+				setShowModal(true)
+				setModalResult('Sucessfully deleted news!')
+			} else {
+				setShowModal(true)
+				setModalResult('Delete news failed..')
+			}
+		} catch (error) {
+			setShowModal(true)
+			setModalResult('Delete news failed..')
+		}
+	}
+
+	const closeModalHandler = () => {
+		if (modalResult === 'Sucessfully deleted news!') {
+			router.reload()
+			setShowModal(false)
+			setModalResult('')
+		}
+		setShowModal(false)
+		setModalResult('')
+	}
 
 	return (
 		<li className={styles.item}>
@@ -19,7 +54,12 @@ const SingleNews: React.FC<SingleNewsDataRoleType> = ({ newsData, role }) => {
 					</div>
 				</div>
 			</Link>
-			{newsData.delete === true && role === 'teacher' && <button className={styles.deleteBtn}>X</button>}
+			{newsData.delete === true && role === 'teacher' && (
+				<button onClick={deleteNewsHandler} className={styles.deleteBtn}>
+					X
+				</button>
+			)}
+			{showModal && <Modal result={modalResult} onCloseModal={closeModalHandler} />}
 		</li>
 	)
 }

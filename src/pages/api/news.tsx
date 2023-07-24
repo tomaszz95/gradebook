@@ -1,5 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getAllDocuments, connectDatabase, insertDocument } from '../../components/helpers/mongoDBUtils'
+import {
+	getAllDocuments,
+	connectDatabase,
+	insertDocument,
+	deleteOneDocument,
+} from '../../components/helpers/mongoDBUtils'
 
 import { NewsListFetchedType } from '../../components/helpers/types'
 
@@ -122,7 +127,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
 			res.status(200).json({ news: newsWithoutParsedDate })
 		} catch (error) {
-			res.status(500).json({ message: 'Getting comments failed.' })
+			res.status(500).json({ message: 'Inserting news failed!.' })
+		}
+	}
+
+	if (req.method === 'DELETE') {
+		const newsId = req.query.id
+		try {
+			await deleteOneDocument(client, 'news', newsId)
+			res.status(200).json({ message: 'Sucessfully deleted news!' })
+		} catch (error) {
+			res.status(500).json({ message: 'Delete news failed.' })
 		}
 	}
 }
