@@ -14,12 +14,14 @@ const NewsList = () => {
 	const [newsList, setNewsList] = useState<NewsListFetchedType>()
 
 	useEffect(() => {
-		fetch('/api/news')
-			.then(response => response.json())
-			.then(data => {
-				setNewsList(data.news)
-			})
-	}, [])
+		if (loginInfoData.email !== '') {
+			fetch('/api/news')
+				.then(response => response.json())
+				.then(data => {
+					setNewsList(data.news)
+				})
+		}
+	}, [loginInfoData])
 
 	return (
 		<div className={styles.container}>

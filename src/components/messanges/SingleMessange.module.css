@@ -1,9 +1,10 @@
 .item {
+	padding: 1em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 70%;
 	max-width: 1000px;
-	width: 90%;
 	margin: 2em auto;
 	background-color: var(--lighter-main);
 	border-radius: 8px;
@@ -51,6 +52,7 @@
 @media (min-width: 1600px) {
 	.item {
 		max-width: 1200px;
+		width: 90%;
 	}
 
 	.content {

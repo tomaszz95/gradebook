@@ -65,3 +65,20 @@ export type LoginDataType = {
 	belong: string
 	email: string
 }
+
+//MESSANGES ITEM
+export type MessangesItemType = {
+	caller: string
+	img: string
+	_id: string
+	content: [
+		{
+			author: string
+			content: string
+			date: string
+		}
+	]
+}
+
+//MESSANGES LIST DATA
+export type MessangesListDataType = [MessangesItemType]

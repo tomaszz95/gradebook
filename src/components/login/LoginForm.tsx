@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
-import { loginDataActions } from 'src/store/login-slice'
 import Router from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
+import { loginDataActions } from 'src/store/login-slice'
 import auth from '../../../firebase'
+
 import styles from './LoginForm.module.css'
 
 const LoginForm: React.FC<{ type: string }> = ({ type }) => {

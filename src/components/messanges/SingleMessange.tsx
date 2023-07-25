@@ -1,11 +1,9 @@
 import styles from './SingleMessange.module.css'
-import Image from 'next/image'
 
-const SingleMessange: React.FC<any> = ({ id, name, messageValues }) => {
+const SingleMessange: React.FC<any> = ({ name, messageValues, img }) => {
 	return (
 		<li className={styles.item}>
-			<Image src={`/photos/students/${id}.jpg`} alt={name} width='300' height='300' className={styles.img} />
-
+			<img src={img} alt={name} className={styles.img} />
 			<div className={styles.content}>
 				<p className={styles.text}>{messageValues[0].content}</p>
 				<div className={styles.box}>
