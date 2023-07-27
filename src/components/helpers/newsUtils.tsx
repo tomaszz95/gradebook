@@ -25,7 +25,7 @@ export async function getOneNews(newsSlug: string, client: any) {
 			}
 		}
 	})
-	
+
 	return singleNews
 }
 

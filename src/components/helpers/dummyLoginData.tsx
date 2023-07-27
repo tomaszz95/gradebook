@@ -1,4 +1,6 @@
-const dummeLoginData: any = {
+import { LoginDummyDataType } from './types'
+
+const dummeLoginData: LoginDummyDataType = {
 	'student1@student.com': {
 		role: 'student',
 		belong: '3C',

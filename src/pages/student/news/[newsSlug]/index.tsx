@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-import { getOneNews, getNewsPaths } from 'src/components/helpers/apiUtils'
+import { getOneNews, getNewsPaths } from 'src/components/helpers/newsUtils'
 import { connectDatabase } from 'src/components/helpers/mongoDBUtils'
 import NewsDetail from 'src/components/news/NewsDetail'
 import SidebarLayout from 'src/components/layouts/SidebarLayout'

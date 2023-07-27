@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 import SingleMessange from './SingleMessange'
 import LoadingSpinner from '../UI/LoadingSpinner'
 
-import styles from './MessangeList.module.css'
 import { LoginDataType, MessangesListDataType } from '../helpers/types'
+import styles from './MessangeList.module.css'
 
 const MessangeList = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)

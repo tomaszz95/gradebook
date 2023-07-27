@@ -1,8 +1,12 @@
 import TimetableHead from './TimetableHead'
 import TimetableBody from './TimetableBody'
+
+import { TimetableDataType } from '../helpers/types'
 import styles from './TimetableTable.module.css'
 
-const TimetableTable: React.FC<any> = ({ lessonsTimetable }) => {
+type ComponentType = { lessonsTimetable: TimetableDataType }
+
+const TimetableTable: React.FC<ComponentType> = ({ lessonsTimetable }) => {
 	return (
 		<table className={styles.table}>
 			<TimetableHead />

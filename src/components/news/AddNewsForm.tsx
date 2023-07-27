@@ -4,7 +4,9 @@ import axios from 'axios'
 import { NewNewsFormData } from '../helpers/types'
 import styles from './AddNewsForm.module.css'
 
-const AddNewsForm: React.FC<{ onSendData: (formData: NewNewsFormData) => Promise<boolean> }> = ({ onSendData }) => {
+type ComponentType = { onSendData: (formData: NewNewsFormData) => Promise<boolean> }
+
+const AddNewsForm: React.FC<ComponentType> = ({ onSendData }) => {
 	const titleRef = useRef<HTMLInputElement>(null)
 	const descriptionRef = useRef<HTMLInputElement>(null)
 	const textRef = useRef<HTMLTextAreaElement>(null)
@@ -99,14 +101,13 @@ const AddNewsForm: React.FC<{ onSendData: (formData: NewNewsFormData) => Promise
 			}
 
 			const isError = await onSendData(newNews)
-			
+
 			if (!isError) {
 				titleRef.current!.value = ''
 				descriptionRef.current!.value = ''
 				textRef.current!.value = ''
 				imageRef.current!.value = ''
 			} else {
-				
 			}
 		}
 	}

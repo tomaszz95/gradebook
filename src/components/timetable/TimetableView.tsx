@@ -1,15 +1,41 @@
-import styles from './TimetableView.module.css'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import TimetableTable from './TimeTableTable'
-import { useRouter } from 'next/router'
+import LoadingSpinner from '../UI/LoadingSpinner'
+
+import { LoginDataType, TimetableDataType } from '../helpers/types'
+import styles from './TimetableView.module.css'
 
 const TimeTable = () => {
-	const router = useRouter()
-	const timetableArray = router.pathname.includes('student') ? timetable1A : timetableTeacher
+	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
+	const [timetable, setTimetable] = useState<TimetableDataType>()
+
+	useEffect(() => {
+		if (loginInfoData.email !== '') {
+			fetch('/api/timetable')
+				.then(response => response.json())
+				.then(data => {
+					const filteredData = data.timetable.filter((item: TimetableDataType) => item.name === loginInfoData.name)
+
+					setTimetable(filteredData[0])
+				})
+		}
+	}, [loginInfoData])
 
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.header}>Check your lessons!</h2>
-			<TimetableTable lessonsTimetable={timetableArray} />
+			{timetable && (
+				<span className={styles.name}>
+					{timetable.name} - {timetable.belong}
+				</span>
+			)}
+			{timetable ? (
+				<TimetableTable lessonsTimetable={timetable} />
+			) : (
+				<LoadingSpinner loading={timetable === undefined} />
+			)}
 		</div>
 	)
 }

@@ -66,19 +66,51 @@ export type LoginDataType = {
 	email: string
 }
 
+// LOGINDATA DUMMY
+export type LoginDummyDataType = {
+	[email: string]: LoginDataType
+}
+
+// MESSAGES INFO
+export type MessangesInfoType = {
+	author: string
+	content: string
+	date: string
+}
+
 //MESSANGES ITEM
 export type MessangesItemType = {
 	caller: string
 	img: string
 	_id: string
-	content: [
-		{
-			author: string
-			content: string
-			date: string
-		}
-	]
+	content: [MessangesInfoType]
 }
 
 //MESSANGES LIST DATA
 export type MessangesListDataType = [MessangesItemType]
+
+// TIMETABLE LESSONS
+export type TimetableLessonsType = {
+	subject?: string
+	group?: string
+	class: string
+}
+
+// TIMETABLE DAYS
+export type TimetableDaysType = {
+	Monday: TimetableLessonsType
+	Tuesday: TimetableLessonsType
+	Wednesday: TimetableLessonsType
+	Thursday: TimetableLessonsType
+	Friday: TimetableLessonsType
+}
+
+// TIMETABLE FULL DATA
+export type TimetableDataType = {
+	_id: string
+	name: string
+	belong: string
+	lessons: {
+		[day: string]: TimetableDaysType
+	}
+}

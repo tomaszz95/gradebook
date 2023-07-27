@@ -1,6 +1,8 @@
 import styles from './SingleTimetableCell.module.css'
 
-const SingleTimetableCell: React.FC<any> = ({ subject, hall }) => {
+type ComponentType = { subject: string | undefined; hall: string }
+
+const SingleTimetableCell: React.FC<ComponentType> = ({ subject, hall }) => {
 	return (
 		<td className={styles.cell}>
 			{subject ? <p className={styles.subject}>{subject}</p> : <p className={styles.free}>-</p>}

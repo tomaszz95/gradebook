@@ -9,7 +9,9 @@ import auth from '../../../firebase'
 
 import styles from './LoginForm.module.css'
 
-const LoginForm: React.FC<{ type: string }> = ({ type }) => {
+type ComponentType = { type: string }
+
+const LoginForm: React.FC<ComponentType> = ({ type }) => {
 	const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)

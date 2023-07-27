@@ -1,6 +1,8 @@
 import styles from './Modal.module.css'
 
-const Modal: React.FC<{ result: string; onCloseModal: () => void }> = ({ result, onCloseModal }) => {
+type ComponentType = { result: string; onCloseModal: () => void }
+
+const Modal: React.FC<ComponentType> = ({ result, onCloseModal }) => {
 	return (
 		<div className={styles.modal} onClick={onCloseModal}>
 			<div className={styles.box}>

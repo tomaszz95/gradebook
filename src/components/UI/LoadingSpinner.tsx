@@ -7,7 +7,9 @@ const override: CSSProperties = {
 	margin: '30 auto',
 }
 
-const LoadingSpinner: React.FC<{ loading: boolean }> = ({ loading }) => {
+type ComponentType = { loading: boolean }
+
+const LoadingSpinner: React.FC<ComponentType> = ({ loading }) => {
 	return (
 		<div className={styles.loader}>
 			<FadeLoader

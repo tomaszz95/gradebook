@@ -3,7 +3,9 @@ import { useRouter } from 'next/router'
 import { SingleNewsDataType } from '../helpers/types'
 import styles from './NewsDetail.module.css'
 
-const NewsDetail: React.FC<{ singleNews: SingleNewsDataType }> = ({ singleNews }) => {
+type ComponentType = { singleNews: SingleNewsDataType }
+
+const NewsDetail: React.FC<ComponentType> = ({ singleNews }) => {
 	const router = useRouter()
 
 	return (

@@ -1,7 +1,13 @@
 import SingleTimetableCell from './SingleTimetableCell'
+
+import { TimetableDaysType } from '../helpers/types'
 import styles from './TimetableRow.module.css'
 
-const TimetableRow: React.FC<any> = ({ lessonsData, number, hours }) => {
+const TimetableRow: React.FC<{ lessonsData: TimetableDaysType; number: string; hours: string }> = ({
+	lessonsData,
+	number,
+	hours,
+}) => {
 	return (
 		<tr className={styles.row}>
 			<th>{number}</th>

@@ -1,6 +1,14 @@
 import styles from './SingleMessange.module.css'
 
-const SingleMessange: React.FC<any> = ({ name, messageValues, img }) => {
+import { MessangesInfoType } from '../helpers/types'
+
+type ComponentType = {
+	name: string
+	messageValues: [MessangesInfoType]
+	img: string
+}
+
+const SingleMessange: React.FC<ComponentType> = ({ name, messageValues, img }) => {
 	return (
 		<li className={styles.item}>
 			<img src={img} alt={name} className={styles.img} />
