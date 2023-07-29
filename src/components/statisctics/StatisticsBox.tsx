@@ -28,7 +28,7 @@ const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAvera
 	return (
 		<div className={styles.box}>
 			<h3 className={styles.heading}>
-				Average grades for <span>{isStudent ? personType : 'whole school'}</span>
+				Average grades for <span>{isStudent ? personType : 'class 1A'}</span>
 			</h3>
 			<div className={styles.line}></div>
 			<SingleStats

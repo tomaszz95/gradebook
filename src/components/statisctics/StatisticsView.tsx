@@ -16,7 +16,7 @@ const dummyData3C = {
 					},
 					{
 						grade: '-',
-						date: '21-04-2023',
+						date: '23-06-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
@@ -57,7 +57,7 @@ const dummyData3C = {
 					},
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '28-04-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
@@ -98,7 +98,7 @@ const dummyData3C = {
 					},
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '02-02-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
@@ -139,7 +139,7 @@ const dummyData3C = {
 					},
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '11-06-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
@@ -158,7 +158,7 @@ const dummyData3C = {
 					},
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '11-03-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
@@ -192,14 +192,14 @@ const dummyData3C = {
 				Pluses: [
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '02-06-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,
 					},
 					{
 						grade: '+',
-						date: '21-04-2023',
+						date: '09-04-2023',
 						topic: 'Lorem ipsum',
 						category: 'Activity',
 						weight: 1,

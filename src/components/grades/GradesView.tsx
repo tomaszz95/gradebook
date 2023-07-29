@@ -1078,6 +1078,7 @@ const dummyStudentData = {
 		},
 	},
 }
+
 const dummyTeacherData = {
 	'Semester 1': {
 		'Jan Kowalski': {
