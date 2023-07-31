@@ -17,7 +17,7 @@ const dummeLoginData: LoginDummyDataType = {
 	},
 	'teacher1@teacher.com': {
 		role: 'teacher',
-		belong: 'Math',
+		belong: 'Mathematics',
 		name: 'Michał Nowak',
 		img: 'https://cdn.pixabay.com/photo/2016/03/24/09/10/man-1276384_1280.jpg',
 		email: 'teacher1@teacher.com',

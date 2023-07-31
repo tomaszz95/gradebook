@@ -1,6 +1,6 @@
 import SingleGrade from './SingleGrade'
 
-import { GradesSubjectInsideType } from '../helpers/types'
+import { GradesSubjectInsideType, SingleGradesType } from '../helpers/types'
 import { countEndGrade, countAverage, addBackgroundColor } from '../helpers/gradesHelpersFunctions'
 import styles from './GradesRow.module.css'
 
@@ -19,12 +19,12 @@ const GradesRow: React.FC<ComponentType> = ({ subject, subjectData }) => {
 		<tr className={styles.row}>
 			<td className={styles.subject}>{subject}</td>
 			<td>
-				{subjectData.Pluses.map((data: any) => (
+				{subjectData.Pluses.map((data: SingleGradesType) => (
 					<SingleGrade gradeData={data} key={Math.random()} />
 				))}
 			</td>
 			<td>
-				{subjectData.Grades.map((data: any) => (
+				{subjectData.Grades.map((data: SingleGradesType) => (
 					<SingleGrade gradeData={data} key={Math.random()} />
 				))}
 			</td>

@@ -1,10 +1,12 @@
-export const countAverage = (subjectData: any) => {
+import { GradesType, SingleGradesType, GradesSubjectType, GradesNamesType } from './types'
+
+export const countAverage = (subjectData: GradesType) => {
 	const gradesArray: number[] = []
 	const weightArray: number[] = []
 	let gradesSum: number = 0
 	let weightSum: number = 0
 
-	subjectData.map((data: any) => {
+	subjectData.map((data: SingleGradesType) => {
 		switch (data.grade) {
 			case '1+':
 				gradesArray.push(1.5)
@@ -107,12 +109,24 @@ export const countWholeClassAverage = (classData: any, stringSemester: string, s
 	return averageObj
 }
 
-export const findAllObjects = (subjects: any) => {
+export const findAllSubjects = (subjects: GradesSubjectType) => {
 	let subjectsArr = []
+
 	for (const subject in subjects) {
 		subjectsArr.push(subject)
 	}
+
 	return subjectsArr
+}
+
+export const findAllNames = (namesList: GradesNamesType) => {
+	let namesArray = []
+	
+	for (const name in namesList) {
+		namesArray.push(name)
+	}
+
+	return namesArray
 }
 
 export const addBackgroundColor = (grade: string) => {

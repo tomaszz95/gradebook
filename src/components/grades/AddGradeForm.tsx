@@ -1,6 +1,8 @@
-import styles from './AddGradeForm.module.css'
 import { useRef, useState } from 'react'
+
 import Modal from '../UI/Modal'
+
+import styles from './AddGradeForm.module.css'
 
 const dummyTeacherData = {
 	'Semester 1': {

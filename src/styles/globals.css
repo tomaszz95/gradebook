@@ -90,11 +90,16 @@ a {
 .better,
 .medium,
 .hight {
+	line-height: 34px;
+	width: 44px;
+	height: 34px;
+	position: relative;
+	display: inline-block;
 	color: #000000;
 	font-weight: bold;
 	font-size: var(--size-xm);
-	padding: 0.6em 0.8em;
 	border-radius: 8px;
+	margin: 0.3em;
 }
 
 @media (min-width: 1600px) {
@@ -103,6 +108,8 @@ a {
 	.medium,
 	.hight {
 		font-size: var(--size-xxxm);
-		padding: 0.8em 1em;
+		line-height: 40px;
+		width: 50px;
+		height: 40px;
 	}
 }

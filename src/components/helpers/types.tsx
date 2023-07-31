@@ -144,4 +144,8 @@ export type GradesSubjectInsideType = {
 	Grades: GradesType
 }
 
-export type GradesType = [{ category: string; grade: string; date: string; topic: string; weight: number }]
+// GRADES ARRAY
+export type GradesType = [SingleGradesType]
+
+// SINGLE GRADE
+export type SingleGradesType = { category: string; grade: string; date: string; topic: string; weight: number }

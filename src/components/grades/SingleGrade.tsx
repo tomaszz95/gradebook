@@ -1,24 +1,14 @@
-import styles from './SingleGrade.module.css'
 import { useState } from 'react'
 
-export const addBackgroundColor = (grade: string) => {
-	let colorClass
+import { SingleGradesType } from '../helpers/types'
+import { addBackgroundColor } from '../helpers/gradesHelpersFunctions'
+import styles from './SingleGrade.module.css'
 
-	if (+grade < 1.99) {
-		colorClass = styles.bad
-	} else if (+grade < 2.99) {
-		colorClass = styles.better
-	} else if (+grade < 3.99) {
-		colorClass = styles.medium
-	} else if (grade === '-') {
-		colorClass = styles.bad
-	} else {
-		colorClass = styles.hight
-	}
-	return colorClass
+type ComponentType = {
+	gradeData: SingleGradesType
 }
 
-const SingleGrade: React.FC<any> = ({ gradeData }) => {
+const SingleGrade: React.FC<ComponentType> = ({ gradeData }) => {
 	const [isMouseOnGrade, setIsMouseOnGrade] = useState(false)
 	const gradeColor = addBackgroundColor(gradeData.grade)
 
