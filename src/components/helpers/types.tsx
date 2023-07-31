@@ -114,3 +114,34 @@ export type TimetableDataType = {
 		[day: string]: TimetableDaysType
 	}
 }
+
+// GRADES LIST DATA
+export type GradesListType = {
+	_id: string
+	class: string
+	content: GradesListContentType
+}
+
+// GRADES LIST CONTENT
+export type GradesListContentType = {
+	'Semester 1': GradesNamesType
+	'Semester 2': GradesNamesType
+}
+
+// GRADES NAMES
+export type GradesNamesType = {
+	[name: string]: GradesSubjectType
+}
+
+// GRADES SUBJECT
+export type GradesSubjectType = {
+	[subject: string]: GradesSubjectInsideType
+}
+
+// GRADES SUBJECT INSIDE
+export type GradesSubjectInsideType = {
+	Pluses: GradesType
+	Grades: GradesType
+}
+
+export type GradesType = [{ category: string; grade: string; date: string; topic: string; weight: number }]

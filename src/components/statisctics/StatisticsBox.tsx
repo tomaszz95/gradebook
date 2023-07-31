@@ -1,7 +1,7 @@
 import SingleStats from './SingleStats'
 import styles from './StatisticsBox.module.css'
 import { useEffect, useState } from 'react'
-import { countAverage } from '../helpers/averageFunctions'
+import { countAverage } from '../helpers/gradesHelpersFunctions'
 
 const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAverage, personType, isStudent }) => {
 	const [singleGrades, setSingleGrades] = useState([])

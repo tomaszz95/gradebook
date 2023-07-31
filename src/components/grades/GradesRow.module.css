@@ -12,33 +12,6 @@
 	font-weight: bold;
 }
 
-.bad,
-.better,
-.medium,
-.hight {
-	color: #000000;
-	font-weight: bold;
-	font-size: var(--size-xm);
-	padding: 0.6em 0.8em;
-	border-radius: 8px;
-}
-
-.bad {
-	background-color: var(--red);
-}
-
-.better {
-	background-color: var(--orange);
-}
-
-.medium {
-	background-color: var(--warning);
-}
-
-.hight {
-	background-color: var(--hightlight);
-}
-
 @media (min-width: 1600px) {
 	.row td {
 		font-size: var(--size-l);
@@ -48,13 +21,5 @@
 
 	.row .subject {
 		font-size: var(--size-l);
-	}
-
-	.bad,
-	.better,
-	.medium,
-	.hight {
-		font-size: var(--size-xxxm);
-		padding: 0.8em 1em;
 	}
 }

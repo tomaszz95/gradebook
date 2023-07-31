@@ -2,7 +2,7 @@ import styles from './StatisticsContent.module.css'
 import StatisticsBox from './StatisticsBox'
 import StatisticsTable from './StatisticsTable'
 import { useState } from 'react'
-import { countWholeClassAverage } from '../helpers/averageFunctions'
+import { countWholeClassAverage } from '../helpers/gradesHelpersFunctions'
 
 const dummyName = 'Jacek Kowalski'
 

@@ -1,5 +1,5 @@
 import styles from './StatisticsRow.module.css'
-import { countAverage } from '../helpers/averageFunctions'
+import { countAverage } from '../helpers/gradesHelpersFunctions'
 
 const addBackgroundColor = (grade: string | number) => {
 	let colorClass

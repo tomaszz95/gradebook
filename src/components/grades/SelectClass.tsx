@@ -16,13 +16,13 @@ const SelectClass: React.FC<{ onSelectClass: (selectedClass: string) => void }> 
 			</label>
 			<select id='selectClass' className={styles.selectComp} ref={selectedRef} onChange={chooseClassValue}>
 				<option value='1A'>1A</option>
-				<option value='1B'>1B</option>
-				<option value='1C'>1C</option>
-				<option value='2A'>2A</option>
-				<option value='2B'>2B</option>
-				<option value='2C'>2C</option>
-				<option value='3A'>3A</option>
-				<option value='3B'>3B</option>
+				<option value='1B' disabled>1B</option>
+				<option value='1C' disabled>1C</option>
+				<option value='2A' disabled>2A</option>
+				<option value='2B' disabled>2B</option>
+				<option value='2C' disabled>2C</option>
+				<option value='3A' disabled>3A</option>
+				<option value='3B' disabled>3B</option>
 				<option value='3C'>3C</option>
 			</select>
 		</div>

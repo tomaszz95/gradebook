@@ -30,6 +30,12 @@
 	background-color: #17a129;
 }
 
+.name {
+	text-align: center;
+	font-size: var(--size-l);
+	color: var(--red);
+}
+
 @media (min-width: 1600px) {
 	.container {
 		padding: 1em 10em 10em 10em;

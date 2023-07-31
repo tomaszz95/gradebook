@@ -1,24 +1,15 @@
-import styles from './GradesRow.module.css'
 import SingleGrade from './SingleGrade'
-import { countEndGrade, countAverage } from '../helpers/averageFunctions'
 
+import { GradesSubjectInsideType } from '../helpers/types'
+import { countEndGrade, countAverage, addBackgroundColor } from '../helpers/gradesHelpersFunctions'
+import styles from './GradesRow.module.css'
 
-export const addBackgroundColor = (grade: string) => {
-	let colorClass
-
-	if (+grade < 1.99) {
-		colorClass = styles.bad
-	} else if (+grade < 2.99) {
-		colorClass = styles.better
-	} else if (+grade < 3.99) {
-		colorClass = styles.medium
-	} else {
-		colorClass = styles.hight
-	}
-	return colorClass
+type ComponentType = {
+	subject: string
+	subjectData: GradesSubjectInsideType
 }
 
-const GradesRow: React.FC<any> = ({ subject, subjectData }) => {
+const GradesRow: React.FC<ComponentType> = ({ subject, subjectData }) => {
 	const averageGrade = countAverage(subjectData.Grades)
 	const endMark = countEndGrade(averageGrade)
 	const averageGradeColor = addBackgroundColor(averageGrade)

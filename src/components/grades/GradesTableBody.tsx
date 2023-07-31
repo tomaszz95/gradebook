@@ -1,21 +1,23 @@
-import styles from './GradesTableBody.module.css'
+import { useSelector } from 'react-redux'
+
 import GradesRow from './GradesRow'
 
-const findAllObjects = (subjectsObj: any) => {
-	let subjectsArr = []
-	for (const subject in subjectsObj) {
-		subjectsArr.push(subject)
-	}
-	return subjectsArr
+import { findAllObjects } from '../helpers/gradesHelpersFunctions'
+import { LoginDataType, GradesNamesType } from '../helpers/types'
+import styles from './GradesTableBody.module.css'
+
+type ComponentType = {
+	gradesSemesterData: GradesNamesType
 }
 
-const GradesTableBody: React.FC<any> = ({ gradesSemesterData, type }) => {
-	const subjectsOrPersonsArray = findAllObjects(gradesSemesterData)
-
+const GradesTableBody: React.FC<ComponentType> = ({ gradesSemesterData }) => {
+	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
+	const gradesArray = findAllObjects(gradesSemesterData[loginInfoData.name])
+	console.log(gradesSemesterData)
 	return (
 		<tbody className={styles.body}>
-			{subjectsOrPersonsArray.map(item => (
-				<GradesRow subject={item} subjectData={gradesSemesterData[item]} key={item} />
+			{gradesArray.map(item => (
+				<GradesRow subject={item} subjectData={gradesSemesterData[loginInfoData.name][item]} key={item} />
 			))}
 		</tbody>
 	)

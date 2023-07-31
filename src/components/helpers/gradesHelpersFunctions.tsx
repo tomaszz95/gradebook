@@ -106,3 +106,26 @@ export const countWholeClassAverage = (classData: any, stringSemester: string, s
 	}
 	return averageObj
 }
+
+export const findAllObjects = (subjects: any) => {
+	let subjectsArr = []
+	for (const subject in subjects) {
+		subjectsArr.push(subject)
+	}
+	return subjectsArr
+}
+
+export const addBackgroundColor = (grade: string) => {
+	let colorClass
+
+	if (+grade < 1.99) {
+		colorClass = 'bad'
+	} else if (+grade < 2.99) {
+		colorClass = 'better'
+	} else if (+grade < 3.99) {
+		colorClass = 'medium'
+	} else {
+		colorClass = 'hight'
+	}
+	return colorClass
+}

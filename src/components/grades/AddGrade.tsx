@@ -6,7 +6,6 @@ const AddGrade = () => {
 		<div className={styles.container}>
 			<h2 className={styles.header}>Add new grade</h2>
 			<AddGradeForm />
-			{/* {showModal && <Modal result={modalResult} onCloseModal={closeModalHandler} />} */}
 		</div>
 	)
 }
