@@ -121,7 +121,7 @@ export const findAllSubjects = (subjects: GradesSubjectType) => {
 
 export const findAllNames = (namesList: GradesNamesType) => {
 	let namesArray = []
-	
+
 	for (const name in namesList) {
 		namesArray.push(name)
 	}
@@ -142,4 +142,29 @@ export const addBackgroundColor = (grade: string) => {
 		colorClass = 'hight'
 	}
 	return colorClass
+}
+
+export const countWeight = (grade: string) => {
+	let gradeWeight
+
+	switch (grade) {
+		case 'Activity':
+			gradeWeight = 1
+			break
+		case 'Homework':
+			gradeWeight = 2
+			break
+		case 'Card':
+			gradeWeight = 4
+			break
+		case 'Verbal':
+			gradeWeight = 3
+			break
+		case 'Test':
+			gradeWeight = 5
+			break
+		default:
+			gradeWeight = 1
+	}
+	return gradeWeight
 }

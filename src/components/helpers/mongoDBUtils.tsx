@@ -25,6 +25,14 @@ export async function deleteOneDocument(client: any, collection: string, newsId:
 	const db = client.db()
 	const documentId = new ObjectId(newsId)
 	const deleteDocument = await db.collection(collection).deleteOne({ _id: documentId })
-
 	return deleteDocument
+}
+
+export async function findOneGradeAndReplace(client: any, collection: string, filter: any, updatedData: any) {
+	const db = client.db()
+
+	console.log(updatedData)
+	const modifyGrades = await db.collection(collection).findOneAndReplace(filter, ...updatedData, { returnOriginal: false })
+
+	return modifyGrades
 }

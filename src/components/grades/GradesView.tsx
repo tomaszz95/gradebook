@@ -6,13 +6,13 @@ import LoadingSpinner from '../UI/LoadingSpinner'
 import GradesTable from './GradesTable'
 import SelectClass from './SelectClass'
 
-import { LoginDataType, GradesListType } from '../helpers/types'
+import { LoginDataType, GradesListType, GradesListContentType } from '../helpers/types'
 import styles from './GradesView.module.css'
 
 const GradesView = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
-	const [selectedValue, setSelectedValue] = useState('')
-	const [gradesList, setGradesList] = useState()
+	const [selectedValue, setSelectedValue] = useState('1A')
+	const [gradesList, setGradesList] = useState<GradesListContentType | undefined>()
 	const router = useRouter()
 
 	useEffect(() => {
@@ -22,7 +22,7 @@ const GradesView = () => {
 				.then(data => {
 					let filteredData
 
-					if (selectedValue !== '') {
+					if (selectedValue !== '' && selectedValue === loginInfoData.belong) {
 						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === selectedValue)
 					} else if (selectedValue === '' && loginInfoData.role === 'teacher') {
 						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === '1A')
@@ -36,8 +36,8 @@ const GradesView = () => {
 				})
 		}
 	}, [loginInfoData, selectedValue])
-
 	const selectClassHandler = (selectedClass: string) => {
+		setGradesList(undefined)
 		setSelectedValue(selectedClass)
 	}
 
@@ -55,7 +55,7 @@ const GradesView = () => {
 			{loginInfoData.role.includes('student') ? (
 				''
 			) : (
-				<button onClick={() => router.push(`/teacher/grades/add-grade`)} className={styles.newButton}>
+				<button onClick={() => router.push(`/teacher/grades/add-grade/${selectedValue}`)} className={styles.newButton}>
 					Add grade
 				</button>
 			)}
