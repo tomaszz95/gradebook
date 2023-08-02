@@ -149,3 +149,24 @@ export type GradesType = [SingleGradesType]
 
 // SINGLE GRADE
 export type SingleGradesType = { category: string; grade: string; date: string; topic: string; weight: number }
+
+// STATISTICS
+export type StatisticsStudentDataType = [
+	{
+		_id: string
+		class?: string
+		name?: string
+		averages: StatisticsAveragesType
+	}
+]
+
+// STATISTICS AVERAGE
+export type StatisticsAveragesType = {
+	'Semester 1': StatisticsSubjectsType
+	'Semester 2': StatisticsSubjectsType
+}
+
+// STATISTICS SUBJECT
+export type StatisticsSubjectsType = {
+	[subject: string]: string
+}

@@ -1,5 +1,6 @@
-import styles from './SelectClass.module.css'
 import { useRef } from 'react'
+
+import styles from './SelectClass.module.css'
 
 type ComponentType = { onSelectClass: (selectedClass: string) => void }
 

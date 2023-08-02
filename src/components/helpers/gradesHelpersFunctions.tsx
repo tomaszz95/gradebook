@@ -1,4 +1,11 @@
-import { GradesType, SingleGradesType, GradesSubjectType, GradesNamesType } from './types'
+import {
+	GradesType,
+	SingleGradesType,
+	GradesSubjectType,
+	GradesNamesType,
+	GradesListType,
+	StatisticsStudentDataType,
+} from './types'
 
 export const countAverage = (subjectData: GradesType) => {
 	const gradesArray: number[] = []
@@ -83,32 +90,6 @@ export const countEndGrade = (average: string) => {
 	return endMark
 }
 
-export const countWholeClassAverage = (classData: any, stringSemester: string, subjectArr: any, isStudent: boolean) => {
-	let averageObj = {}
-	if (isStudent) {
-		for (const data in classData) {
-			subjectArr.map((subject: string) => {
-				return (averageObj = {
-					...averageObj,
-					[subject]: {
-						average: countAverage(classData[data][stringSemester][subject].Grades),
-					},
-				})
-			})
-		}
-	} else {
-		subjectArr.map((subject: string) => {
-			return (averageObj = {
-				...averageObj,
-				[subject]: {
-					average: countAverage(classData[stringSemester][subject].Grades),
-				},
-			})
-		})
-	}
-	return averageObj
-}
-
 export const findAllSubjects = (subjects: GradesSubjectType) => {
 	let subjectsArr = []
 
@@ -167,4 +148,63 @@ export const countWeight = (grade: string) => {
 			gradeWeight = 1
 	}
 	return gradeWeight
+}
+
+export const statisticsStudentData = (classData: GradesListType) => {
+	let studentsArray: StatisticsStudentDataType = []
+
+	for (const semester in classData.content) {
+		const semesterData = classData.content[semester]
+		if (semester === 'Semester 1') {
+			for (const studentName in semesterData) {
+				const studentObject = {
+					id: Math.random().toString(),
+					name: studentName,
+					averages: {
+						[semester]: {},
+					},
+				}
+				const studentData = semesterData[studentName]
+
+				for (const subject in studentData) {
+					const gradesArray = studentData[subject].Grades
+					const subjectWeightedAverage = countAverage(gradesArray)
+					studentObject.averages[semester][subject] = subjectWeightedAverage
+				}
+
+				studentsArray.push(studentObject)
+			}
+		} else {
+			for (const studentName in semesterData) {
+				const studentSecondObject = {
+					[semester]: {},
+				}
+				const studentData = semesterData[studentName]
+
+				for (const subject in studentData) {
+					const gradesArray = studentData[subject].Grades
+					const subjectWeightedAverage = countAverage(gradesArray)
+					studentSecondObject[semester][subject] = subjectWeightedAverage
+				}
+
+				studentsArray.map(singleStudent => {
+					let updatedObject
+					if (singleStudent.name === studentName) {
+						updatedObject = {
+							...singleStudent,
+							averages: {
+								...singleStudent.averages,
+								...studentSecondObject,
+							},
+						}
+						const filteredArray = studentsArray.filter(array => array.name !== studentName)
+						studentsArray = filteredArray
+						studentsArray.push(updatedObject)
+					}
+				})
+			}
+		}
+	}
+
+	return studentsArray
 }

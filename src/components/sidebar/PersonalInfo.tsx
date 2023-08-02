@@ -1,7 +1,9 @@
 import { LoginDataType } from '../helpers/types'
 import styles from './PersonalInfo.module.css'
 
-const PersonalInfo: React.FC<{ loggedUserData: LoginDataType }> = ({ loggedUserData }) => {
+type ComponentType = { loggedUserData: LoginDataType }
+
+const PersonalInfo: React.FC<ComponentType> = ({ loggedUserData }) => {
 	const roleName = loggedUserData.role.charAt(0).toUpperCase() + loggedUserData.role.slice(1)
 
 	return (

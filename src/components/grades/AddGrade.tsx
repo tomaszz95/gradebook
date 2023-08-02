@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
 import AddGradeForm from './AddGradeForm'
+import LoadingSpinner from '../UI/LoadingSpinner'
 
 import { findAllNames } from '../helpers/gradesHelpersFunctions'
 import { LoginDataType, GradesListType } from '../helpers/types'
 import styles from './AddGrade.module.css'
-import LoadingSpinner from '../UI/LoadingSpinner'
 
 const AddGrade = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)

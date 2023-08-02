@@ -1,36 +1,35 @@
-import styles from './StatisticsContent.module.css'
+import { useState } from 'react'
+
 import StatisticsBox from './StatisticsBox'
 import StatisticsTable from './StatisticsTable'
-import { useState } from 'react'
-import { countWholeClassAverage } from '../helpers/gradesHelpersFunctions'
+import LoadingSpinner from '../UI/LoadingSpinner'
 
-const dummyName = 'Jacek Kowalski'
+import { StatisticsStudentDataType } from '../helpers/types'
+import { findAllSubjects } from '../helpers/gradesHelpersFunctions'
+import styles from './StatisticsContent.module.css'
 
-const findAllSubjects = (subjectsObj: any) => {
-	let subjectsArr = []
-	for (const subject in subjectsObj) {
-		subjectsArr.push(subject)
-	}
-	return subjectsArr
+type ComponentType = {
+	classData: StatisticsStudentDataType | undefined
+	studentName: string | undefined
+	role: string
 }
 
-const StatisticsContent: React.FC<any> = ({ classData, schoolClassName, isStudent }) => {
-	const [isSemesterOne, setIsSemesterOne] = useState(true)
-
-	const stringSemester = isSemesterOne ? 'Semester 1' : 'Semester 2'
-
-	const singleSemesterData = isStudent ? classData[dummyName][stringSemester] : classData[stringSemester]
-	const subjectsArr = findAllSubjects(singleSemesterData)
-
-	const wholeClassAverage = countWholeClassAverage(classData, stringSemester, subjectsArr, isStudent)
-
-	const changeSemesterHandler = (semester: string) => {
-		semester === 'Semester 1' ? setIsSemesterOne(true) : setIsSemesterOne(false)
+const StatisticsContent: React.FC<ComponentType> = ({ classData, studentName, role }) => {
+	if (classData === undefined) {
+		return <LoadingSpinner loading={classData === undefined} />
 	}
+	console.log(classData)
+	// const subjectsArr = findAllSubjects(singleSemesterData)
+
+	// const wholeClassAverage = countWholeClassAverage(classData, stringSemester, subjectsArr, isStudent)
+
+	// const changeSemesterHandler = (semester: string) => {
+	// 	semester === 'Semester 1' ? setIsSemesterOne(true) : setIsSemesterOne(false)
+	// }
 
 	return (
 		<div className={styles.container}>
-			<StatisticsTable
+			{/* <StatisticsTable
 				personInfo={singleSemesterData}
 				subjectsArr={subjectsArr}
 				wholeClassAverage={wholeClassAverage}
@@ -56,7 +55,7 @@ const StatisticsContent: React.FC<any> = ({ classData, schoolClassName, isStuden
 				) : (
 					''
 				)}
-			</div>
+			</div> */}
 		</div>
 	)
 }

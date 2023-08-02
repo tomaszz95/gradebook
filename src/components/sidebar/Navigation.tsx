@@ -4,7 +4,11 @@ import Image from 'next/image'
 
 import styles from './Navigation.module.css'
 
-const Navigation: React.FC<{ loggedUserRole: string }> = ({ loggedUserRole }) => {
+type ComponentType = {
+	loggedUserRole: string
+}
+
+const Navigation: React.FC<ComponentType> = ({ loggedUserRole }) => {
 	const router = useRouter()
 	const urlType = loggedUserRole.toLocaleLowerCase()
 

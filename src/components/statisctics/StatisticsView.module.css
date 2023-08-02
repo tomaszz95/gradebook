@@ -12,6 +12,12 @@
 	color: var(--hightlight);
 }
 
+.name {
+	text-align: center;
+	font-size: var(--size-l);
+	color: var(--red);
+}
+
 @media (min-width: 1200px) {
 	.container {
 		padding: 1em 10em 10em 10em;

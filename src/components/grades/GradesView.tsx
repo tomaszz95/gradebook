@@ -36,6 +36,7 @@ const GradesView = () => {
 				})
 		}
 	}, [loginInfoData, selectedValue])
+	
 	const selectClassHandler = (selectedClass: string) => {
 		setGradesList(undefined)
 		setSelectedValue(selectedClass)
