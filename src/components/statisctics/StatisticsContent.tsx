@@ -4,12 +4,12 @@ import StatisticsBox from './StatisticsBox'
 import StatisticsTable from './StatisticsTable'
 import LoadingSpinner from '../UI/LoadingSpinner'
 
-import { StatisticsStudentDataType } from '../helpers/types'
-import { findAllSubjects } from '../helpers/gradesHelpersFunctions'
+import { StatisticsObjectStudentDataType } from '../helpers/types'
+import { findAllSubjects, countStatisticsWholeClassAverage } from '../helpers/gradesHelpersFunctions'
 import styles from './StatisticsContent.module.css'
 
 type ComponentType = {
-	classData: StatisticsStudentDataType | undefined
+	classData: StatisticsObjectStudentDataType[] | undefined
 	studentName: string | undefined
 	role: string
 }
@@ -18,26 +18,26 @@ const StatisticsContent: React.FC<ComponentType> = ({ classData, studentName, ro
 	if (classData === undefined) {
 		return <LoadingSpinner loading={classData === undefined} />
 	}
-	console.log(classData)
-	// const subjectsArr = findAllSubjects(singleSemesterData)
+	const [semester, setSemester] = useState<string>('Semester 1')
 
-	// const wholeClassAverage = countWholeClassAverage(classData, stringSemester, subjectsArr, isStudent)
+	const subjectsArr = findAllSubjects(classData[0].averages['Semester 1'])
+	const wholeClassAverage = countStatisticsWholeClassAverage(classData, semester, subjectsArr)
 
-	// const changeSemesterHandler = (semester: string) => {
-	// 	semester === 'Semester 1' ? setIsSemesterOne(true) : setIsSemesterOne(false)
-	// }
+	const changeSemesterHandler = (changedSemester: string) => {
+		changedSemester === 'Semester 1' ? setSemester('Semester 1') : setSemester('Semester 2')
+	}
 
 	return (
 		<div className={styles.container}>
-			{/* <StatisticsTable
-				personInfo={singleSemesterData}
+			<StatisticsTable
+				gradesData={classData}
 				subjectsArr={subjectsArr}
 				wholeClassAverage={wholeClassAverage}
 				onChangeSemesterHandler={changeSemesterHandler}
-				semesterOne={isSemesterOne}
-				isStudent={isStudent}
+				semester={semester}
+				role={role}
 			/>
-			<div className={styles.boxes}>
+			{/* <div className={styles.boxes}>
 				<StatisticsBox
 					personInfo={singleSemesterData}
 					subjectsArr={subjectsArr}

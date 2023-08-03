@@ -4,7 +4,9 @@ import {
 	GradesSubjectType,
 	GradesNamesType,
 	GradesListType,
-	StatisticsStudentDataType,
+	StatisticsObjectStudentDataType,
+	StatisticsAveragePush,
+	StatisticsSubjectsType,
 } from './types'
 
 export const countAverage = (subjectData: GradesType) => {
@@ -70,6 +72,32 @@ export const countAverage = (subjectData: GradesType) => {
 	return average
 }
 
+export const countStatisticsWholeClassAverage = (
+	averageData: StatisticsObjectStudentDataType[] | any,
+	semester: string,
+	subjectsArr: string[]
+) => {
+	const subjectAverages: { [key: string]: string }[] = []
+
+	subjectsArr.forEach(subject => {
+		let sum = 0
+		let count = 0
+
+		averageData.forEach((student: any) => {
+			sum += parseFloat(student.averages[semester][subject])
+			count++
+		})
+
+		if (count > 0) {
+			const averageSum = sum / count
+			const average = averageSum.toFixed(2).toString()
+			subjectAverages.push({ subject, average })
+		}
+	})
+
+	return subjectAverages
+}
+
 export const countEndGrade = (average: string) => {
 	let endMark: string
 
@@ -90,7 +118,7 @@ export const countEndGrade = (average: string) => {
 	return endMark
 }
 
-export const findAllSubjects = (subjects: GradesSubjectType) => {
+export const findAllSubjects = (subjects: GradesSubjectType | StatisticsSubjectsType) => {
 	let subjectsArr = []
 
 	for (const subject in subjects) {
@@ -151,14 +179,14 @@ export const countWeight = (grade: string) => {
 }
 
 export const statisticsStudentData = (classData: GradesListType) => {
-	let studentsArray: StatisticsStudentDataType = []
+	let studentsArray: StatisticsObjectStudentDataType[] = []
 
 	for (const semester in classData.content) {
 		const semesterData = classData.content[semester]
 		if (semester === 'Semester 1') {
 			for (const studentName in semesterData) {
-				const studentObject = {
-					id: Math.random().toString(),
+				const studentObject: StatisticsObjectStudentDataType = {
+					_id: Math.random().toString(),
 					name: studentName,
 					averages: {
 						[semester]: {},
@@ -169,6 +197,7 @@ export const statisticsStudentData = (classData: GradesListType) => {
 				for (const subject in studentData) {
 					const gradesArray = studentData[subject].Grades
 					const subjectWeightedAverage = countAverage(gradesArray)
+
 					studentObject.averages[semester][subject] = subjectWeightedAverage
 				}
 
@@ -176,7 +205,7 @@ export const statisticsStudentData = (classData: GradesListType) => {
 			}
 		} else {
 			for (const studentName in semesterData) {
-				const studentSecondObject = {
+				const studentSecondObject: StatisticsAveragePush = {
 					[semester]: {},
 				}
 				const studentData = semesterData[studentName]
@@ -184,6 +213,7 @@ export const statisticsStudentData = (classData: GradesListType) => {
 				for (const subject in studentData) {
 					const gradesArray = studentData[subject].Grades
 					const subjectWeightedAverage = countAverage(gradesArray)
+
 					studentSecondObject[semester][subject] = subjectWeightedAverage
 				}
 

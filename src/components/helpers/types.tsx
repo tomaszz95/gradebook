@@ -126,6 +126,7 @@ export type GradesListType = {
 export type GradesListContentType = {
 	'Semester 1': GradesNamesType
 	'Semester 2': GradesNamesType
+	[key: string]: GradesNamesType
 }
 
 // GRADES NAMES
@@ -160,10 +161,27 @@ export type StatisticsStudentDataType = [
 	}
 ]
 
+// STATISTICS OBJ
+export type StatisticsObjectStudentDataType = {
+	_id: string
+	class?: string
+	name?: string
+	averages: {
+		'Semester 1': StatisticsSubjectsType
+	}
+}
+
 // STATISTICS AVERAGE
 export type StatisticsAveragesType = {
 	'Semester 1': StatisticsSubjectsType
 	'Semester 2': StatisticsSubjectsType
+}
+
+// STATISTICS AVERAGE PUSH
+export type StatisticsAveragePush = {
+	[subject: string]: {
+		[subject: string]: string
+	}
 }
 
 // STATISTICS SUBJECT

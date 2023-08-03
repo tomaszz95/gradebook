@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux'
 
 import StatisticsContent from './StatisticsContent'
 
-import { LoginDataType, GradesListType, StatisticsStudentDataType } from '../helpers/types'
+import { LoginDataType, GradesListType, StatisticsObjectStudentDataType } from '../helpers/types'
 import { statisticsStudentData } from '../helpers/gradesHelpersFunctions'
 import styles from './StatisticsView.module.css'
 
 const StatisticsView = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
-	const [gradesList, setGradesList] = useState<StatisticsStudentDataType | undefined>()
+	const [gradesList, setGradesList] = useState<StatisticsObjectStudentDataType[] | undefined>()
 
 	useEffect(() => {
 		if (loginInfoData.email !== '') {
@@ -21,7 +21,6 @@ const StatisticsView = () => {
 							(gradesArr: GradesListType) => gradesArr.class === loginInfoData.belong
 						)
 						const studentData = statisticsStudentData(filteredGradesArr[0])
-						console.log(studentData)
 						setGradesList(studentData)
 					})
 			}
