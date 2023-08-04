@@ -1,60 +1,18 @@
 .box {
 	display: flex;
 	align-items: center;
-	text-align: left;
 }
 
-.box span {
+.subject {
+	text-align: left;
+	width: 150px;
 	margin: 0.3em 0;
 	display: inline-block;
 	font-size: var(--size-xm);
 }
 
-.subject {
-	width: 150px;
-}
-
-.bad,
-.better,
-.medium,
-.hight {
-	color: #000000;
-	font-weight: bold;
-	font-size: var(--size-xm);
-	padding: 0.5em;
-	border-radius: 8px;
-}
-
-.bad {
-	background-color: var(--red);
-}
-
-.better {
-	background-color: var(--orange);
-}
-
-.medium {
-	background-color: var(--warning);
-}
-
-.hight {
-	background-color: var(--hightlight);
-}
-
 @media (min-width: 1600px) {
-	.box span {
-		margin: 0.4em 0;
-		font-size: var(--size-xxm);
-	}
-
 	.subject {
 		width: 200px;
-	}
-
-	.bad,
-	.better,
-	.medium,
-	.hight {
-		padding: 0.7em;
 	}
 }

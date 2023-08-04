@@ -98,6 +98,29 @@ export const countStatisticsWholeClassAverage = (
 	return subjectAverages
 }
 
+export const countWholeSchoolAverage = (
+	averageData: StatisticsObjectStudentDataType[] | any,
+	semester: string,
+	subjectsArr: string[],
+	teacherSubj: string | undefined
+) => {
+	let average
+	subjectsArr.forEach(subject => {
+		let sum = 0
+		let count = 0
+		averageData.forEach((student: any) => {
+			if (teacherSubj) sum += +parseFloat(student.averages[semester][teacherSubj])
+			count++
+		})
+
+		if (count > 0) {
+			const averageSum = sum / count
+			average = averageSum.toFixed(2).toString()
+		}
+	})
+	return average
+}
+
 export const countEndGrade = (average: string) => {
 	let endMark: string
 
@@ -141,11 +164,11 @@ export const findAllNames = (namesList: GradesNamesType) => {
 export const addBackgroundColor = (grade: string) => {
 	let colorClass
 
-	if (+grade < 1.99) {
+	if (+grade < 1.99 || grade === '1+' || grade === '2-') {
 		colorClass = 'bad'
-	} else if (+grade < 2.99) {
+	} else if (+grade < 2.99 || grade === '2+' || grade === '3-') {
 		colorClass = 'better'
-	} else if (+grade < 3.99) {
+	} else if (+grade < 3.99 || grade === '3+' || grade === '4-') {
 		colorClass = 'medium'
 	} else {
 		colorClass = 'hight'

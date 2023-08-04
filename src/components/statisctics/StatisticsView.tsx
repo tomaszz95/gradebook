@@ -6,6 +6,7 @@ import StatisticsContent from './StatisticsContent'
 import { LoginDataType, GradesListType, StatisticsObjectStudentDataType } from '../helpers/types'
 import { statisticsStudentData } from '../helpers/gradesHelpersFunctions'
 import styles from './StatisticsView.module.css'
+import LoadingSpinner from '../UI/LoadingSpinner'
 
 const StatisticsView = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
@@ -46,8 +47,16 @@ const StatisticsView = () => {
 					{loginInfoData.name} - {loginInfoData.belong}
 				</span>
 			)}
-
-			<StatisticsContent classData={gradesList} studentName={loginInfoData.name} role={loginInfoData.role} />
+			{gradesList === undefined ? (
+				<LoadingSpinner loading={gradesList === undefined} />
+			) : (
+				<StatisticsContent
+					classData={gradesList}
+					studentName={loginInfoData.name}
+					role={loginInfoData.role}
+					subject={loginInfoData.belong}
+				/>
+			)}
 		</div>
 	)
 }

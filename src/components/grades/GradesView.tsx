@@ -22,12 +22,10 @@ const GradesView = () => {
 				.then(data => {
 					let filteredData
 
-					if (selectedValue !== '' && selectedValue === loginInfoData.belong) {
-						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === selectedValue)
-					} else if (selectedValue === '' && loginInfoData.role === 'teacher') {
-						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === '1A')
-					} else {
+					if (selectedValue !== loginInfoData.belong && loginInfoData.role !== 'teacher') {
 						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === loginInfoData.belong)
+					} else {
+						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === selectedValue)
 					}
 
 					if (filteredData) {
@@ -36,7 +34,7 @@ const GradesView = () => {
 				})
 		}
 	}, [loginInfoData, selectedValue])
-	
+
 	const selectClassHandler = (selectedClass: string) => {
 		setGradesList(undefined)
 		setSelectedValue(selectedClass)

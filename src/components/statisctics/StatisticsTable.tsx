@@ -1,12 +1,12 @@
 import StatisticsRow from './StatisticsRow'
 
-import { StatisticsObjectStudentDataType } from '../helpers/types'
+import { StatisticsSubjectsType } from '../helpers/types'
 import styles from './StatisticsTable.module.css'
 
 type ComponentType = {
-	gradesData: StatisticsObjectStudentDataType[]
-	subjectsArr: [{ [subject: string]: string }]
-	wholeClassAverage: [{ [subject: string]: string; average: string }]
+	gradesData: StatisticsSubjectsType[]
+	tableRowOptions: string[]
+	wholeClassAverage: { [key: string]: string }[] | string
 	onChangeSemesterHandler: (changedSemester: string) => void
 	semester: string
 	role: string
@@ -14,7 +14,7 @@ type ComponentType = {
 
 const StatisticsTable: React.FC<ComponentType> = ({
 	gradesData,
-	subjectsArr,
+	tableRowOptions,
 	wholeClassAverage,
 	onChangeSemesterHandler,
 	semester,
@@ -25,14 +25,14 @@ const StatisticsTable: React.FC<ComponentType> = ({
 			onChangeSemesterHandler(e.currentTarget.textContent)
 		}
 	}
-	console.log(gradesData)
+
 	return (
 		<div className={styles.content}>
 			<div className={styles.buttons}>
 				<button onClick={semesterHandler} className={semester === 'Semester 1' ? styles.active : ''}>
 					Semester 1
 				</button>
-				<button onClick={semesterHandler} className={semester === 'Semester 2' ? '' : styles.active}>
+				<button onClick={semesterHandler} className={semester === 'Semester 1' ? '' : styles.active}>
 					Semester 2
 				</button>
 			</div>
@@ -45,17 +45,35 @@ const StatisticsTable: React.FC<ComponentType> = ({
 					</tr>
 				</thead>
 				<tbody className={styles.body}>
-					{subjectsArr.map((gradesArr: StatisticsObjectStudentDataType) => {
-						return (
-							<StatisticsRow
-								subject={subject}
-								subjectGrades={gradesData[subject].Grades}
-								key={subject}
-								classAverage={wholeClassAverage[subject].average}
-								isStudent={isStudent}
-								wholeClassAverage={wholeClassAverage}
-							/>
-						)
+					{tableRowOptions.map((subject: any) => {
+						if (role === 'student') {
+							if (typeof wholeClassAverage !== 'string') {
+								const subjectClassAverage = wholeClassAverage.find(item => item.subject === subject)
+								if (subjectClassAverage === undefined || gradesData.length === 0) return
+
+								return (
+									<StatisticsRow
+										subject={subject}
+										subjectGrades={gradesData[0][subject]}
+										key={subject}
+										classAverage={subjectClassAverage.average}
+									/>
+								)
+							}
+						} else if (role === 'teacher') {
+							if (typeof wholeClassAverage === 'string' && gradesData.length > 0) {
+								const singleClassAverage = gradesData.filter(item => item.subject === subject)
+
+								return (
+									<StatisticsRow
+										subject={subject}
+										subjectGrades={singleClassAverage[0].average}
+										key={subject}
+										classAverage={wholeClassAverage}
+									/>
+								)
+							}
+						}
 					})}
 				</tbody>
 			</table>

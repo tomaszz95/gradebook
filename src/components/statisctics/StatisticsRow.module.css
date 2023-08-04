@@ -4,48 +4,9 @@
 	padding: 1em;
 }
 
-.row td span {
-	display: inline-block;
-	padding: 0.7em;
-	border-radius: 8px;
-	border: none;
-}
-
-.bad,
-.better,
-.medium,
-.hight {
-	color: #000000;
-	font-weight: bold;
-	font-size: var(--size-xm);
-}
-
-.bad {
-	background-color: var(--red);
-}
-
-.better {
-	background-color: var(--orange);
-}
-
-.medium {
-	background-color: var(--warning);
-}
-
-.hight {
-	background-color: var(--hightlight);
-}
-
 @media (min-width: 1600px) {
 	.row td {
 		padding: 0.9em;
-		font-size: var(--size-xxm);
-	}
-
-	.bad,
-	.better,
-	.medium,
-	.hight {
 		font-size: var(--size-xxm);
 	}
 }

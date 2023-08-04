@@ -1,43 +1,33 @@
 import SingleStats from './SingleStats'
+
+import { StatisticsSubjectsType } from '../helpers/types'
 import styles from './StatisticsBox.module.css'
-import { useEffect, useState } from 'react'
-import { countAverage } from '../helpers/gradesHelpersFunctions'
 
-const StatisticsBox: React.FC<any> = ({ personInfo, subjectsArr, wholeClassAverage, personType, isStudent }) => {
-	const [singleGrades, setSingleGrades] = useState([])
-	const [classGrades, setClassGrades] = useState([])
+type ComponentType = {
+	personInfo: StatisticsSubjectsType[]
+	role: string
+	belong: string | undefined
+	studentName: string | undefined
+	classBox: boolean
+}
 
-	useEffect(() => {
-		let singleGradesArr = subjectsArr.map((subject: string) => {
-			const subjectAverage = countAverage(personInfo[subject].Grades)
-			return {
-				subject,
-				subjectAverage,
-			}
-		})
-		setSingleGrades(singleGradesArr)
-
-		let classGradesArr: any = []
-		for (const data in wholeClassAverage) {
-			classGradesArr.push({ subject: data, subjectAverage: wholeClassAverage[data].average })
-		}
-
-		setClassGrades(classGradesArr)
-	}, [subjectsArr, personInfo])
-
+const StatisticsBox: React.FC<ComponentType> = ({ personInfo, role, belong, studentName, classBox }) => {
+	const headingTitle = role === 'teacher' ? belong : classBox ? belong : studentName
 	return (
 		<div className={styles.box}>
 			<h3 className={styles.heading}>
-				Average grades for <span>{isStudent ? personType : 'class 1A'}</span>
+				Average grades for <span>{headingTitle}</span>
 			</h3>
 			<div className={styles.line}></div>
 			<SingleStats
-				averageData={personType.includes('class') ? classGrades : singleGrades}
-				componentFor={`Best average ${isStudent ? 'subject' : 'classes'} grades`}
+				averageData={personInfo}
+				componentFor={`Best average ${role === 'student' ? 'subject' : 'classes'} grades`}
+				role={role}
 			/>
 			<SingleStats
-				averageData={personType.includes('class') ? classGrades : singleGrades}
-				componentFor={`Worst average ${isStudent ? 'subject' : 'classes'} grades`}
+				averageData={personInfo}
+				componentFor={`Worst average ${role === 'student' ? 'subject' : 'classes'} grades`}
+				role={role}
 			/>
 		</div>
 	)

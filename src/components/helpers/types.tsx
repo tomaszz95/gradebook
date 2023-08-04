@@ -188,3 +188,9 @@ export type StatisticsAveragePush = {
 export type StatisticsSubjectsType = {
 	[subject: string]: string
 }
+
+// STATISTICS SUBJECT
+export type StatisticsAverageSubjectType = {
+	subject: string
+	average: string
+}
