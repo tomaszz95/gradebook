@@ -1,7 +1,17 @@
+import Head from 'next/head'
+
 import TeacherLogin from 'src/components/login/TeacherLogin'
 
 const TeacherLoginPage = () => {
-	return <TeacherLogin />
+	return (
+		<>
+			<Head>
+				<title>Teacher login | Gradebook</title>
+				<meta name='description' content='Teacher login page' />
+			</Head>
+			<TeacherLogin />
+		</>
+	)
 }
 
 export default TeacherLoginPage

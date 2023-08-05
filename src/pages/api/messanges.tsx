@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import { getAllDocuments, connectDatabase } from '../../components/helpers/mongoDBUtils'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {

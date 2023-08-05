@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
 
 import { getOneNews, getNewsPaths } from 'src/components/helpers/newsUtils'
 import { connectDatabase } from 'src/components/helpers/mongoDBUtils'
@@ -10,6 +11,10 @@ import { SingleNewsDataType } from 'src/components/helpers/types'
 const TeacherSingleNewsPage: React.FC<{ singleNews: SingleNewsDataType }> = ({ singleNews }) => {
 	return (
 		<SidebarLayout>
+			<Head>
+				<title>{singleNews.title} | Gradebook</title>
+				<meta name='description' content={singleNews.description} />
+			</Head>
 			<NewsDetail singleNews={singleNews} />
 		</SidebarLayout>
 	)

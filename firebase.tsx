@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth'
 let app
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyAgX0QnSsHGra0A2sUwPBJhYpDs3NLA9Fo',
-	authDomain: process.env.FIREBASE_AUTHDOMAIN,
-	projectId: process.env.FIREBASE_PROJECTID,
-	storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-	messagingSenderId: process.env.FIREBASE_MESSANGINGSENDERID,
-	appId: process.env.FIREBASE_APPID,
+	apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
+	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
+	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
+	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSANGINGSENDERID,
+	appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
 }
 
 if (getApps().length < 1) {

@@ -1,11 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import {
 	getAllDocuments,
 	connectDatabase,
 	insertDocument,
 	deleteOneDocument
 } from '../../components/helpers/mongoDBUtils'
-
 import { NewsListFetchedType } from '../../components/helpers/types'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
