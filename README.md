@@ -4,12 +4,12 @@ Hello, I present to you my **Gradebook** project. I was thinking about creating 
 The page is not fully responsive (only 1100px+) - it is meant to be used on computer screens (or huge tablets), not on mobile devices (rest of my projects are responsive, but in this I wanted to focus on code, communication with API and databases). The project shows different information based on whether you are logged in as a teacher or as a student.
 It also has some basic example data for the purpose of testing.
 
-# To log in as a student you need to use the login dataset:
+**To log in as a student you need to use the login dataset:**
 
 - login: student1@student.com ; password: student1
 - login: student2@student.com ; password: student2
 
-# To log in as a teacher:
+**To log in as a teacher:**
 
 - login: teacher1@teacher.com ; password: teacher1
 - login: teacher2@teacher.com ; password: teacher2
@@ -44,6 +44,6 @@ It also has some basic example data for the purpose of testing.
 ## 👩‍💻 TODO
 
 - [ ] Add more teachers / students - app is flexible, written to easily add new students and teachers - it only needs full lessons plan, grades for every class, student and subject.
-- [ ] Add more "messages" options (create new message chats, write to each other), 
+- [ ] Add more "messages" options (create new message chats, write to each other),
 
 #### I encourage you to check the website - uploaded to vercel [Gradebook](https://nutricuisine.netlify.app/).
