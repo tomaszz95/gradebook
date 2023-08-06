@@ -40,7 +40,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 			setStudentNameError('')
 			studentName = studentNameRef.current.value
 		} else {
-			setStudentNameError('You must choose the student!')
+			setStudentNameError('You must select a student!')
 		}
 
 		// GRADE ERROR
@@ -48,7 +48,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 			setGradeError('')
 			grade = gradeRef.current.value
 		} else {
-			setGradeError('You must choose the grade!')
+			setGradeError('You must select a grade!')
 		}
 
 		// DATE ERROR
@@ -56,7 +56,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 			setDateError('')
 			date = dateRef.current.value
 		} else {
-			setDateError('You must choose the date!')
+			setDateError('You must choose a date!')
 		}
 
 		// TOPIC ERROR
@@ -74,7 +74,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 			setCategoryError('')
 			category = categoryRef.current.value
 		} else {
-			setCategoryError('You must choose the category!')
+			setCategoryError('You must select a category!')
 		}
 
 		const fullGradeData = { studentName, grade, date, topic, category, weight, subject, chosenClass }
@@ -93,13 +93,13 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 
 				if (response.ok) {
 					setShowModal(true)
-					setModalResult('Your news has been successfully submitted!')
+					setModalResult('Your grade has been successfully submitted!')
 				} else if (response.status === 404) {
 					setShowModal(true)
 					setModalResult('Something went wrong.')
 				} else if (response.status === 500) {
 					setShowModal(true)
-					setModalResult('Our servers got some problems. Please try again later.')
+					setModalResult('Our servers have some problems. Please try again later.')
 				} else {
 					setShowModal(true)
 					setModalResult(response.statusText)
@@ -127,7 +127,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 			<form className={styles.form} onSubmit={addGradeHandler}>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='student'>
-						Choose student
+						Select student
 					</label>
 					<select className={`${styles.select} ${styles.student}`} id='student' ref={studentNameRef} defaultValue='0'>
 						<option value='0' disabled>
@@ -143,7 +143,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='grade'>
-						Choose grade
+						Select grade
 					</label>
 					<select className={styles.select} id='grade' ref={gradeRef} defaultValue='0'>
 						<option value='0' disabled>
@@ -179,7 +179,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='topic'>
-						Choose topic
+						Enter topic
 					</label>
 					<input
 						id='topic'
@@ -193,7 +193,7 @@ const AddGradeForm: React.FC<ComponentType> = ({ studentList, subject, chosenCla
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='category'>
-						Choose category
+						Select category
 					</label>
 					<select className={`${styles.select} ${styles.category}`} id='category' ref={categoryRef} defaultValue='0'>
 						<option value='0' disabled>

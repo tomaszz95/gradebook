@@ -26,14 +26,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 		if (newGradesData.studentName !== null && newGradesData.studentName !== '0') {
 			studentName = ''
 		} else {
-			studentName = 'You must choose the student!'
+			studentName = 'You must select the student!'
 		}
 
 		// GRADE ERROR
 		if (newGradesData.grade !== null && newGradesData.grade !== '0') {
 			gradeError = ''
 		} else {
-			gradeError = 'You must choose the grade!'
+			gradeError = 'You must select the grade!'
 		}
 
 		// DATE ERROR
@@ -56,14 +56,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 		if (newGradesData.category !== null && newGradesData.category !== '0') {
 			categoryError = ''
 		} else {
-			categoryError = 'You must choose the category!'
+			categoryError = 'You must select the category!'
 		}
 
 		// WEIGHT ERROR
 		if (newGradesData.weight !== null) {
 			weightError = ''
 		} else {
-			weightError = 'Chosen weight is wrong!'
+			weightError = 'Selected weight is wrong!'
 		}
 
 		let result

@@ -39,8 +39,8 @@ const StatisticsView = () => {
 		<div className={styles.container}>
 			<h2 className={styles.header}>
 				{loginInfoData.role === 'student'
-					? 'Check your and yours class statistics!'
-					: 'Check classes and school statistics in your subject!'}
+					? "Check your and your class' statistics!"
+					: "Check class' and school's statistics in your subject!"}
 			</h2>
 			{loginInfoData && (
 				<span className={styles.name}>

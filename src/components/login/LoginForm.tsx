@@ -29,7 +29,7 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
 		if (emailRef.current && emailRef.current.value.trim() === '') {
 			setEmailError('Email cannot be empty!')
 		} else if (emailRef.current && !emailRef.current.value.includes(type)) {
-			setEmailError('Please enter valid e-mail address!')
+			setEmailError('Please enter a valid e-mail address!')
 		} else {
 			setEmailError('')
 		}
@@ -65,9 +65,9 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
 				})
 				.catch(error => {
 					if (error.code.includes('email') || error.code.includes('user')) {
-						setEmailError('Please enter valid e-mail address!')
+						setEmailError('Please enter a valid e-mail address!')
 					} else if (error.code.includes('password')) {
-						setPasswordError('Please enter valid password!')
+						setPasswordError('Please enter a valid password!')
 					}
 				})
 		}

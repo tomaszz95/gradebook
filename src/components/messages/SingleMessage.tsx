@@ -1,14 +1,14 @@
-import styles from './SingleMessange.module.css'
+import styles from './SingleMessage.module.css'
 
-import { MessangesInfoType } from '../helpers/types'
+import { MessagesInfoType } from '../helpers/types'
 
 type ComponentType = {
 	name: string
-	messageValues: [MessangesInfoType]
+	messageValues: [MessagesInfoType]
 	img: string
 }
 
-const SingleMessange: React.FC<ComponentType> = ({ name, messageValues, img }) => {
+const SingleMessage: React.FC<ComponentType> = ({ name, messageValues, img }) => {
 	return (
 		<li className={styles.item}>
 			<img src={img} alt={name} className={styles.img} />
@@ -23,4 +23,4 @@ const SingleMessange: React.FC<ComponentType> = ({ name, messageValues, img }) =
 	)
 }
 
-export default SingleMessange
+export default SingleMessage

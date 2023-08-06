@@ -26,6 +26,7 @@ const Sidebar = () => {
 	}, [])
 
 	const logoutHandler = () => {
+		dispatch(loginDataActions.deleteLoginInfo())
 		signOut(auth)
 		router.push('/')
 	}

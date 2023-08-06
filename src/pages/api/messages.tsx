@@ -14,11 +14,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
 	if (req.method === 'GET') {
 		try {
-			const allMessanges = await getAllDocuments(client, 'messanges')
-			const messangesArr = allMessanges[0]
-			res.status(200).json({ messanges: messangesArr })
+			const allMessages = await getAllDocuments(client, 'messages')
+			const messagesArr = allMessages[0]
+			res.status(200).json({ messages: messagesArr })
 		} catch (error) {
-			res.status(500).json({ message: 'Getting messanges failed!' })
+			res.status(500).json({ message: 'Getting messages failed!' })
 		}
 	}
 }

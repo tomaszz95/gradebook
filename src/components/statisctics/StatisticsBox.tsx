@@ -21,12 +21,12 @@ const StatisticsBox: React.FC<ComponentType> = ({ personInfo, role, belong, stud
 			<div className={styles.line}></div>
 			<SingleStats
 				averageData={personInfo}
-				componentFor={`Best average ${role === 'student' ? 'subject' : 'classes'} grades`}
+				componentFor={`Averages of best ${role === 'student' ? 'subjects' : 'classes'}`}
 				role={role}
 			/>
 			<SingleStats
 				averageData={personInfo}
-				componentFor={`Worst average ${role === 'student' ? 'subject' : 'classes'} grades`}
+				componentFor={`Averages of worst ${role === 'student' ? 'subjects' : 'classes'}`}
 				role={role}
 			/>
 		</div>

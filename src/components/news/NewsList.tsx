@@ -34,7 +34,10 @@ const NewsList = () => {
 				)}
 			</ul>
 			{loginInfoData.role === 'teacher' && newsList !== undefined && newsList.length > 0 ? (
-				<button onClick={() => router.push(`/${loginInfoData.role}/news/create-news`)} className={styles.newButton}>
+				<button
+					onClick={() => router.push(`/${loginInfoData.role}/news/create-news`)}
+					className={styles.newButton}
+					aria-label='Go to add new news page'>
 					Add new news
 				</button>
 			) : null}

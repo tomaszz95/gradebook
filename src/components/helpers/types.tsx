@@ -72,22 +72,22 @@ export type LoginDummyDataType = {
 }
 
 // MESSAGES INFO
-export type MessangesInfoType = {
+export type MessagesInfoType = {
 	author: string
 	content: string
 	date: string
 }
 
-//MESSANGES ITEM
-export type MessangesItemType = {
+//MESSAGES ITEM
+export type MessagesItemType = {
 	caller: string
 	img: string
 	_id: string
-	content: [MessangesInfoType]
+	content: [MessagesInfoType]
 }
 
-//MESSANGES LIST DATA
-export type MessangesListDataType = [MessangesItemType]
+//MESSAGES LIST DATA
+export type MessagesListDataType = [MessagesItemType]
 
 // TIMETABLE LESSONS
 export type TimetableLessonsType = {

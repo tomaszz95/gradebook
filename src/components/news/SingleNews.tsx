@@ -40,10 +40,10 @@ const SingleNews: React.FC<SingleNewsDataRoleType> = ({ newsData, role }) => {
 		setShowModal(false)
 		setModalResult('')
 	}
-
+	
 	return (
 		<li className={styles.item}>
-			<Link href={`/${role}/news/${slug}`}>
+			<Link href={`news/${slug}`}>
 				<img src={newsData.img} alt={newsData.title} className={styles.img} />
 				<div className={styles.content}>
 					<h3 className={styles.title}>{newsData.title}</h3>

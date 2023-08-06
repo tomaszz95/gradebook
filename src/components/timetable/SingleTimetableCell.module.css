@@ -34,6 +34,13 @@
 	}
 
 	.class {
+		font-size: var(--size-xxm);
+		margin-top: 0.3em;
+	}
+}
+
+@media (min-width: 2000px) {
+	.class {
 		font-size: var(--size-xxxm);
 		margin-top: 0.3em;
 	}

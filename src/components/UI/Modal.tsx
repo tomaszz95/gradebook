@@ -7,7 +7,9 @@ const Modal: React.FC<ComponentType> = ({ result, onCloseModal }) => {
 		<div className={styles.modal} onClick={onCloseModal}>
 			<div className={styles.box}>
 				<p>{result}</p>
-				<button onClick={onCloseModal}>Confirm</button>
+				<button onClick={onCloseModal} aria-label='Click to confirm'>
+					Confirm
+				</button>
 			</div>
 		</div>
 	)

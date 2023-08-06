@@ -53,7 +53,7 @@ const AddNews = () => {
 				isError = true
 			} else if (response.status === 500) {
 				setShowModal(true)
-				setModalResult('Our servers got some problems. Please try again later.')
+				setModalResult('Our servers have some problems. Please try again later.')
 				isError = true
 			} else {
 				setShowModal(true)

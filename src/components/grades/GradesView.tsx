@@ -54,7 +54,10 @@ const GradesView = () => {
 			{loginInfoData.role.includes('student') ? (
 				''
 			) : (
-				<button onClick={() => router.push(`/teacher/grades/add-grade/${selectedValue}`)} className={styles.newButton}>
+				<button
+					onClick={() => router.push(`/teacher/grades/add-grade/${selectedValue}`)}
+					className={styles.newButton}
+					aria-label='Go to add new grades page'>
 					Add grade
 				</button>
 			)}

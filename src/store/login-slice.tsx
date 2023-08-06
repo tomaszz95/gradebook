@@ -25,7 +25,6 @@ const loginDataSlice = createSlice({
 		},
 		deleteLoginInfo() {
 			localStorage.removeItem('loginUserData')
-
 			return LoginDataInitial
 		},
 	},

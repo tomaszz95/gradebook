@@ -40,7 +40,7 @@ const StatisticsTable: React.FC<ComponentType> = ({
 				<thead className={styles.head}>
 					<tr>
 						<th>{role === 'student' ? 'Subject' : 'Class'}</th>
-						<th>{role === 'student' ? 'Yours average' : 'Class average'}</th>
+						<th>{role === 'student' ? 'Your average' : 'Class average'}</th>
 						<th>{role === 'student' ? 'Class average' : 'School average'}</th>
 					</tr>
 				</thead>

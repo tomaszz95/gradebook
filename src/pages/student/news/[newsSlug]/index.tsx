@@ -9,7 +9,6 @@ import SidebarLayout from 'src/components/layouts/SidebarLayout'
 import { SingleNewsDataType } from 'src/components/helpers/types'
 
 const StudentSingleNewsPage: React.FC<{ singleNews: SingleNewsDataType }> = ({ singleNews }) => {
-	console.log(singleNews)
 	return (
 		<SidebarLayout>
 			<Head>

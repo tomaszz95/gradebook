@@ -49,15 +49,15 @@ const Navigation: React.FC<ComponentType> = ({ loggedUserRole }) => {
 				<span className={styles.item}>Grades</span>
 			</Link>
 			<Link
-				href={`/${urlType}/messanges`}
-				className={`${styles.link} ${router.pathname.includes('messanges') ? styles.active : ''}`}>
+				href={`/${urlType}/messages`}
+				className={`${styles.link} ${router.pathname.includes('messages') ? styles.active : ''}`}>
 				<Image
-					src={`${router.pathname.includes('messanges') ? '/icons/staractive.png' : '/icons/star.png'}`}
+					src={`${router.pathname.includes('messages') ? '/icons/staractive.png' : '/icons/star.png'}`}
 					alt=''
 					width='25'
 					height='25'
 				/>
-				<span className={styles.item}>Messanges</span>
+				<span className={styles.item}>Messages</span>
 			</Link>
 			<Link
 				href={`/${urlType}/statistics`}

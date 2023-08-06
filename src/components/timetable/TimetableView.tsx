@@ -28,7 +28,7 @@ const TimeTable = () => {
 			<h2 className={styles.header}>Check your lessons!</h2>
 			{timetable && (
 				<span className={styles.name}>
-					{timetable.name} - {timetable.belong}
+					{loginInfoData.name} - {loginInfoData.belong}
 				</span>
 			)}
 			{timetable ? (

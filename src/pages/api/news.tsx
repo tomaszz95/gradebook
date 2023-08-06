@@ -66,7 +66,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 			!fullNewsData.img.includes('jpeg') &&
 			!fullNewsData.img.includes('png')
 		) {
-			imageError = 'You must set proper image link! (jpg, jpeg, png)'
+			imageError = 'You must set proper image link!'
 		} else if (fullNewsData.img !== null && fullNewsData.img.trim() === '') {
 			imageError = 'Image input cannot be empty!'
 		} else if (fullNewsData.img !== null && fullNewsData.img.trim() !== '') {

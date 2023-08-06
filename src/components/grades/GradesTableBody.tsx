@@ -20,18 +20,19 @@ const GradesTableBody: React.FC<ComponentType> = ({ gradesSemesterData }) => {
 	} else {
 		gradesArray = findAllNames(gradesSemesterData)
 	}
-
 	return (
 		<tbody className={styles.body}>
-			{gradesArray.map(item => (
-				<GradesRow
-					subject={item}
-					subjectData={
-						isStudent ? gradesSemesterData[loginInfoData.name][item] : gradesSemesterData[item][loginInfoData.belong]
-					}
-					key={item}
-				/>
-			))}
+			{gradesArray.map(item => {
+				return (
+					<GradesRow
+						subject={item}
+						subjectData={
+							isStudent ? gradesSemesterData[loginInfoData.name][item] : gradesSemesterData[item][loginInfoData.belong]
+						}
+						key={item}
+					/>
+				)
+			})}
 		</tbody>
 	)
 }

@@ -17,8 +17,8 @@ const GradesTableHead: React.FC<ComponentType> = ({ semester }) => {
 				</th>
 			</tr>
 			<tr>
-				<th>Pluses</th>
-				<th>Subgrades</th>
+				<th>Pluses / Minuses</th>
+				<th>Grades</th>
 				<th>Average</th>
 				<th>Mark</th>
 			</tr>

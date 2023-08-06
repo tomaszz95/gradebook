@@ -27,7 +27,7 @@ const NewsDetail: React.FC<ComponentType> = ({ singleNews }) => {
 				onClick={() => {
 					router.back()
 				}}>
-				<img src='/icons/arrowLeft.png' alt='Back arrow' />
+				<img src='/icons/arrowLeft.png' alt='' />
 				<span>Go back</span>
 			</button>
 		</div>

@@ -9,7 +9,10 @@ type ComponentType = {
 	subjectData: GradesSubjectInsideType
 }
 
+// @ts-ignore
 const GradesRow: React.FC<ComponentType> = ({ subject, subjectData }) => {
+	if (subjectData === undefined) return
+
 	const averageGrade = countAverage(subjectData.Grades)
 	const endMark = countEndGrade(averageGrade)
 	const averageGradeColor = addBackgroundColor(averageGrade)

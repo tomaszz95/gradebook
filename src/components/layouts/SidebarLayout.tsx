@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
@@ -11,12 +12,23 @@ import styles from './SidebarLayout.module.css'
 const SidebarLayout: React.FC<ChildrenLayoutType> = ({ children }) => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
 	const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+	const router = useRouter()
 
 	useEffect(() => {
-		if (loginInfoData.email === '') {
+		const cookiesLoginEmail = localStorage.getItem('loginUserData')
+
+		if (loginInfoData.email === '' && cookiesLoginEmail !== null) {
 			dispatch(loginDataActions.getLoginInfo())
+		} else if (loginInfoData.email === '' && cookiesLoginEmail === null) {
+			router.push('/')
+		} else if (
+			loginInfoData.email !== '' &&
+			cookiesLoginEmail !== null &&
+			!router.pathname.includes(loginInfoData.role)
+		) {
+			router.push(`/${loginInfoData.role}/news`)
 		}
-	}, [])
+	}, [loginInfoData])
 
 	return (
 		<main className={styles.main}>

@@ -74,7 +74,7 @@ const AddNewsForm: React.FC<ComponentType> = ({ onSendData }) => {
 			!imageRef.current.value.includes('jpeg') &&
 			!imageRef.current.value.includes('png')
 		) {
-			setImageError('You must set a proper image link! (jpg, jpeg, png)')
+			setImageError('You must set a proper image link!')
 		} else if (imageRef.current !== null && imageRef.current.value.trim() === '') {
 			setImageError('Image input cannot be empty!')
 		} else if (imageRef.current !== null && imageRef.current.value.trim() !== '') {
@@ -88,7 +88,7 @@ const AddNewsForm: React.FC<ComponentType> = ({ onSendData }) => {
 					setImageError('You must set a proper image link!')
 				}
 			} catch (error) {
-				setImageError('Image cannot be fetched - check your link!')
+				setImageError('Image cannot be loaded - check your link!')
 			}
 		}
 
@@ -162,7 +162,8 @@ const AddNewsForm: React.FC<ComponentType> = ({ onSendData }) => {
 				</div>
 				<div className={styles.box}>
 					<label className={styles.label} htmlFor='newsImage'>
-						Choose image to upload<p className={styles.info}>(paste link to image - only png, jpg and jpeg images)</p>
+						Choose image to upload
+						<p className={styles.info}>(paste link to image - only png, jpg and jpeg extensions)</p>
 					</label>
 					<input
 						placeholder='Enter image url...'
