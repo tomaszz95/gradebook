@@ -11,7 +11,9 @@
 		"plugin:@typescript-eslint/recommended",
 		"prefer-arrow-functions",
 		"plugin:prettier/recommended",
-		"next/core-web-vitals"
+		"next/core-web-vitals",
+		"plugin:testing-library/react",
+		"plugin:jest-dom/recommended"
 	],
 	"overrides": [],
 	"parser": "@typescript-eslint/parser",

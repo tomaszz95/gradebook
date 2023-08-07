@@ -2,7 +2,7 @@
 
 Hello, I present to you my **Gradebook** project. I was thinking about creating a project that will bring together front-end, working with api and a little bit of database knowledge / a bit of back-end code mixed with each other. From that came to my mind a Gradebook project. The project is created in NextJS using a small amount of React Redux, Firebase, MongoDB and written in Typescript.
 The page is not fully responsive (only 1100px+) - it is meant to be used on computer screens (or huge tablets), not on mobile devices (rest of my projects are responsive, but in this I wanted to focus on code, communication with API and databases). The project shows different information based on whether you are logged in as a teacher or as a student.
-It also has some basic example data for the purpose of testing.
+In project units tests are available - using Jest.
 
 **To log in as a student you need to use the login dataset:**
 
@@ -39,7 +39,7 @@ It also has some basic example data for the purpose of testing.
 - MongoDB,
 - Local Storage,
 - Git / Github,
-- Testing,
+- Testing (Jest & RTL),
 
 ## 👩‍💻 TODO
 
