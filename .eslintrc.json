@@ -9,7 +9,6 @@
 		"airbnb-typescript",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
-		"prefer-arrow-functions",
 		"plugin:prettier/recommended",
 		"next/core-web-vitals",
 		"plugin:testing-library/react",
@@ -25,13 +24,11 @@
 	"plugins": ["react", "@typescript-eslint", "prettier"],
 	"rules": {
 		"react/react-in-jsx-scope": 0,
-		"prefer-arrow-functions/prefer-arrow-functions": [
+		"prefer-arrow-callback": [
 			"warn",
 			{
-				"classPropertiesAllowed": false,
-				"disallowPrototype": false,
-				"returnStyle": "unchanged",
-				"singleReturnOnly": false
+				"allowNamedFunctions": false,
+				"allowUnboundThis": true
 			}
 		],
 		"prettier/prettier": [
