@@ -40,7 +40,7 @@ const SingleNews: React.FC<SingleNewsDataRoleType> = ({ newsData, role }) => {
 		setShowModal(false)
 		setModalResult('')
 	}
-	
+
 	return (
 		<li className={styles.item}>
 			<Link href={`news/${slug}`}>

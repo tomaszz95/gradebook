@@ -5,17 +5,18 @@
 		"lib": ["DOM", "DOM.Iterable", "ESNext", "es5", "es6"],
 		"allowJs": true,
 		"skipLibCheck": true,
-		"strict": true,
+		"strict": false,
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
-		"esModuleInterop": false,
+		"esModuleInterop": true,
 		"module": "ESNext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
-		"incremental": true
+		"incremental": true,
+		"baseUrl": "."
 	},
-	"include": ["src", "src/**/*.tsx", ".eslintrc.cjs"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }
