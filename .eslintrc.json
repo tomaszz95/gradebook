@@ -10,9 +10,7 @@
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
-		"next/core-web-vitals",
-		"plugin:testing-library/react",
-		"plugin:jest-dom/recommended"
+		"next/core-web-vitals"
 	],
 	"overrides": [],
 	"parser": "@typescript-eslint/parser",
@@ -24,11 +22,13 @@
 	"plugins": ["react", "@typescript-eslint", "prettier"],
 	"rules": {
 		"react/react-in-jsx-scope": 0,
-		"prefer-arrow-callback": [
+		"prefer-arrow-functions/prefer-arrow-functions": [
 			"warn",
 			{
-				"allowNamedFunctions": false,
-				"allowUnboundThis": true
+				"classPropertiesAllowed": false,
+				"disallowPrototype": false,
+				"returnStyle": "unchanged",
+				"singleReturnOnly": false
 			}
 		],
 		"prettier/prettier": [
