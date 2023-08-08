@@ -2,7 +2,6 @@
 
 Hello, I present to you my **Gradebook** project. I was thinking about creating a project that will bring together front-end, working with api and a little bit of database knowledge / a bit of back-end code mixed with each other. From that came to my mind a Gradebook project. The project is created in NextJS using a small amount of React Redux, Firebase, MongoDB and written in Typescript.
 The page is not fully responsive (only 1100px+) - it is meant to be used on computer screens (or huge tablets), not on mobile devices (rest of my projects are responsive, but in this I wanted to focus on code, communication with API and databases). The project shows different information based on whether you are logged in as a teacher or as a student.
-In project units tests are available - using Jest.
 
 **To log in as a student you need to use the login dataset:**
 
@@ -38,12 +37,12 @@ In project units tests are available - using Jest.
 - Firebase,
 - MongoDB,
 - Local Storage,
-- Git / Github,
-- Testing (Jest & RTL),
+- Git / Github.
 
 ## 👩‍💻 TODO
 
 - [ ] Add more teachers / students - app is flexible, written to easily add new students and teachers - it only needs full lessons plan, grades for every class, student and subject.
 - [ ] Add more "messages" options (create new message chats, write to each other),
+- [ ] Add testing.
 
 #### I encourage you to check the website - uploaded to vercel [Gradebook](https://nutricuisine.netlify.app/).

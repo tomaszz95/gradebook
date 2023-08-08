@@ -21,7 +21,7 @@ const MessageList = () => {
 				})
 		}
 	}, [loginInfoData])
-
+	console.log(messages)
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.header}>Messages</h2>
