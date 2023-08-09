@@ -10,7 +10,7 @@ const TeacherTimetablePage = () => {
 				<title>Timetable | Gradebook</title>
 				<meta name='description' content='Check your timetable plan. Where, when and which class you should teach.' />
 			</Head>
-			<TimetableView />
+			{/* <TimetableView /> */}
 		</SidebarLayout>
 	)
 }
