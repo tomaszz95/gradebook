@@ -13,7 +13,7 @@ const StudentTimetablePage = () => {
                     content="Check your lessons plan, what subject and in what class you should be in what time."
                 />
             </Head>
-            {/* <TimetableView /> */}
+            <TimetableView />
         </SidebarLayout>
     )
 }

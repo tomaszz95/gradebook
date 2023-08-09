@@ -1,4 +1,4 @@
-import SingleTimetableCell from '@components/timetable/SingleTimetableCell'
+// import SingleTimetableCell from '@components/timetable/SingleTimetableCell'
 
 import { TimetableDaysType } from '@components/helpers/types'
 import styles from '@components/timetable/TimetableRow.module.css'
@@ -14,7 +14,7 @@ const TimetableRow: React.FC<ComponentType> = ({ lessonsData, number, hours }) =
         <tr className={styles.row}>
             <th>{number}</th>
             <th>{hours}</th>
-            <SingleTimetableCell
+            {/* <SingleTimetableCell
                 subject={lessonsData.Monday.subject ? lessonsData.Monday.subject : lessonsData.Monday.group}
                 hall={lessonsData.Monday.class}
             />
@@ -33,7 +33,7 @@ const TimetableRow: React.FC<ComponentType> = ({ lessonsData, number, hours }) =
             <SingleTimetableCell
                 subject={lessonsData.Friday.subject ? lessonsData.Friday.subject : lessonsData.Friday.group}
                 hall={lessonsData.Friday.class}
-            />
+            /> */}
         </tr>
     )
 }
