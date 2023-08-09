@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import TimetableTable from './TimetableTable'
-import LoadingSpinner from '../UI/LoadingSpinner'
+import TimetableTable from '@components/timetable/TimetableTable'
+import LoadingSpinner from '@components/UI/LoadingSpinner'
 
-import { LoginDataType, TimetableDataType } from '../helpers/types'
-import styles from './TimetableView.module.css'
+import { LoginDataType, TimetableDataType } from '@components/helpers/types'
+import styles from '@components/timetable/TimetableView.module.css'
 
 const TimetableView = () => {
     const loginInfoData = useSelector<any, LoginDataType>((state) => state.loginData)

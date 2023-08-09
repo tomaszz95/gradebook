@@ -1,4 +1,4 @@
-import styles from './SingleTimetableCell.module.css'
+import styles from '@components/timetable/SingleTimetableCell.module.css'
 
 type ComponentType = { subject: string | undefined; hall: string }
 

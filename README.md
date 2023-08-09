@@ -12,7 +12,8 @@ The page is not fully responsive (only 1100px+) - it is meant to be used on comp
 
 - login: teacher1@teacher.com ; password: teacher1
 - login: teacher2@teacher.com ; password: teacher2
-  Student and teacher ID are not imposed in advance, just don't leave it empty.
+
+Student and teacher ID are not imposed in advance, just don't leave it empty.
 
 ## 📫 Page contains
 

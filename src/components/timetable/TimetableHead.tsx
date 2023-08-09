@@ -1,4 +1,4 @@
-import styles from './TimetableHead.module.css'
+import styles from '@components/timetable/TimetableHead.module.css'
 
 const TimetableHeading = () => {
     return (
