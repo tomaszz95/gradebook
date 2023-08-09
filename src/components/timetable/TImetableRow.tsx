@@ -1,5 +1,5 @@
 import SingleTimetableCell from './SingleTimetableCell'
-
+import React from 'react'
 import { TimetableDaysType } from '../helpers/types'
 import styles from './TimetableRow.module.css'
 

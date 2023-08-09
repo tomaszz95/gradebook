@@ -1,5 +1,5 @@
 import TimetableRow from './TimetableRow'
-
+import React from 'react'
 import { TimetableDataType } from '../helpers/types'
 import styles from './TimetableBody.module.css'
 
