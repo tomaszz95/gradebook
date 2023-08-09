@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { LoginDataInitial } from 'src/components/helpers/initialStates'
-import { getLoginData } from 'src/components/helpers/dummyLoginData'
+import { LoginDataInitial } from '../components/helpers/initialStates'
+import { getLoginData } from '../components/helpers/dummyLoginData'
 
 const loginDataSlice = createSlice({
 	name: 'loginData',

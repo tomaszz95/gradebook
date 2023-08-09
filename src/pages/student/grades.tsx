@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import GradesView from 'src/components/grades/GradesView'
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
+import GradesView from '../../components/grades/GradesView'
+import SidebarLayout from '../../components/layouts/SidebarLayout'
 
 const StudentGradesPage = () => {
 	return (

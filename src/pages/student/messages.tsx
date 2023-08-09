@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
-import MessageList from 'src/components/messages/MessageList'
+import SidebarLayout from '../../components/layouts/SidebarLayout'
+import MessageList from '../../components/messages/MessageList'
 
 const StudentMessagesPage = () => {
 	return (

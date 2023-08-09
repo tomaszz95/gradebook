@@ -28,7 +28,7 @@ export type NewsListFetchedType = [
 		text: string
 		delete: boolean
 		parsedDate?: any
-	}
+	},
 ]
 
 //NEWS LIST SINGLE DATA
@@ -158,7 +158,7 @@ export type StatisticsStudentDataType = [
 		class?: string
 		name?: string
 		averages: StatisticsAveragesType
-	}
+	},
 ]
 
 // STATISTICS OBJ

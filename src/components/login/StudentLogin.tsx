@@ -9,7 +9,7 @@ const StudentLogin = () => {
 	return (
 		<main className={styles.main}>
 			<h1 className={styles.title}>Gradebook</h1>
-			<LoginForm type='student'/>
+			<LoginForm type='student' />
 			<button
 				aria-label='Click to go back to homepage'
 				className={styles.button}

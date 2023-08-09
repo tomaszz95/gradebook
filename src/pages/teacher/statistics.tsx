@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
-import StatisticsView from 'src/components/statisctics/StatisticsView'
+import SidebarLayout from '../../components/layouts/SidebarLayout'
+import StatisticsView from '../../components/statisctics/StatisticsView'
 
 const TeacherStatisticsPage = () => {
 	return (

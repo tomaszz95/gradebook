@@ -7,7 +7,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import auth from '../../../firebase'
 import Navigation from './Navigation'
 import PersonalInfo from './PersonalInfo'
-import { loginDataActions } from 'src/store/login-slice'
+import { loginDataActions } from '../../store/login-slice'
 
 import { LoginDataType } from '../helpers/types'
 import styles from './Sidebar.module.css'

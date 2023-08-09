@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import TimetableTable from './TimeTableTable'
+import TimetableTable from './TimetableTable'
 import LoadingSpinner from '../UI/LoadingSpinner'
 
 import { LoginDataType, TimetableDataType } from '../helpers/types'
 import styles from './TimetableView.module.css'
 
-const TimeTable = () => {
+const TimeTableView = () => {
 	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
 	const [timetable, setTimetable] = useState<TimetableDataType>()
 
@@ -40,4 +40,4 @@ const TimeTable = () => {
 	)
 }
 
-export default TimeTable
+export default TimeTableView

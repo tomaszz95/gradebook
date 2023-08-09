@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
-import { loginDataActions } from 'src/store/login-slice'
+import { loginDataActions } from '../../store/login-slice'
 import Sidebar from '../sidebar/Sidebar'
 
 import { ChildrenLayoutType, LoginDataType } from '../helpers/types'

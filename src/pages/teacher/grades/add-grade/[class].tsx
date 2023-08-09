@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import AddGrade from 'src/components/grades/AddGrade'
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
+import AddGrade from '../../../../components/grades/AddGrade'
+import SidebarLayout from '../../../../components/layouts/SidebarLayout'
 
 const TeacherAddGradePage = () => {
 	return (

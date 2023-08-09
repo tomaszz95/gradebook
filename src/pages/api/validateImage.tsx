@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				const validExtensions = ['.jpg', '.jpeg', '.png']
 				const lowercasedURL = imageURL.toLowerCase()
 				const hasValidExtension = validExtensions.some(extension => lowercasedURL.endsWith(extension))
-			
+
 				if (hasValidExtension) {
 					res.status(200).json({ isValid: true })
 				} else {

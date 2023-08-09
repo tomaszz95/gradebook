@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import StudentLogin from 'src/components/login/StudentLogin'
+import StudentLogin from '../../components/login/StudentLogin'
 
 const StudentLoginPage = () => {
 	return (

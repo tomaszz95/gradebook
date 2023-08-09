@@ -4,7 +4,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import Router from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
-import { loginDataActions } from 'src/store/login-slice'
+import { loginDataActions } from '../../store/login-slice'
 import auth from '../../../firebase'
 
 import styles from './LoginForm.module.css'

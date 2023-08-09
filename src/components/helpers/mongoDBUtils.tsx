@@ -32,7 +32,9 @@ export async function findOneGradeAndReplace(client: any, collection: string, fi
 	const db = client.db()
 
 	console.log(updatedData)
-	const modifyGrades = await db.collection(collection).findOneAndReplace(filter, ...updatedData, { returnOriginal: false })
+	const modifyGrades = await db
+		.collection(collection)
+		.findOneAndReplace(filter, ...updatedData, { returnOriginal: false })
 
 	return modifyGrades
 }

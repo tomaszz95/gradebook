@@ -4,7 +4,7 @@ import {
 	getAllDocuments,
 	connectDatabase,
 	insertDocument,
-	deleteOneDocument
+	deleteOneDocument,
 } from '../../components/helpers/mongoDBUtils'
 import { NewsListFetchedType } from '../../components/helpers/types'
 

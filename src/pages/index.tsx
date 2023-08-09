@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import HomepageView from 'src/components/homepage/HomepageView'
+import HomepageView from '../components/homepage/HomepageView'
 
 const HomePage = () => {
 	return (

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import TeacherLogin from 'src/components/login/TeacherLogin'
+import TeacherLogin from '../../components/login/TeacherLogin'
 
 const TeacherLoginPage = () => {
 	return (

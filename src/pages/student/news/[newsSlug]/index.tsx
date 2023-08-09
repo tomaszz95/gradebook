@@ -1,12 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import { getOneNews, getNewsPaths } from 'src/components/helpers/newsUtils'
-import { connectDatabase } from 'src/components/helpers/mongoDBUtils'
-import NewsDetail from 'src/components/news/NewsDetail'
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
+import { getOneNews, getNewsPaths } from '../../../../components/helpers/newsUtils'
+import { connectDatabase } from '../../../../components/helpers/mongoDBUtils'
+import NewsDetail from '../../../../components/news/NewsDetail'
+import SidebarLayout from '../../../../components/layouts/SidebarLayout'
 
-import { SingleNewsDataType } from 'src/components/helpers/types'
+import { SingleNewsDataType } from '../../../../components/helpers/types'
 
 const StudentSingleNewsPage: React.FC<{ singleNews: SingleNewsDataType }> = ({ singleNews }) => {
 	return (

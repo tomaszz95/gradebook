@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import SidebarLayout from 'src/components/layouts/SidebarLayout'
-import AddNews from 'src/components/news/AddNews'
+import SidebarLayout from '../../../components/layouts/SidebarLayout'
+import AddNews from '../../../components/news/AddNews'
 
 const TeacherCreateNewsPage = () => {
 	return (
