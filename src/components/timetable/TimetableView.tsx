@@ -33,11 +33,11 @@ const TimetableView = () => {
                     {loginInfoData.name} - {loginInfoData.belong}
                 </span>
             )}
-            {timetable ? (
+            {/* {timetable ? (
                 <TimetableTable lessonsTimetable={timetable} />
             ) : (
                 <LoadingSpinner loading={timetable === undefined} />
-            )}
+            )} */}
         </div>
     )
 }
