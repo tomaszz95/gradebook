@@ -1,10 +1,7 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
         "paths": {
-            "@components/*": ["src/components/*"],
-            "@pages/*": ["src/pages/*"],
-            "@store/*": ["src/store/*"]
+            "@/*": ["./*"]
         },
         "target": "ESNext",
         "useDefineForClassFields": true,
