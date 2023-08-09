@@ -1,6 +1,6 @@
-import SingleTimetableCell from '@src/components/timetable/SingleTimetableCell'
+import SingleTimetableCell from 'src/components/timetable/SingleTimetableCell'
 
-import { TimetableDaysType } from '@src/components/helpers/types'
+import { TimetableDaysType } from 'src/components/helpers/types'
 import styles from './TimetableRow.module.css'
 
 type ComponentType = {
