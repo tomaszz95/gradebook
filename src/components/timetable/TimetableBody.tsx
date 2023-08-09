@@ -1,11 +1,11 @@
 import TimetableRow from './TimetableRow'
-import React from 'react'
+
 import { TimetableDataType } from '../helpers/types'
 import styles from './TimetableBody.module.css'
 
 type ComponentType = { lessonsTimetable: TimetableDataType }
 
-const TimetableBody: React.FC<ComponentType> = ({ lessonsTimetable }) => {
+const TimetableBody: React.FC<any> = ({ lessonsTimetable }) => {
     return (
         <tbody className={styles.body}>
             <TimetableRow lessonsData={lessonsTimetable.lessons[1]} number="1" hours="8.00-8.45" />
