@@ -1,6 +1,6 @@
-import TimetableRow from './TimetableRow'
+import TimetableRow from '@src/components/timetable/TimetableRow'
 
-import { TimetableDataType } from '../helpers/types'
+import { TimetableDataType } from '@src/components/helpers/types'
 import styles from './TimetableBody.module.css'
 
 type ComponentType = { lessonsTimetable: TimetableDataType }
