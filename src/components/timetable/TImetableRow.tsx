@@ -9,7 +9,7 @@ type ComponentType = {
     hours: string
 }
 
-const TimetableRow: React.FC<any> = ({ lessonsData, number, hours }) => {
+const TimetableRow: React.FC<ComponentType> = ({ lessonsData, number, hours }) => {
     return (
         <tr className={styles.row}>
             <th>{number}</th>
