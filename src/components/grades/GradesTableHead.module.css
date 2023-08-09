@@ -1,23 +1,23 @@
 .head tr {
-	background-color: var(--primary);
+    background-color: var(--primary);
 }
 
 .head th {
-	font-size: var(--size-xxxm);
-	border: 1px solid var(--text);
-	padding: 1em;
+    font-size: var(--size-xxxm);
+    border: 1px solid var(--text);
+    padding: 1em;
 }
 
 .head .subject {
-	font-size: var(--size-l);
+    font-size: var(--size-l);
 }
 
 @media (min-width: 1600px) {
-	.head th {
-		font-size: var(--size-xl);
-	}
+    .head th {
+        font-size: var(--size-xl);
+    }
 
-	.head .subject {
-		font-size: var(--size-xxl);
-	}
+    .head .subject {
+        font-size: var(--size-xxl);
+    }
 }

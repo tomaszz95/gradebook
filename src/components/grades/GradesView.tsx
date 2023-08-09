@@ -10,60 +10,69 @@ import { LoginDataType, GradesListType, GradesListContentType } from '../helpers
 import styles from './GradesView.module.css'
 
 const GradesView = () => {
-	const loginInfoData = useSelector<any, LoginDataType>(state => state.loginData)
-	const [selectedValue, setSelectedValue] = useState('1A')
-	const [gradesList, setGradesList] = useState<GradesListContentType | undefined>()
-	const router = useRouter()
+    const loginInfoData = useSelector<any, LoginDataType>((state) => state.loginData)
+    const [selectedValue, setSelectedValue] = useState('1A')
+    const [gradesList, setGradesList] = useState<GradesListContentType | undefined>()
+    const router = useRouter()
 
-	useEffect(() => {
-		if (loginInfoData.email !== '') {
-			fetch('/api/grades')
-				.then(response => response.json())
-				.then(data => {
-					let filteredData
+    useEffect(() => {
+        if (loginInfoData.email !== '') {
+            fetch('/api/grades')
+                .then((response) => response.json())
+                .then((data) => {
+                    let filteredData
 
-					if (selectedValue !== loginInfoData.belong && loginInfoData.role !== 'teacher') {
-						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === loginInfoData.belong)
-					} else {
-						filteredData = data.grades.filter((gradesArr: GradesListType) => gradesArr.class === selectedValue)
-					}
+                    if (selectedValue !== loginInfoData.belong && loginInfoData.role !== 'teacher') {
+                        filteredData = data.grades.filter(
+                            (gradesArr: GradesListType) => gradesArr.class === loginInfoData.belong,
+                        )
+                    } else {
+                        filteredData = data.grades.filter(
+                            (gradesArr: GradesListType) => gradesArr.class === selectedValue,
+                        )
+                    }
 
-					if (filteredData) {
-						setGradesList(filteredData[0].content)
-					}
-				})
-		}
-	}, [loginInfoData, selectedValue])
+                    if (filteredData) {
+                        setGradesList(filteredData[0].content)
+                    }
+                })
+        }
+    }, [loginInfoData, selectedValue])
 
-	const selectClassHandler = (selectedClass: string) => {
-		setGradesList(undefined)
-		setSelectedValue(selectedClass)
-	}
+    const selectClassHandler = (selectedClass: string) => {
+        setGradesList(undefined)
+        setSelectedValue(selectedClass)
+    }
 
-	return (
-		<div className={styles.container}>
-			<h2 className={styles.header}>
-				{loginInfoData.role.includes('student') ? 'Check your grades!' : 'Check / add grades!'}
-			</h2>
-			{loginInfoData && (
-				<span className={styles.name}>
-					{loginInfoData.name} - {loginInfoData.belong}
-				</span>
-			)}
-			{loginInfoData.role.includes('student') ? '' : <SelectClass onSelectClass={selectClassHandler} />}
-			{loginInfoData.role.includes('student') ? (
-				''
-			) : (
-				<button
-					onClick={() => router.push(`/teacher/grades/add-grade/${selectedValue}`)}
-					className={styles.newButton}
-					aria-label='Go to add new grades page'>
-					Add grade
-				</button>
-			)}
-			{gradesList ? <GradesTable gradesList={gradesList} /> : <LoadingSpinner loading={gradesList === undefined} />}
-		</div>
-	)
+    return (
+        <div className={styles.container}>
+            <h2 className={styles.header}>
+                {loginInfoData.role.includes('student') ? 'Check your grades!' : 'Check / add grades!'}
+            </h2>
+            {loginInfoData && (
+                <span className={styles.name}>
+                    {loginInfoData.name} - {loginInfoData.belong}
+                </span>
+            )}
+            {loginInfoData.role.includes('student') ? '' : <SelectClass onSelectClass={selectClassHandler} />}
+            {loginInfoData.role.includes('student') ? (
+                ''
+            ) : (
+                <button
+                    onClick={() => router.push(`/teacher/grades/add-grade/${selectedValue}`)}
+                    className={styles.newButton}
+                    aria-label="Go to add new grades page"
+                >
+                    Add grade
+                </button>
+            )}
+            {gradesList ? (
+                <GradesTable gradesList={gradesList} />
+            ) : (
+                <LoadingSpinner loading={gradesList === undefined} />
+            )}
+        </div>
+    )
 }
 
 export default GradesView

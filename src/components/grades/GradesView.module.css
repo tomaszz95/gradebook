@@ -1,47 +1,47 @@
 .container {
-	min-width: 750px;
-	padding: 1em 5em 5em 5em;
-	display: flex;
-	flex-direction: column;
+    min-width: 750px;
+    padding: 1em 5em 5em 5em;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
-	margin: 1em 0em;
-	font-size: var(--size-xvl);
-	text-align: center;
-	color: var(--hightlight);
+    margin: 1em 0em;
+    font-size: var(--size-xvl);
+    text-align: center;
+    color: var(--hightlight);
 }
 
 .newButton {
-	align-self: center;
-	width: 50%;
-	max-width: 600px;
-	padding: 0.5em;
-	border-radius: 12px;
-	margin: 2em 0 1em;
-	font-size: var(--size-xxxm);
-	background-color: var(--hightlight);
-	color: var(--text);
-	border: none;
-	transition: background-color 0.3s;
+    align-self: center;
+    width: 50%;
+    max-width: 600px;
+    padding: 0.5em;
+    border-radius: 12px;
+    margin: 2em 0 1em;
+    font-size: var(--size-xxxm);
+    background-color: var(--hightlight);
+    color: var(--text);
+    border: none;
+    transition: background-color 0.3s;
 }
 
 .newButton:hover {
-	background-color: #17a129;
+    background-color: #17a129;
 }
 
 .name {
-	text-align: center;
-	font-size: var(--size-l);
-	color: var(--red);
+    text-align: center;
+    font-size: var(--size-l);
+    color: var(--red);
 }
 
 @media (min-width: 1600px) {
-	.container {
-		padding: 1em 10em 10em 10em;
-	}
+    .container {
+        padding: 1em 10em 10em 10em;
+    }
 
-	.newButton {
-		font-size: var(--size-l);
-	}
+    .newButton {
+        font-size: var(--size-l);
+    }
 }

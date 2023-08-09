@@ -1,62 +1,62 @@
 .form {
-	width: 600px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 3em;
-	background-color: var(--secondary);
-	font-weight: 400;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3em;
+    background-color: var(--secondary);
+    font-weight: 400;
 }
 
 .box {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .label {
-	width: 80%;
-	text-align: center;
-	font-size: var(--size-xxxm);
-	align-self: start;
-	margin-left: 3em;
-	margin-top: 0.6em;
+    width: 80%;
+    text-align: center;
+    font-size: var(--size-xxxm);
+    align-self: start;
+    margin-left: 3em;
+    margin-top: 0.6em;
 }
 
 .select,
 .input {
-	margin-top: 1em;
-	padding: 0.5em;
-	width: 30%;
-	max-width: 200px;
-	padding: 1em;
-	border-radius: 8px;
-	font-size: var(--size-xm);
-	background-color: var(--lighter-main);
-	color: var(--text);
-	border: none;
+    margin-top: 1em;
+    padding: 0.5em;
+    width: 30%;
+    max-width: 200px;
+    padding: 1em;
+    border-radius: 8px;
+    font-size: var(--size-xm);
+    background-color: var(--lighter-main);
+    color: var(--text);
+    border: none;
 }
 
 .input[type='text'] {
-	width: 80%;
-	max-width: 600px;
+    width: 80%;
+    max-width: 600px;
 }
 
 .input::-webkit-calendar-picker-indicator {
-	filter: invert(1);
+    filter: invert(1);
 }
 
 .input::placeholder {
-	color: var(--text);
-	font-size: var(--size-xxm);
+    color: var(--text);
+    font-size: var(--size-xxm);
 }
 
 .student {
-	width: 60%;
-	max-width: 400px;
+    width: 60%;
+    max-width: 400px;
 }
 
 .select option:first-child {
@@ -69,49 +69,49 @@
 }
 
 .button {
-	width: 80%;
-	padding: 0.8em;
-	border-radius: 8px;
-	margin-top: 1.5em;
-	font-size: var(--size-xxxm);
-	background-color: var(--hightlight);
-	color: var(--text);
-	border: none;
-	transition: background-color 0.3s;
+    width: 80%;
+    padding: 0.8em;
+    border-radius: 8px;
+    margin-top: 1.5em;
+    font-size: var(--size-xxxm);
+    background-color: var(--hightlight);
+    color: var(--text);
+    border: none;
+    transition: background-color 0.3s;
 }
 
 .button:hover {
-	background-color: #17a129;
+    background-color: #17a129;
 }
 
 .error {
-	color: var(--red);
-	font-size: var(--size-xxm);
-	font-weight: bold;
-	margin-top: 0.4em;
+    color: var(--red);
+    font-size: var(--size-xxm);
+    font-weight: bold;
+    margin-top: 0.4em;
 }
 
 @media (min-width: 1600px) {
-	.form {
-		width: 800px;
-	}
+    .form {
+        width: 800px;
+    }
 
-	.label {
-		margin-left: 3.5em;
-		font-size: var(--size-l);
-	}
+    .label {
+        margin-left: 3.5em;
+        font-size: var(--size-l);
+    }
 
-	.select,
-	.input {
-		font-size: var(--size-xxm);
-	}
+    .select,
+    .input {
+        font-size: var(--size-xxm);
+    }
 
-	.button {
-		padding: 1em;
-	}
+    .button {
+        padding: 1em;
+    }
 
-	.error {
-		font-size: var(--size-xxxm);
-		margin-top: 0.8em;
-	}
+    .error {
+        font-size: var(--size-xxxm);
+        margin-top: 0.8em;
+    }
 }

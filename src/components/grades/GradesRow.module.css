@@ -1,25 +1,25 @@
 .row td {
-	width: 200px;
-	height: 60px;
-	font-size: var(--size-m);
-	border: 1px solid var(--text);
-	padding: 1em;
+    width: 200px;
+    height: 60px;
+    font-size: var(--size-m);
+    border: 1px solid var(--text);
+    padding: 1em;
 }
 
 .row .subject {
-	color: var(--complementary);
-	font-size: var(--size-xxm);
-	font-weight: bold;
+    color: var(--complementary);
+    font-size: var(--size-xxm);
+    font-weight: bold;
 }
 
 @media (min-width: 1600px) {
-	.row td {
-		font-size: var(--size-l);
-		height: 80px;
-		width: 300px;
-	}
+    .row td {
+        font-size: var(--size-l);
+        height: 80px;
+        width: 300px;
+    }
 
-	.row .subject {
-		font-size: var(--size-l);
-	}
+    .row .subject {
+        font-size: var(--size-l);
+    }
 }
