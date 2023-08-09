@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import TimetableTable from '@components/timetable/TimetableTable'
+// import TimetableTable from '@components/timetable/TimetableTable'
 import LoadingSpinner from '@components/UI/LoadingSpinner'
 
 import { LoginDataType, TimetableDataType } from '@components/helpers/types'
