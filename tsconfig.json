@@ -15,8 +15,7 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "preserve",
-        "incremental": true,
-        "baseUrl": "."
+        "incremental": true
     },
     "include": ["src", "src/**/*.tsx"],
     "exclude": ["node_modules"]
