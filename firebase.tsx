@@ -2,7 +2,7 @@ import { getApps, initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 let app
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
