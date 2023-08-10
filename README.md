@@ -46,4 +46,4 @@ Student and teacher ID are not imposed in advance, just don't leave it empty.
 - [ ] Add more "messages" options (create new message chats, write to each other),
 - [ ] Add testing.
 
-#### I encourage you to check the website - uploaded to vercel [Gradebook](https://nutricuisine.netlify.app/).
+#### I encourage you to check the website - uploaded to vercel [Gradebook](https://gradebook-mu.vercel.app/).
