@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth'
 let app
 
 export const firebaseConfig = {
-    apiKey: 'AIzaSyAgX0QnSsHGra0A2sUwPBJhYpDs3NLA9Fo',
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
