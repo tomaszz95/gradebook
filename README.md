@@ -26,13 +26,6 @@ The page is not fully responsive - it is meant to be used on computer screens, n
 -   using LocalStorage to store some auth data,
 -   using dummy data in database.
 
-<div align='center'>
-<img src='./src/assets/photo1.jpg'>
-<img src='./src/assets/photo2.jpg'>
-<img src='./src/assets/photo3.jpg'>
-<img src='./src/assets/photo4.jpg'>
-</div>
-
 <h2>🛠 Used tools / programming languages / technologies</h2>
 
 -   HTML / CSS,
@@ -42,3 +35,10 @@ The page is not fully responsive - it is meant to be used on computer screens, n
 -   MongoDB,
 -   Local Storage,
 -   Git / Github.
+
+<div align='center'>
+<img src='./src/assets/photo1.jpg'>
+<img src='./src/assets/photo2.jpg'>
+<img src='./src/assets/photo3.jpg'>
+<img src='./src/assets/photo4.jpg'>
+</div>
