@@ -80,7 +80,7 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
                 ?
                 <div className={styles.loginModal}>
                     To log in as a {type}: <br />
-                    login: {type}1@{type}.com ; password: {type}1 or login: {type}2@{type}.com ; password: {type}2
+                    login: {type}1@{type}.com ; password: {type}1 ; ID empty
                 </div>
             </div>
             <div className={styles.box}>
