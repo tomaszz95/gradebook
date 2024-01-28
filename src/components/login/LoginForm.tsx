@@ -15,13 +15,10 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
-    const identifierRef = useRef<HTMLInputElement>(null)
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
-    const [identifierError, setIdentifierError] = useState('')
 
     const fixedTitle = type.toUpperCase()
-    const fixedIdentifier = type.charAt(0).toUpperCase() + type.slice(1)
 
     const loginHandler = async (e: React.SyntheticEvent) => {
         e.preventDefault()
@@ -40,20 +37,12 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
             setPasswordError('')
         }
 
-        if (identifierRef.current && identifierRef.current.value.trim() === '') {
-            setIdentifierError('Identifier cannot be empty!')
-        } else {
-            setIdentifierError('')
-        }
-
         if (
             emailRef.current &&
             emailRef.current.value.trim() !== '' &&
             emailRef.current.value.includes(type) &&
             passwordRef.current &&
-            passwordRef.current.value.trim() !== '' &&
-            identifierRef.current &&
-            identifierRef.current.value.trim() !== ''
+            passwordRef.current.value.trim() !== ''
         ) {
             signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then((userCredential) => {
@@ -108,19 +97,6 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
                     ref={passwordRef}
                 />
                 <p className={styles.error}>{passwordError}</p>
-            </div>
-            <div className={styles.box}>
-                <label className={styles.label} htmlFor="identifier">
-                    {fixedIdentifier} ID
-                </label>
-                <input
-                    placeholder={`Enter your ${type} ID...`}
-                    className={styles.input}
-                    type="text"
-                    id="identifier"
-                    ref={identifierRef}
-                />
-                <p className={styles.error}>{identifierError}</p>
             </div>
             <button type="submit" aria-label="Click to log in" className={styles.button}>
                 Click to log in!

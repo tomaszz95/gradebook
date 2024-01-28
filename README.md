@@ -13,8 +13,6 @@ The page is not fully responsive - it is meant to be used on computer screens, n
 
 -   login: teacher1@teacher.com ; password: teacher1
 
-<i>Student and teacher ID are not imposed in advance, just don't leave it empty.</i>
-
 <h2>📫 Page contains</h2>
 
 -   login page and full login firebase support (log in, log out, check if the user is logged in),
