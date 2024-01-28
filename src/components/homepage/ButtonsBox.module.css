@@ -1,0 +1,40 @@
+.buttonsBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.buttonsBox button {
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em 0 1em;
+    background-color: var(--secondary);
+}
+
+.buttonsBox button:nth-child(1) {
+    border-top-left-radius: 12px;
+}
+
+.buttonsBox button:nth-child(2) {
+    border-top-right-radius: 12px;
+}
+
+.buttonsBox img {
+    height: 100%;
+    width: auto;
+    margin-right: 1em;
+}
+
+.buttonsBox span {
+    font-size: 2rem;
+    color: var(--text);
+}
+
+.buttonsBox button.active {
+    background-color: #233f5f;
+    box-shadow: inset 0 0 12px 4px var(--text);
+}

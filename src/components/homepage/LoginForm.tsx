@@ -9,23 +9,23 @@ import auth from '../../../firebase'
 
 import styles from './LoginForm.module.css'
 
-type ComponentType = { type: string }
+type ComponentType = { user: string }
 
-const LoginForm: React.FC<ComponentType> = ({ type }) => {
+const LoginForm: React.FC<ComponentType> = ({ user }) => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
-    const fixedTitle = type.toUpperCase()
+    const fixedTitle = user.toUpperCase()
 
     const loginHandler = async (e: React.SyntheticEvent) => {
         e.preventDefault()
 
         if (emailRef.current && emailRef.current.value.trim() === '') {
             setEmailError('Email cannot be empty!')
-        } else if (emailRef.current && !emailRef.current.value.includes(type)) {
+        } else if (emailRef.current && !emailRef.current.value.includes(user)) {
             setEmailError('Please enter a valid e-mail address!')
         } else {
             setEmailError('')
@@ -40,7 +40,7 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
         if (
             emailRef.current &&
             emailRef.current.value.trim() !== '' &&
-            emailRef.current.value.includes(type) &&
+            emailRef.current.value.includes(user) &&
             passwordRef.current &&
             passwordRef.current.value.trim() !== ''
         ) {
@@ -50,7 +50,7 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
                     if (userEmail) {
                         dispatch(loginDataActions.setLoginInfo(userEmail))
                     }
-                    Router.push(`/${type}/news`)
+                    Router.push(`/${user}/news`)
                 })
                 .catch((error) => {
                     if (error.code.includes('email') || error.code.includes('user')) {
@@ -68,8 +68,8 @@ const LoginForm: React.FC<ComponentType> = ({ type }) => {
             <div className={styles.loginInfo}>
                 ?
                 <div className={styles.loginModal}>
-                    To log in as a {type}: <br />
-                    login: {type}1@{type}.com ; password: {type}1 ; ID empty
+                    To log in as a {user}: <br />
+                    login: {user}1@{user}.com ; password: {user}1
                 </div>
             </div>
             <div className={styles.box}>
